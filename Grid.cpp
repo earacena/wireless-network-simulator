@@ -30,7 +30,7 @@ void Grid::Add_BS(int x, int y){
 
 void Grid::Add_DV(int x, int y){
 	if(DV_n < max_DV && grid[x][y] == '-'){
-		char BSID = char(DV_n);
+		int BSID = DV_n;
 		grid[x][y] = BSID;
 		DV_n++;
 		pair<int,int> position (x,y);
