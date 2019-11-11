@@ -11,12 +11,16 @@ class Grid{
 		void printGrid();//Output grid to command line
 		vector<pair<int,int> > get_BS_pos();
 		vector<pair<int,int> > get_DV_pos();
+		vector<pair<int,int> > get_DVs_at_BS(char id);//Gets coords of devices in the base station radius
+		bool check_proximity(pair<int,int> A, pair<int,int> B);
+		char grid_index(int x, int y);
 	private:
 		int max_BS;
 		int BS_n;
 		int max_DV;
 		int DV_n;
 		int grid_dim;
+		int radius;
 		vector<vector<char> > grid;//grid_dim x grid_dim vector
 		vector<pair<int,int> > BS_pos;
 		vector<pair<int,int> > DV_pos;

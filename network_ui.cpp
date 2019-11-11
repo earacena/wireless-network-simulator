@@ -42,9 +42,21 @@ int main(){
 	vector<int> test(5,8);
 	print_route(test);
 	Grid testgrid;
-	testgrid.printGrid();
+	//testgrid.printGrid();
 	testgrid.Add_BS(5, 20);
-	testgrid.Add_DV(18, 40);
+	testgrid.Add_BS(18, 40);
+	testgrid.Add_DV(7, 8);
+        testgrid.Add_DV(15, 27);
+	testgrid.Add_DV(18, 30);
 	testgrid.printGrid();
+	vector<pair<int,int> > dv_ls = testgrid.get_DVs_at_BS('A');
+	cout << "Devices near A" << endl;
+	for(int i = 0; i < dv_ls.size();i++)
+		cout << testgrid.grid_index(dv_ls[i].first,dv_ls[i].second) << endl;
+ 	dv_ls = testgrid.get_DVs_at_BS('B');
+        cout << "Devices near B" << endl;
+        for(int i = 0; i < dv_ls.size();i++)
+                cout << testgrid.grid_index(dv_ls[i].first,dv_ls[i].second) << endl;
+
 	return 0;
 }
