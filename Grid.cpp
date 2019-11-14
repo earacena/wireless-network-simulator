@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 Grid::Grid(){
 	max_BS = 3;
@@ -14,37 +16,90 @@ Grid::Grid(){
 		vector<char> v(grid_dim, '-');
 		grid.push_back(v);
 	}
-	cout << grid[0].size();
+	//cout << grid[0].size();
 	cout << "Initialized Grid" << endl;
 }
 
-void Grid::Add_BS(int x, int y){
+Grid::Grid(int BSn, int DVn){
+cout << "BS: " << BSn << endl;
+cout << "DVn: " << DVn << endl;
+        max_BS = 3;
+        BS_n = 0;
+        max_DV = 10;
+        DV_n = 0;
+        grid_dim = 50;
+        radius = 15;
+        for(int i = 0; i < grid_dim; i++){
+                vector<char> v(grid_dim, '-');
+                grid.push_back(v);
+        }//Initialize blank grid
+	for(int i = 0; i < BSn; i++){
+		srand(i+1);
+		int x = rand()%(2+(grid_dim));
+	//	srand(time(NULL));
+		int y = rand()%(2+(grid_dim));
+cout << "Adding BS" << endl;
+		Add_BS(pair<int,int>(x,y));
+	}//Place n random BS
+	for(int i = 0; i < DVn; i++){
+		srand(i+(grid_dim*(i+1)));
+		int BS_num = 65+(rand()%BS_n);
+		//if(BSn ==1){BS_num = 65;}
+cout << "Adding device at BS [" << char(BS_num) << "]\n";
+		Add_DV(char(BS_num));
+	}//Place n devices randomly in a random BS radius
+	cout << "Grid Intialized" << endl
+	<< "Number of Base Stations: " << BS_n << endl
+	<< "Number of Nodes: " << DV_n << endl;
+}
+
+void Grid::Add_BS(pair<int,int> coord){
+        int x = coord.first;
+        int y = coord.second;
 	if(BS_n < max_BS && grid[x][y] == '-'){
 		char BSID = char(BS_n+65);
 		grid[x][y] = BSID;
 		BS_n++;
 		pair<int,int> position (x,y);
 		BS_pos.push_back(position);
+        cout << "BS [" << BSID << "] Added at (" << x << "," << y << ")" << endl;
 	}
-	cout << "BS Added at (" << x << "," << y << ")" << endl;
+	else{
+		cout << "BS add failed" << endl;
+	}
 }
 
 
-void Grid::Add_DV(int x, int y){
-	if(DV_n < max_DV && grid[x][y] == '-'){
-		char BSID = char(DV_n+48);
-		grid[x][y] = BSID;
-		DV_n++;
-		pair<int,int> position (x,y);
-		DV_pos.push_back(position);
+void Grid::Add_DV(char BSID){
+	/*pair<int,int> coord = random_DV_coord(BSID);
+	int x = coord.first;
+	int y = coord.second;*/
+	//srand(time(NULL));
+	for(int i = 0; i < BS_pos.size(); i++){
+		if(grid[BS_pos[i].first][BS_pos[i].second] == BSID){
+			int x = (BS_pos[i].first-(radius/2))+((rand()%radius)%grid_dim);
+			int y = (BS_pos[i].second-(radius/2))+(rand()%radius)%grid_dim;
+			if(x > grid_dim){x = grid_dim - (x-grid_dim);}
+			if(y > grid_dim){y = grid_dim - (y-grid_dim);}
+		       	if(DV_n < max_DV && grid[x][y] == '-'){
+				grid[x][y] = char(DV_n+48);
+                		pair<int,int> position (x,y);
+                		DV_pos.push_back(position);
+				DV_n++;
+cout << "Device " << DV_n-1 << " Added in "<< BSID << " (" << x << "," << y << ")" << endl;
+
+        		}
+			else{
+                        	cout << "Device add failed" << " (" << x << "," << y << ")" << endl;
+                	}
+		}
 	}
-        cout << "Device Added at (" << x << "," << y << ")" << endl;
 }
 
 void Grid::printGrid(){
 	for(int i = 0; i < grid.size(); i++){
                 for(int j = 0; j < grid[i].size(); j++){
-                        cout << grid[i][j];
+                        cout << grid[i][j] << ' ';
                 }
 		cout << endl;
         }
@@ -92,3 +147,24 @@ cout << "Dist: " << c << endl;
 char Grid::grid_index(int x, int y){
 	return grid[x][y];
 }
+
+pair<int,int> Grid::random_DV_coord(char BSID){
+	int x;
+        int y;
+        pair<int,int> pos;
+	if(BS_pos.size() == 0){cout<<"NO BS Found"<<endl;return pos;}
+        for(int i = 0; i < BS_pos.size(); i++){//Find BS
+                x = BS_pos[i].first;
+                y = BS_pos[i].second;
+                if(grid[x][y]==BSID){
+			pos.first = rand()%(radius*2)+(x-(radius));
+			pos.second = rand()%(radius*2)+(y-(radius));
+			while(pos.first>=0 && pos.first < grid_dim && pos.second>=0 && pos.second < grid_dim && !check_proximity(BS_pos[i], pos)){
+				pos.first = rand()%(radius*2)+(x-(radius));
+                        	pos.second = rand()%(radius*2)+(y-(radius));
+			}
+		}
+        }
+        return pos;
+}
+

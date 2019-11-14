@@ -34,22 +34,16 @@ void print_route(vector<int> route_list){
 }
 
 int main(){
+	//int bs = 2;
+	//int dv = 6;
 	int bs = user_input_num("base stations", 1, 3);
-	int dv = user_input_num("devices", 1, 10);
+        int dv = user_input_num("devices", 1, 10);
 	//Populate grid with base stations, devices
 	//Ask for source and destination
 	//Return route
-	vector<int> test(5,8);
-	print_route(test);
-	Grid testgrid;
-	//testgrid.printGrid();
-	testgrid.Add_BS(5, 20);
-	testgrid.Add_BS(18, 40);
-	testgrid.Add_DV(7, 8);
-        testgrid.Add_DV(15, 27);
-	testgrid.Add_DV(18, 30);
+	Grid testgrid(bs, dv);
 	testgrid.printGrid();
-	vector<pair<int,int> > dv_ls = testgrid.get_DVs_at_BS('A');
+	/*vector<pair<int,int> > dv_ls = testgrid.get_DVs_at_BS('A');
 	cout << "Devices near A" << endl;
 	for(int i = 0; i < dv_ls.size();i++)
 		cout << testgrid.grid_index(dv_ls[i].first,dv_ls[i].second) << endl;
@@ -57,6 +51,6 @@ int main(){
         cout << "Devices near B" << endl;
         for(int i = 0; i < dv_ls.size();i++)
                 cout << testgrid.grid_index(dv_ls[i].first,dv_ls[i].second) << endl;
-
+*/
 	return 0;
 }
