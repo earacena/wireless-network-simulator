@@ -5,9 +5,19 @@ Description: A secondary wireless network simulator.
 Dependencies:
     g++
     Python 3+
+<<<<<<< HEAD
     matplotlib
 
 To install Python3 dependencies, type in commandline:
+=======
+    networkx
+    matplotlib
+
+To install Python3 dependencies, type in commandline:
+    * For networkx:
+        pip install networkx
+
+>>>>>>> 483c886175ccbe1b032dbd0856e105c099247159
     * For matplotlib:
         pip install matplotlib
 
