@@ -11,7 +11,6 @@
 #include <string>
 #include <pair>
 #include <fstream>
-#include "Grid.h"
 
 // DataCollector will record important performance metrics during simulation
 // that will be used to generate graphs and visualizations.
@@ -39,10 +38,6 @@ public:
   // Write all collected data to file.
   void export_data();
 
-  // Fill these directly from Grid class.
-  std::vector<std::pair<int, int> > node_positions;
-  std::vector<std::pair<int, int> > station_positions;
-
 private:
   std::string filename_;
 
@@ -54,6 +49,10 @@ private:
   // Performance metrics
   std::vector<int> num_of_hops_;
   int num_of_channel_switches_;
+
+  // Fill these directly from Receiver class.
+  std::vector<std::pair<int, int> > node_positions;
+  std::vector<std::pair<int, int> > station_positions;
 };
 
 #endif // DATACOLLECTOR_HPP
