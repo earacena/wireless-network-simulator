@@ -1,5 +1,5 @@
-how to run in terminal:
+how to run:
 
-$ make clean && make all && ./NetworkSim
+$ g++ NetworkSim.cpp BaseStation.cpp Node.cpp -o Networksim && ./NetworkSim
 
-^ this cleans, makes, and runs all in one line/ one command
+
