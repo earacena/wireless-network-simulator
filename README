@@ -1,1 +1,5 @@
+how to run in terminal:
 
+$ make clean && make && ./NetworkSim
+
+^ this cleans, makes, and runs all in one line/ one command
