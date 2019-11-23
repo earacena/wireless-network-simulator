@@ -2,7 +2,9 @@
 #include <utility>
 #include <string>
 #include <vector>
-#include "Entities.h"
+
+#include "Node.h"
+#include "BaseStation.h"
 
 using namespace std;
 
