@@ -44,7 +44,13 @@ once the objects are constructed, back end will handle everything else
 
 	Overlap(basestation 1, basestation2): returns nodes that overlap 2 basestations
 	
-	Graph(basestation 1): generates an adjacency list of all the nodes that are in one basestation. This portion will deal with channel selection. The graph edges will be an available channel with the least probability of the primary interfering. The weights of each channel will be assigned when initializing each node class via the exponential generator (we can probably put this in the constructor assuming that the channel weights are not static). The graph generation will be implemented as a table. and weights of edges will be selected by going through the channel vector. Then we can apply the dijikistra's algorithm to this graph
+	Graph(basestation 1): generates an adjacency list of all the nodes that are in one basestation. 
+		This portion will deal with channel selection. The graph edges will be an available channel 
+		with the least probability of the primary interfering. The weights of each channel will be 
+		assigned when initializing each node class via the exponential generator 
+		(we can probably put this in the constructor assuming that the channel weights are not static). 
+		The graph generation will be implemented as a table. and weights of edges will be selected by going through the channel vector. 
+		Then we can apply the dijikistra's algorithm to this graph
 	
 	SameBasestation(node 1, node 2): returns a bool value, if the two nodes are in the same basestation.
 		char node1, node2;
@@ -70,7 +76,8 @@ once the objects are constructed, back end will handle everything else
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 Co-channel interference:
-	The bool assigned to each of the channels will indicate whether a channel is being used and thus the channel can be avoided, hence no co-channel interference
+	The bool assigned to each of the channels will indicate whether a channel is being used and thus the channel can be avoided, 
+	hence no co-channel interference
 
 Adjacent channel interference:
 	He said dwai. We could easily integrate this later for extra points pretty easily. We've got much bigger problems. 
