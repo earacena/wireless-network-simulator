@@ -11,11 +11,3 @@ To install Python3 dependencies, type in commandline:
     * For matplotlib:
         pip install matplotlib
 
-To build simulator, type in commandline:
-    make
-
-To run simulator, type:
-    make run
-
-To clean up directory, type:
-    make clean
