@@ -16,24 +16,18 @@ typedef pair<int,int> Pair;
 class BaseStation {		
 public:
 	BaseStation();	// default constructor
-		
 
 	BaseStation(Pair p, int r);
 
 	BaseStation(int x, int y, int r);
 
-
 	Pair getPosition();	//returns a Pair of position
 
-	
 	void setPosition(Pair pos);	// returns position of node
 	
 	int getRadius();	// return radius of node
 		
-
 	void setRadius(int r);	// set radius of node
-		
-
 
 private:
 	Pair position;
