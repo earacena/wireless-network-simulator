@@ -54,11 +54,10 @@ vector<int> BaseStation::poisson(int numofchannels){
 
   std::poisson_distribution<int> distribution (numofchannels);
 
-  std::cout << "some Poisson-distributed results (mean=numofchannels: ";
+ // std::cout << "some Poisson-distributed results (mean=numofchannels: ";
   vector<int> values;
   for (int i=0; i<numofchannels; ++i){
 	  values.push_back(distribution(generator));
   }
-  cout << values.size();
   return values;
 }
