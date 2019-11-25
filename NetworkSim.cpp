@@ -12,11 +12,29 @@ typedef pair<int,int> Pair;
 
 int main(){
 
+	// sample basestations
+	BaseStation bs1;
+	Pair bs1loc(5,8);
+	bs1.setPosition(bs1loc);
+
+	BaseStation bs2;
+	Pair bs2loc(1,5);
+	bs2.setPosition(bs2loc);
+
+	BaseStation bs3;
+	Pair bs3loc(3,9);
+	bs3.setPosition(bs3loc);
+
 	// sample for setting node position using pair
 	Node node1;
 
 	Pair sample1(8,9);
 	node1.setPosition(sample1);
+
+	int total_channels = 8; // temporary channel amount
+	auto values = bs1.poisson(total_channels);
+	node1.setChannels(total_channels,values);
+	vector<int> n1channels = node1.getChannels();
 
 	Pair test1 = node1.getPosition();
 

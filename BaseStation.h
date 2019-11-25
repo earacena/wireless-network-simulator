@@ -21,6 +21,8 @@ public:
 
 	BaseStation(int x, int y, int r);
 
+	vector<int> poisson(int numofchannels); // returns a poisson generated random number for number of channels
+
 	Pair getPosition();	//returns a Pair of position
 
 	void setPosition(Pair pos);	// returns position of node
@@ -28,6 +30,12 @@ public:
 	int getRadius();	// return radius of node
 		
 	void setRadius(int r);	// set radius of node
+
+	vector<Node> get_Nodes(); // return all nodes in basestation
+
+	void AllocateChannel(Pair node1,Pair node2); // allocates a channel based on availiable channels on node1 and node 2
+	
+
 
 private:
 	Pair position;

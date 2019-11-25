@@ -43,5 +43,21 @@ int Node::getRadius(){	// return radius of node
 }
 
 void Node::setRadius(int r){	// set radius of node
-	radius = r;
+	radius = r; 
 }
+void Node::setChannels(int n,vector<int> &weight){ // set the number of channels
+	Channels.resize(n);
+	for(int i = 0; i < Channels.size(); i++){
+		Channels[i].weight = weight[i];
+	}
+}
+vector<int> Node::getChannels(){// get the channels for current node
+	vector<int> currentChannels;
+	for(int i = 0; i < Channels.size(); i++){
+		cout << "Weight for Channel " << i << " is " << Channels[i].weight << endl;
+		currentChannels.push_back(Channels[i].weight);
+	}
+	return currentChannels;
+}
+
+

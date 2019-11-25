@@ -34,12 +34,24 @@ public:
 		
 
 	void setRadius(int r);	// set radius of node
-		
+
+	void setChannels(int n, vector<int> &weight); // set the number of channels with corresponding weight
+	
+	vector<int> getChannels(); // get the channels for current node
+	
 
  
 private:
 	pair<int, int> position;
 	int radius;
+
+	struct Channel
+	{
+		bool used; // is the channel in use
+		int weight; // weight of the channel
+	};
+	
+	vector<Channel> Channels; // Vector of the number of channels for each node
 
 };
 
