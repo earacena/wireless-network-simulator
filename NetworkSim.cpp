@@ -31,10 +31,20 @@ int main(){
 	Pair sample1(8,9);
 	node1.setPosition(sample1);
 
-	int total_channels = 8; // temporary channel amount
+	// temporary channel amount
+	int total_channels = 8; 
 	auto values = bs1.poisson(total_channels);
 	node1.setChannels(total_channels,values);
-	vector<int> n1channels = node1.getChannels();
+	vector<int> n1channelweights = node1.getChannelWeights();
+
+
+	auto n1availchann = node1.getAllChannels();
+	auto bestchann = node1.getBestAvailableChannel(); // Use the best channel with highest weight
+	cout << "the best channel is " << bestchann << endl;
+		//reserve a channel
+	cout << "Reserving the best channel" << endl;
+	node1.reserveChannel(bestchann);
+	n1availchann = node1.getAllChannels();
 
 	Pair test1 = node1.getPosition();
 

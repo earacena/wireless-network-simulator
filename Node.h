@@ -37,10 +37,21 @@ public:
 
 	void setChannels(int n, vector<int> &weight); // set the number of channels with corresponding weight
 	
-	vector<int> getChannels(); // get the channels for current node
-	
+	vector<int> getChannelWeights(); // get the channel weights for current node
 
+	vector<bool> getAllChannels(); // get all the channels for current node
+
+	int getBestAvailableChannel(); // get the best currently available channel for current node
+	
+	void reserveChannel(int channel);// reserve a channel
  
+	void releaseChannel(int channel); // release a channel
+
+	bool checkChannelStatus(int channel); // check status of a channel
+	
+	int checkChannelWeight(int channel);// check weight of a channel
+
+
 private:
 	pair<int, int> position;
 	int radius;

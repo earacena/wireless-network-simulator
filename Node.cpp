@@ -45,19 +45,83 @@ int Node::getRadius(){	// return radius of node
 void Node::setRadius(int r){	// set radius of node
 	radius = r; 
 }
-void Node::setChannels(int n,vector<int> &weight){ // set the number of channels
+void Node::setChannels(int n,vector<int> &weight){ // set the number of channels and their weights
 	Channels.resize(n);
 	for(int i = 0; i < Channels.size(); i++){
 		Channels[i].weight = weight[i];
 	}
 }
-vector<int> Node::getChannels(){// get the channels for current node
-	vector<int> currentChannels;
+vector<int> Node::getChannelWeights(){// get the channel weights for current node
+	vector<int> currentChannelsWeights;
 	for(int i = 0; i < Channels.size(); i++){
 		cout << "Weight for Channel " << i << " is " << Channels[i].weight << endl;
-		currentChannels.push_back(Channels[i].weight);
+		currentChannelsWeights.push_back(Channels[i].weight);
 	}
-	return currentChannels;
+	return currentChannelsWeights;
+}
+vector<bool> Node::getAllChannels(){ // get all the channels for current node
+	vector<bool> currentChannelUse;
+	for(int i = 0; i < Channels.size(); i++){
+		currentChannelUse.push_back(checkChannelStatus(i));
+	}
+	return currentChannelUse;
+}
+int Node::getBestAvailableChannel(){ // get the best currently available channel for current node
+	int bestChannelWeight;
+	int bestChannel;
+	for(int i = 0; i < Channels.size(); i++){
+		if(!checkChannelStatus(i)){// Channel available
+			if (checkChannelWeight(i) > bestChannelWeight){
+				bestChannelWeight = Channels[i].weight;
+				bestChannel = i;
+				//cout << bestChannel<< " is the best avail channel" << endl;
+			}
+		}
+	}
+	return bestChannel;
+}
+void Node::reserveChannel(int num){
+	if(num > Channels.size()){
+		cout << "Error that channel doesnt exist";
+	}
+	else
+	{
+		Channels[num].used = true;
+	}
+	
+
+}
+
+void Node::releaseChannel(int num){
+	if(num > Channels.size()){
+		cout << "Error that channel doesnt exist";
+	}
+	else
+	{
+		Channels[num].used = false;
+	}
+
+}
+
+bool Node::checkChannelStatus(int num){ // check status of a channel
+	if(num > Channels.size()){
+		cout << "Error that channel doesnt exist";
+		return -1;
+	}
+	else
+	{
+		return Channels[num].used;
+	}
+}
+int Node::checkChannelWeight(int num){ // check weight of a channel
+	if(num > Channels.size()){
+		cout << "Error that channel doesnt exist";
+		return -1;
+	}
+	else
+	{
+		return Channels[num].weight;
+	}
 }
 
 
