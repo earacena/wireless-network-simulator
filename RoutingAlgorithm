@@ -69,7 +69,7 @@ once the objects are constructed, back end will handle everything else
 		apply dijikistra(graph,node1,node2)
 		write the path to textfile for the GUI to read 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-			What Saptarshi explained; new channel allocation algorithm
+			What Saptarshi explained; new channel allocation algo
 	General rules:
 	"This is a real time system" = the nodes are listening and sending at the same time
 		Implementations wise this means: 
