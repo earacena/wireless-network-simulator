@@ -10,12 +10,13 @@
 #define SENDER_H
 
 #include <string>
+#include <fstream>
 
 class Sender {
-  Sender(const std::string filename);
+  Sender();
   
   void read_data();
-
+  
   void export_data();
 
 };
