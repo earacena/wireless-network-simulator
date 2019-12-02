@@ -6,8 +6,10 @@ Dependencies:
     g++
     Python 3.7
     matplotlib
+    numpy
 
 To install Python3 dependencies, type in commandline:
     * For matplotlib:
         pip install matplotlib
-
+    * For numpy:
+        pip install numpy
