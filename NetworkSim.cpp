@@ -19,9 +19,16 @@ void getChannel(Node &node,BaseStation &bs){
 	auto n1availchann = node.getAllChannels();
 	auto bestchann = node.getBestAvailableChannel(); // Use the best channel with highest weight
 	cout << "the best channel is " << bestchann << endl;
-		//reserve a channel
-	node.reserveChannel(bestchann);
-	n1availchann = node.getAllChannels();
+}
+
+void displayAllChannels(Node node){
+	auto allchan = node.getAllChannels();
+	cout << "All channels for " << node.getName() << " ";
+	for (size_t i = 0; i < allchan.size(); i++)
+	{
+		cout << allchan[i];
+	}
+	cout << endl;
 }
 
 void generateRoute(Node &n1, Node &n2,BaseStation &bs){
@@ -33,6 +40,21 @@ void generateRoute(Node &n1, Node &n2,BaseStation &bs){
 	while(!valid && count <= max_tries){ // No point trying more than the number of channels avail on one node
 		cout << "Current route invalid trying again" << endl;
 		valid = bs.createRoute(n1,n2);
+		count += 1;	}
+	if(!valid && count > max_tries){
+		cout << "No route possible, implement logic later -_-" << endl;
+		// need to 
+	}
+}
+void generateRoute(Node &n1, Node &n2,Node &n3,BaseStation &bs){
+	cout << "generating route for 3 nodes" << endl << endl;
+	bool valid = bs.createRoute(n1,n2,n3);
+	cout << "valid route? " << valid << endl;
+	int count = 0;
+	int max_tries = n2.getAllChannels().size();
+	while(!valid && count <= max_tries){ // No point trying more than the number of channels avail on one node
+		cout << "Current route invalid trying again" << endl;
+		valid = bs.createRoute(n1,n2,n3);
 		count += 1;	}
 	if(!valid && count > max_tries){
 		cout << "No route possible, implement logic later -_-" << endl;
@@ -62,9 +84,6 @@ int main(){
 	node1.setPosition(sample1);
 
 	// temporary channel amount
-
-
-
 
 	Pair test1 = node1.getPosition();
 
@@ -102,16 +121,16 @@ int main(){
 	node2.setBasestation(bs1.getName());
 	node3.setBasestation(bs1.getName());
 
+	displayAllChannels(node1);
+	displayAllChannels(node2);
 	generateRoute(node1,node2,bs1);
+	displayAllChannels(node1);
+	displayAllChannels(node2);
 	generateRoute(node2,node3,bs1);
-	generateRoute(node3,node1,bs1);
-
-	cout << "MULTIPLE ROUTES TESTING" << endl << endl;
 	generateRoute(node1,node2,bs1);
-	generateRoute(node1,node2,bs1);
-	generateRoute(node1,node2,bs1);
-	generateRoute(node1,node2,bs1);
-	generateRoute(node1,node2,bs1);
-	generateRoute(node1,node2,bs1);
+	generateRoute(node1,node2,node3,bs1);
+	displayAllChannels(node1);
+	displayAllChannels(node2);
+	displayAllChannels(node3);
 
 }

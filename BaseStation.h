@@ -41,7 +41,7 @@ public:
 	
 	bool coChannelInterference();
 	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
-
+	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
 
 private:
 	string name;
