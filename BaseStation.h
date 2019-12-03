@@ -21,7 +21,11 @@ public:
 
 	BaseStation(int x, int y, int r);
 
+	BaseStation(string BSID);
+
 	vector<int> poisson(int numofchannels); // returns a poisson generated random number for number of channels
+
+	string getName();
 
 	Pair getPosition();	//returns a Pair of position
 
@@ -33,11 +37,14 @@ public:
 
 	vector<Node> get_Nodes(); // return all nodes in basestation
 
-	void AllocateChannel(Pair node1,Pair node2); // allocates a channel based on availiable channels on node1 and node 2
+	void allocateChannel(Node node1,Node node2); // allocates a channel based on availiable channels on node1 and node 2
 	
+	bool coChannelInterference();
+	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
 
 
 private:
+	string name;
 	Pair position;
 	int radius;
 	vector<Node> adjacency_list;

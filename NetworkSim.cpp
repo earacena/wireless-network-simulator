@@ -10,10 +10,40 @@ using namespace std;
 
 typedef pair<int,int> Pair;
 
+void getChannel(Node &node,BaseStation &bs){
+
+	int total_channels = 8; 
+	auto values = bs.poisson(total_channels);
+	node.setChannels(total_channels,values);
+	vector<int> n1channelweights = node.getChannelWeights();
+	auto n1availchann = node.getAllChannels();
+	auto bestchann = node.getBestAvailableChannel(); // Use the best channel with highest weight
+	cout << "the best channel is " << bestchann << endl;
+		//reserve a channel
+	node.reserveChannel(bestchann);
+	n1availchann = node.getAllChannels();
+}
+
+void generateRoute(Node &n1, Node &n2,BaseStation &bs){
+	cout << "generating route" << endl << endl;
+	bool valid = bs.createRoute(n1,n2);
+	cout << "valid route? " << valid << endl;
+	int count = 0;
+	int max_tries = n1.getAllChannels().size();
+	while(!valid && count <= max_tries){ // No point trying more than the number of channels avail on one node
+		cout << "Current route invalid trying again" << endl;
+		valid = bs.createRoute(n1,n2);
+		count += 1;	}
+	if(!valid && count > max_tries){
+		cout << "No route possible, implement logic later -_-" << endl;
+		// need to 
+	}
+}
+
 int main(){
 
 	// sample basestations
-	BaseStation bs1;
+	BaseStation bs1("BS1");
 	Pair bs1loc(5,8);
 	bs1.setPosition(bs1loc);
 
@@ -26,25 +56,15 @@ int main(){
 	bs3.setPosition(bs3loc);
 
 	// sample for setting node position using pair
-	Node node1;
+	Node node1("node1");
 
 	Pair sample1(8,9);
 	node1.setPosition(sample1);
 
 	// temporary channel amount
-	int total_channels = 8; 
-	auto values = bs1.poisson(total_channels);
-	node1.setChannels(total_channels,values);
-	vector<int> n1channelweights = node1.getChannelWeights();
 
 
-	auto n1availchann = node1.getAllChannels();
-	auto bestchann = node1.getBestAvailableChannel(); // Use the best channel with highest weight
-	cout << "the best channel is " << bestchann << endl;
-		//reserve a channel
-	cout << "Reserving the best channel" << endl;
-	node1.reserveChannel(bestchann);
-	n1availchann = node1.getAllChannels();
+
 
 	Pair test1 = node1.getPosition();
 
@@ -52,7 +72,7 @@ int main(){
 
 
 	// sample for setting node position using 2 int args
-	Node node2;
+	Node node2("node2");
 	node2.setPosition(2,3);
 
 	Pair test2 = node2.getPosition();
@@ -63,6 +83,7 @@ int main(){
 	// sample for setting node(pair, int radius)
 	Pair sample3(4,5);
 	Node node3(sample3, 5);
+	node3.setName("node3");
 
 	Pair test3 = node3.getPosition();
 	cout << test3.first << "," << test3.second << "," << node3.getRadius() << endl;
@@ -71,5 +92,26 @@ int main(){
 	Node node4(1,2,3);
 	Pair test4 = node4.getPosition();
 	cout << test4.first << "," << test4.second << "," << node3.getRadius() << endl;
+
+	getChannel(node1,bs1);
+	getChannel(node2,bs1);
+	getChannel(node3,bs1);
+	getChannel(node1,bs1);
+
+	node1.setBasestation(bs1.getName());
+	node2.setBasestation(bs1.getName());
+	node3.setBasestation(bs1.getName());
+
+	generateRoute(node1,node2,bs1);
+	generateRoute(node2,node3,bs1);
+	generateRoute(node3,node1,bs1);
+
+	cout << "MULTIPLE ROUTES TESTING" << endl << endl;
+	generateRoute(node1,node2,bs1);
+	generateRoute(node1,node2,bs1);
+	generateRoute(node1,node2,bs1);
+	generateRoute(node1,node2,bs1);
+	generateRoute(node1,node2,bs1);
+	generateRoute(node1,node2,bs1);
 
 }

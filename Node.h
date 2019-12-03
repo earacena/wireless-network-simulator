@@ -19,7 +19,8 @@ public:
 		
 
 	Node(int x, int y, int r); // 3 arg contructor
-		
+
+	Node(string nodename);		
 
 	Pair getPosition();	//returns a Pair of position
 		
@@ -28,10 +29,16 @@ public:
 	
 
 	void setPosition(int x, int y);			// sets position of node, separate entry
-		
+
+	void setBasestation(string basestation); // assigns node to given basestation		
 	
-	int getRadius();	// return radius of node
-		
+	string getBasestation(); // gets the basestation of current node
+
+	void setName(string nodename);
+
+	string getName (); // gets node name
+
+	int getRadius();	// return radius of node		
 
 	void setRadius(int r);	// set radius of node
 
@@ -43,6 +50,8 @@ public:
 
 	int getBestAvailableChannel(); // get the best currently available channel for current node
 	
+	int getBestAvailableChannel(int channeltoavoid); // get the best currently available channel thats not the parameter
+
 	void reserveChannel(int channel);// reserve a channel
  
 	void releaseChannel(int channel); // release a channel
@@ -51,10 +60,15 @@ public:
 	
 	int checkChannelWeight(int channel);// check weight of a channel
 
+	void createRoute(Node othernode); // Create a route to another node
+
 
 private:
 	pair<int, int> position;
 	int radius;
+
+	string basestation;
+	string name;
 
 	struct Channel
 	{
@@ -63,7 +77,7 @@ private:
 	};
 	
 	vector<Channel> Channels; // Vector of the number of channels for each node
-
+	vector<pair<Node,Channel>> routes; // Vector that contains the current routes through node
 };
 
 
