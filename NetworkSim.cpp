@@ -18,7 +18,7 @@ void getChannel(Node &node,BaseStation &bs){
 	vector<int> n1channelweights = node.getChannelWeights();
 	auto n1availchann = node.getAllChannels();
 	auto bestchann = node.getBestAvailableChannel(); // Use the best channel with highest weight
-	cout << "the best channel is " << bestchann << endl;
+//	cout << "the best channel is " << bestchann << endl;
 }
 
 void displayAllChannels(Node node){
@@ -34,14 +34,14 @@ void displayAllChannels(Node node){
 void generateRoute(Node &n1, Node &n2,BaseStation &bs){
 	cout << "generating route" << endl << endl;
 	bool valid = bs.createRoute(n1,n2);
-	cout << "valid route? " << valid << endl;
+//	cout << "valid route? " << valid << endl;
 	int count = 0;
 	int max_tries = n1.getAllChannels().size();
 	while(!valid && count <= max_tries){ // No point trying more than the number of channels avail on one node
 		cout << "Current route invalid trying again" << endl;
 		valid = bs.createRoute(n1,n2);
 		count += 1;	}
-	if(!valid && count > max_tries){
+		if(!valid && count > max_tries){
 		cout << "No route possible, implement logic later -_-" << endl;
 		// need to 
 	}
@@ -52,10 +52,11 @@ void generateRoute(Node &n1, Node &n2,Node &n3,BaseStation &bs){
 	cout << "valid route? " << valid << endl;
 	int count = 0;
 	int max_tries = n2.getAllChannels().size();
-	while(!valid && count <= max_tries){ // No point trying more than the number of channels avail on one node
+	while(!valid && count < max_tries){ // No point trying more than the number of channels avail on one node
 		cout << "Current route invalid trying again" << endl;
 		valid = bs.createRoute(n1,n2,n3);
-		count += 1;	}
+		count += 1;	
+	}
 	if(!valid && count > max_tries){
 		cout << "No route possible, implement logic later -_-" << endl;
 		// need to 
@@ -123,12 +124,20 @@ int main(){
 
 	displayAllChannels(node1);
 	displayAllChannels(node2);
+	cout << "Generating route between node 1 and 2" <<endl; 
+	generateRoute(node1,node2,bs1);
+
+	displayAllChannels(node1);
+	displayAllChannels(node2);
+	cout << "Generating route between node 2 and 3" <<endl; 
+	generateRoute(node2,node3,bs1);
 	generateRoute(node1,node2,bs1);
 	displayAllChannels(node1);
 	displayAllChannels(node2);
-	generateRoute(node2,node3,bs1);
-	generateRoute(node1,node2,bs1);
+	displayAllChannels(node3);
 	generateRoute(node1,node2,node3,bs1);
+	cout << "Generating route between node 1,2 and 3" <<endl; 
+
 	displayAllChannels(node1);
 	displayAllChannels(node2);
 	displayAllChannels(node3);

@@ -95,7 +95,7 @@ int Node::getBestAvailableChannel(){ // get the best currently available channel
 			}
 		}
 	}
-	cout << bestChannel<< " is the best available channel" << endl;
+	cout << bestChannel<< " is the best available channel for node: " << getName() << endl;
 	return bestChannel;
 }
 int Node::getBestAvailableChannel(int channeltoskip){ // get the best currently available channel for current node
@@ -105,7 +105,7 @@ int Node::getBestAvailableChannel(int channeltoskip){ // get the best currently 
 	cout << "Avoiding the same channel for node:  " << getName() << endl;
 	for(int i = 0; i < Channels.size(); i++){
 		if(!checkChannelStatus(i)){// Channel available
-			if (checkChannelWeight(i) > bestChannelWeight && i != channeltoskip){
+			if (i != channeltoskip && checkChannelWeight(i) > bestChannelWeight ){
 				bestChannelWeight = Channels[i].weight;
 				bestChannel = i;
 				channelfound = true;

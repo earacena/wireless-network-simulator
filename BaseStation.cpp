@@ -79,7 +79,7 @@ bool BaseStation::createRoute(Node &n1, Node &n2){ // Create a new route between
 	// cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | the best for node: " << n2.getName() << " is " << node2channel << '\n';
 	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
 	if(n1.checkChannelStatus(node1channel) == 0 && n2.checkChannelStatus(node1channel) == 0){ // The channel selections are available
-		cout << " reserving channels " << node1channel << '\n';
+		cout << "reserving channels " << node1channel << '\n';
 		n1.reserveChannel(node1channel);
 		n2.reserveChannel(node1channel);
 		return true;
@@ -97,12 +97,12 @@ bool BaseStation::createRoute(Node &n1, Node &n2,Node &n3){ // Create a new rout
 
 	//Get the best channel 
 	node1channel = n1.getBestAvailableChannel();
-	node2channel = n1.getBestAvailableChannel();
+	node2channel = node1channel;
 	node3channel = n3.getBestAvailableChannel(node1channel); // find a channel thats not channel 1
 	// cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | the best for node: " << n2.getName() << " is " << node2channel << '\n';
 	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
 	if(n1.checkChannelStatus(node1channel) == 0 && n2.checkChannelStatus(node2channel) == 0 && n2.checkChannelStatus(node3channel) == 0 && n2.checkChannelStatus(node3channel) == 0){ // The channel selections are available
-		cout << " reserving channels " << node1channel << " " << node2channel << " " << node3channel <<  '\n';
+		cout << "reserving channels " << node1channel << " " << node2channel << " " << node3channel <<  '\n';
 		n1.reserveChannel(node1channel);
 		n2.reserveChannel(node2channel);
 		n2.reserveChannel(node3channel);
