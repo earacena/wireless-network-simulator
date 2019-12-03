@@ -52,7 +52,8 @@ class Metrics:
         plt.ylabel("Number of Hops")
         plt.title("Number of Hops vs. Number of Nodes")
 
-        plt.show()
+        #plt.show()
+        plt.savefig("graph-hops-nodes.png")
 
     def generate_switches_vs_channels(self):
         print("[METRICS] Generating graph 'switches vs channels' with dataset {}.".format(self.parsed))
@@ -88,8 +89,8 @@ class Metrics:
         plt.ylabel("Number of Switches")
         plt.title("Number of Switches vs. Number of Channels")
 
-        plt.show()
-  
+        #plt.show()
+        plt.savefig("graph-switches-channels.png")
  
 def parse_incoming_data(filename):
     """
@@ -126,6 +127,6 @@ def main():
     metrics = Metrics(filename)
 
     # Generate plots
-    #metrics.generate_hops_vs_devices()
+    metrics.generate_hops_vs_devices()
     metrics.generate_switches_vs_channels()
-main()
+
