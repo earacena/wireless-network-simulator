@@ -142,4 +142,12 @@ int main(){
 	displayAllChannels(node2);
 	displayAllChannels(node3);
 
+
+	bs1.addNode(node1);
+	bs1.addNode(node2);
+
+	Node foundnode = bs1.findNode(node1.getName());
+
+	cout << foundnode.getName() << node1.getName();
+
 }

@@ -35,6 +35,12 @@ public:
 		
 	void setRadius(int r);	// set radius of node
 
+	void addNode(Node &node); // add a node to the current basestation
+
+	Node findNode(string nodename); // find a node with the name
+
+	void removeNode(Node &node); // remove a node from the basestation
+
 	vector<Node> get_Nodes(); // return all nodes in basestation
 
 	void allocateChannel(Node node1,Node node2); // allocates a channel based on availiable channels on node1 and node 2

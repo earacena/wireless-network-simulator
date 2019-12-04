@@ -54,6 +54,20 @@ int BaseStation::getRadius(){	// return radius of node
 void BaseStation::setRadius(int r){	// set radius of node
 	radius = r;
 }
+void BaseStation::addNode(Node &node){ // add a node to the current basestation
+	adjacency_list.push_back(node);
+}
+void BaseStation::removeNode(Node &node){ // remove a node from the basestation
+}
+
+Node BaseStation::findNode(string nodetofind){
+	for (size_t i = 0; i < adjacency_list.size(); i++)
+	{
+		if(adjacency_list[i].getName() == nodetofind)
+			return adjacency_list[i];
+	}
+	
+}
 
 vector<int> BaseStation::poisson(int numofchannels){
   // construct a trivial random generator engine from a time-based seed:
