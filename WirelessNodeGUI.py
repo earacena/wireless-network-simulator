@@ -5,6 +5,9 @@ from functools import *
 import random
 import math
 import time
+import matplotlib
+import Metrics
+from PIL import Image, ImageTk 
 
 def get_parameters():
     return param_list
@@ -27,7 +30,7 @@ def make_edge(root, source_x, source_y, dest_x, dest_y, channel_no):
         color = "cyan"
     root.create_line(source_x, source_y, dest_x, dest_y, fill=color, width=2)
 
-def make_routes(root, Lbl, button):
+def make_routes(root, Lbl, button, B):
     button.destroy()
     Lbl["text"] = ""
     file = open("routes.txt", "r")
@@ -70,7 +73,8 @@ def make_routes(root, Lbl, button):
             Lbl["text"] += " "+str(ls[j][i])+"-["+str(ls[j][i+1])+"]->"+str(ls[j][i+2])+","
             make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
             i += 2
-        Lbl["text"] += "\n"        
+        Lbl["text"] += "\n"
+    B.pack(side=TOP)
 
 def dist_bool(Ax,Ay,Bx,By, max_dist):
     a = abs(Ax-Bx)
@@ -178,7 +182,26 @@ def conf_rts(rt_lst_wgt, butt, file_string, pkbutton, destbutton):
     pkbutton.pack(side=TOP, pady=4)
     destbutton.destroy()
 
-#def create_rt(route_list)
+def init_metrics(canv, root, fr):
+    canv.destroy()
+    fr.destroy()
+    Metrics.main()
+    imgA = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-hops-nodes.png")
+    photoA = ImageTk.PhotoImage(imgA)
+    imgB = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-switches-channels.png")
+    photoB = ImageTk.PhotoImage(imgB)
+##    photoA = PhotoImage("graph-hops-nodes.png")
+##    photoB = PhotoImage("graph-switches-channels.png")
+    pLA = Label(root, image=photoA)
+    pLA.image = photoA
+    pLA.pack(side=LEFT)
+    pLB = Label(root, image=photoB)
+    pLB.image = photoB
+    pLB.pack(side=LEFT)
+    #create_image(50,50,image=photoB)
+    
+    
+    
 
 #Command to Initiate Route Execution
 
@@ -249,6 +272,10 @@ confB = Button(f, text="Confirm Route Selection")
 confB.pack(side=TOP, pady=4)
 confX = Button(f, text="Execute Routes")
 confB['command']=partial(conf_rts, rL, rB, file,confX, confB)
-confX['command']=partial(make_routes, w, rL, confX)
+
+#metrics
+metB = Button(f, text="Show Metrics", command=partial(init_metrics, w, master, f))
+
+confX['command']=partial(make_routes, w, rL, confX, metB)
 
 mainloop()
