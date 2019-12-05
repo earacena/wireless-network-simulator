@@ -4,6 +4,7 @@ from tkinter import ttk
 from functools import *
 import random
 import math
+import time
 
 def get_parameters():
     return param_list
@@ -26,11 +27,15 @@ def make_edge(root, source_x, source_y, dest_x, dest_y, channel_no):
         color = "cyan"
     root.create_line(source_x, source_y, dest_x, dest_y, fill=color, width=2)
 
-def make_routes(root, destr):
-    destr.destroy()
+def make_routes(root, Lbl, button):
+    button.destroy()
+    Lbl["text"] = ""
     file = open("routes.txt", "r")
     text = file.read()
-    ls = text.split(",")
+    l = text.split("\n")
+    ls = []
+    for i in range(len(l)):
+        ls += [l[i].split(",")]
     print(ls)
     #Get node coordinates
     info_file = open("data.txt", "r")
@@ -49,18 +54,23 @@ def make_routes(root, destr):
     print(lsi)
     print(len(ls))
     print(int(len(ls)/3))
-    for i in range(0,int(len(ls))-1,3):
-        print()
-        src = int(ls[i])
-        print(src)
-        chnl = int(ls[i+1])
-        print(chnl)
-        dest = int(ls[i+2])
-        print(dest)
-        print(lsi[src][0])
-        make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
-        i += 2
-        
+    lbl = root.create_text(0,0, text="", fill="white")
+    for j in range(len(ls)):
+        Lbl['text'] += "Route ["+ls[j][0]+"->"+ls[j][len(ls[j])-1]+"]\n"
+        root.itemconfig(lbl, text=str(j+1))
+        for i in range(0,int(len(ls[j]))-1,3):
+            print()
+            src = int(ls[j][i])
+            print(src)
+            chnl = int(ls[j][i+1])
+            print(chnl)
+            dest = int(ls[j][i+2])
+            print(dest)
+            print(lsi[src][0])
+            Lbl["text"] += " "+str(ls[j][i])+"-["+str(ls[j][i+1])+"]->"+str(ls[j][i+2])+","
+            make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
+            i += 2
+        Lbl["text"] += "\n"        
 
 def dist_bool(Ax,Ay,Bx,By, max_dist):
     a = abs(Ax-Bx)
@@ -96,7 +106,7 @@ def init_DV(root,coord_ls,N, dv_ls, file_string):
         #Generate random coordinates in BS radius
         dvx = random.randrange(x-radius, x+radius)
         dvy = random.randrange(y-radius, y+radius)
-        while not dist_bool(x,y,dvx,dvy,radius):
+        while not dist_bool(x,y,dvx,dvy,radius) and dvx<1000 and dvy<1000:
             dvx = random.randrange(x-radius, x+radius)
             dvy = random.randrange(y-radius, y+radius)
         #Create device on canvas
@@ -144,7 +154,7 @@ def init_path(root, srcn, destn, node_ls, chnl, lbl):
     d = destn.get()
     lbl['text']+=s+'->'+d+'\n'
 
-def conf_rts(rt_lst_wgt, butt, file_string):
+def conf_rts(rt_lst_wgt, butt, file_string, pkbutton, destbutton):
     main = file_string
     #Parse loop of route text widget
     wdgt = rt_lst_wgt['text']
@@ -165,6 +175,8 @@ def conf_rts(rt_lst_wgt, butt, file_string):
     f.close()
     #Destroy route add button
     butt.destroy()
+    pkbutton.pack(side=TOP, pady=4)
+    destbutton.destroy()
 
 #def create_rt(route_list)
 
@@ -233,9 +245,10 @@ routeB.pack(side=TOP)
 rB = Button(routeB, text="Add Route", command=partial(init_path, w, srcE, destE, node_list, random.randrange(0,4), rL))
 rB.pack(pady=2)
 routeL.pack(side=TOP, fill=X)
-confB = Button(f, text="Confirm Route Selection", command=partial(conf_rts, rL, rB, file))
+confB = Button(f, text="Confirm Route Selection")
 confB.pack(side=TOP, pady=4)
-confX = Button(f, text="Execute Routes", command=partial(make_routes, w, confB))
-confX.pack(side=TOP, pady=4)
+confX = Button(f, text="Execute Routes")
+confB['command']=partial(conf_rts, rL, rB, file,confX, confB)
+confX['command']=partial(make_routes, w, rL, confX)
 
 mainloop()
