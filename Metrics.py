@@ -83,6 +83,7 @@ class Metrics:
         print("[Metrics] Switches: {}".format(num_of_switches))
         print("[Metrics] Channels: {}".format(num_of_channels))
         y_pos = np.arange(len(num_of_channels))        
+        plt.clf()
         plt.bar(y_pos, num_of_switches, align='center', alpha=0.5)
         plt.xticks(y_pos, num_of_channels)
         plt.xlabel("Number of Channels")
