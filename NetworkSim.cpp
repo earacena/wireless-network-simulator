@@ -5,6 +5,7 @@
 
 #include "Node.h"
 #include "BaseStation.h"
+#include "Receiver.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ typedef pair<int,int> Pair;
 
 void getChannel(Node &node,BaseStation &bs){
 
-	int total_channels = 8; 
+	int total_channels = 10; 
 	auto values = bs.poisson(total_channels);
 	node.setChannels(total_channels,values);
 	vector<int> n1channelweights = node.getChannelWeights();
@@ -49,7 +50,6 @@ void generateRoute(Node &n1, Node &n2,BaseStation &bs){
 void generateRoute(Node &n1, Node &n2,Node &n3,BaseStation &bs){
 	cout << "generating route for 3 nodes" << endl << endl;
 	bool valid = bs.createRoute(n1,n2,n3);
-	cout << "valid route? " << valid << endl;
 	int count = 0;
 	int max_tries = n2.getAllChannels().size();
 	while(!valid && count < max_tries){ // No point trying more than the number of channels avail on one node
@@ -65,8 +65,49 @@ void generateRoute(Node &n1, Node &n2,Node &n3,BaseStation &bs){
 
 int main(){
 
-	// sample basestations
-	BaseStation bs1("BS1");
+	//Parse the initial gui text file
+	Receiver receiver;
+  
+  	receiver.read_data_from_GUI("test-file-receiver.txt");
+  	receiver.parse_data();
+
+
+	vector<BaseStation> basestations;
+	int basestation_radius = receiver.base_station_radius;
+	int total_basestations = receiver.num_of_base_stations; // Parse number of basestations from file
+	for (size_t i = 0; i < total_basestations; i++)
+	{
+		char name = 'A' + i; // Generate a new name
+		// cout << "basestation" << name << endl;
+		BaseStation new_basestation(name,basestation_radius);
+		basestations.push_back(new_basestation);
+	}
+	
+	int number_of_nodes = receiver.num_of_nodes;
+
+	// sample basestation
+	// int stationcount = basestations.size(); 
+	for (size_t i = 0; i < 1; i++) // for testing with just 1 basestation
+	{
+		BaseStation current = basestations[i]; // adding nodes the the basestation
+		for (size_t n = 0; n < number_of_nodes; n++)
+		{
+			string name = to_string(n);
+			Node newnode;
+			newnode.setName(name);
+			current.addNode(newnode);
+			cout << "Adding a new node " << name << endl;
+		}
+		
+	}
+	
+	// Assuming basestations and nodes are alphabetical starting at A
+	// Reciever has basestation and location in  a vector [A,(2,3)]
+	// and it has node and location [node,(5,4)]
+
+
+
+	BaseStation bs1('A',2);
 	Pair bs1loc(5,8);
 	bs1.setPosition(bs1loc);
 
@@ -79,7 +120,7 @@ int main(){
 	bs3.setPosition(bs3loc);
 
 	// sample for setting node position using pair
-	Node node1("node1");
+	Node node1("testn1");
 
 	Pair sample1(8,9);
 	node1.setPosition(sample1);
@@ -92,7 +133,7 @@ int main(){
 
 
 	// sample for setting node position using 2 int args
-	Node node2("node2");
+	Node node2("testnode2");
 	node2.setPosition(2,3);
 
 	Pair test2 = node2.getPosition();
@@ -103,7 +144,7 @@ int main(){
 	// sample for setting node(pair, int radius)
 	Pair sample3(4,5);
 	Node node3(sample3, 5);
-	node3.setName("node3");
+	node3.setName("testnode3");
 
 	Pair test3 = node3.getPosition();
 	cout << test3.first << "," << test3.second << "," << node3.getRadius() << endl;
@@ -143,11 +184,18 @@ int main(){
 	displayAllChannels(node3);
 
 
+	// testing if node added correctly
+
 	bs1.addNode(node1);
 	bs1.addNode(node2);
+	bs1.addNode(node3);
+	bs1.addNode(node4);
 
 	Node foundnode = bs1.findNode(node1.getName());
 
 	cout << foundnode.getName() << node1.getName();
+
+	auto allweights = bs1.weightBetweenTwoNodes(node1,node2);
+
 
 }

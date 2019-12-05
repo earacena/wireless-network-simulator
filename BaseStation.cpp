@@ -29,14 +29,14 @@ BaseStation::BaseStation(int x, int y, int r){
 	position.second = y;
 	radius = r;
 }
-BaseStation::BaseStation(string BSID){
+BaseStation::BaseStation(char BSID,int r){
 	position.first = 0;
 	position.second = 0;
-	radius = 0;
+	radius = r;
 	name = BSID;
 }
 
-string BaseStation::getName(){ // return the name
+char BaseStation::getName(){ // return the name
 	return name;
 }
 Pair BaseStation::getPosition(){	//returns a Pair of position
@@ -68,7 +68,10 @@ Node BaseStation::findNode(string nodetofind){
 	}
 	
 }
-
+void BaseStation::updateNode(Node &node){ // update current node to new node 
+	Node oldnode = findNode(node.getName());
+	oldnode = node;
+}
 vector<int> BaseStation::poisson(int numofchannels){
   // construct a trivial random generator engine from a time-based seed:
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -111,10 +114,13 @@ bool BaseStation::createRoute(Node &n1, Node &n2,Node &n3){ // Create a new rout
 
 	//Get the best channel 
 	node1channel = n1.getBestAvailableChannel();
+	cout <<node1channel << "best for node 1" << endl;
 	node2channel = node1channel;
+		cout <<"test" << endl;
 	node3channel = n3.getBestAvailableChannel(node1channel); // find a channel thats not channel 1
-	// cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | the best for node: " << n2.getName() << " is " << node2channel << '\n';
-	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
+		cout <<"test2" << endl;
+	//cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | the best for node: " << n2.getName() << " is " << node2channel << '\n';
+	 cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
 	if(n1.checkChannelStatus(node1channel) == 0 && n2.checkChannelStatus(node2channel) == 0 && n2.checkChannelStatus(node3channel) == 0 && n2.checkChannelStatus(node3channel) == 0){ // The channel selections are available
 		cout << "reserving channels " << node1channel << " " << node2channel << " " << node3channel <<  '\n';
 		n1.reserveChannel(node1channel);
@@ -126,6 +132,25 @@ bool BaseStation::createRoute(Node &n1, Node &n2,Node &n3){ // Create a new rout
 	else
 	{
 		return false;
-	}	
+	}
+}
 
+vector<vector<int>> BaseStation::weightBetweenTwoNodes(Node &node1, Node &node2){ // get the weight of the routes between two nodes	
+	
+	vector<vector<int>> finalweights(10, vector<int>(10)); // 10 by 10 vector 
+	//cout << "getting " << node1.getName() << " weights " << endl;
+	vector<int> n1weight = node1.getChannelWeights();
+	//cout << "getting " << node2.getName()<<  " weights" << endl;
+	vector<int> n2weight = node2.getChannelWeights();
+
+	for (size_t i = 0; i < finalweights.size(); i++)
+	{
+		for (size_t j = i; j < finalweights[i].size(); j++)
+		{
+			finalweights[i][j] = n1weight[i] * n2weight[j];
+			cout << "weight is = " << n1weight[i] << " * " << n2weight[j] << " = " << finalweights[i][j] << endl;
+		}
+		
+	}
+	return finalweights;		
 }

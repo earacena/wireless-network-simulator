@@ -30,9 +30,9 @@ public:
 
 	void setPosition(int x, int y);			// sets position of node, separate entry
 
-	void setBasestation(string basestation); // assigns node to given basestation		
+	void setBasestation(char basestation); // assigns node to given basestation		
 	
-	string getBasestation(); // gets the basestation of current node
+	char getBasestation(); // gets the basestation of current node
 
 	void setName(string nodename);
 
@@ -44,6 +44,7 @@ public:
 
 	void setChannels(int n, vector<int> &weight); // set the number of channels with corresponding weight
 	
+
 	vector<int> getChannelWeights(); // get the channel weights for current node
 
 	vector<bool> getAllChannels(); // get all the channels for current node
@@ -67,7 +68,7 @@ private:
 	pair<int, int> position;
 	int radius;
 
-	string basestation;
+	char basestation;
 	string name;
 
 	struct Channel

@@ -1,2 +1,8 @@
 Networksim
 .vscode/settings.json
+
+Receiver.cpp
+Receiver.h
+TestReceiver.cpp
+test-file-receiver.txt
+test.cpp
