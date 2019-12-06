@@ -83,7 +83,14 @@ void Receiver::parse_data() {
                     << ", " << node.getPosition().second << ")" << std::endl;
           
         } else if (token == "R") {
-          std::cout << "Parsed route request: " << line << std::endl;
+          line.erase(0, line.find(' ') + 1);
+          std::string srcId = line.substr(0, line.find(','));
+          line.erase(0, line.find(',') + 1);
+          std::string destId = line;
+          Request request {srcId, destId};
+          requests.push_back(request);
+          std::cout << "Parsed route request: (" << request.first << " -> " << request.second
+                    << ")" << std::endl;
         }
     } 
 }

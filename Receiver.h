@@ -11,9 +11,12 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <utility>
 
 #include "Node.h"
 #include "BaseStation.h"
+
+typedef std::pair<std::string, std::string> Request;
 
 class Receiver {
   public:
@@ -32,6 +35,7 @@ class Receiver {
 
   std::vector<BaseStation> basestations;
   std::vector<Node> nodes;
+  std::vector<Request> requests;
   
   private:
   std::vector<std::string> file_data_;
