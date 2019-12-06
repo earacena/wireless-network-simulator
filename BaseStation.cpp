@@ -29,14 +29,14 @@ BaseStation::BaseStation(int x, int y, int r){
 	position.second = y;
 	radius = r;
 }
-BaseStation::BaseStation(char BSID,int r){
+BaseStation::BaseStation(std::string BSID,int r){
 	position.first = 0;
 	position.second = 0;
 	radius = r;
 	name = BSID;
 }
 
-char BaseStation::getName(){ // return the name
+std::string BaseStation::getName(){ // return the name
 	return name;
 }
 Pair BaseStation::getPosition(){	//returns a Pair of position

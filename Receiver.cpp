@@ -44,11 +44,43 @@ void Receiver::parse_data() {
           std::cout << "Parsed number of nodes: " << num_of_nodes << std::endl;
 
         } else if (token == "B") {
-          unparsed_bs_data.push_back(line);
-          std::cout << "Parsed base station: " << line << std::endl;
 
+          line.erase(0, line.find(' ') + 1);
+          std::string name = line.substr(0, line.find(' '));
+          line.erase(0, line.find(' ') + 1);
+          int pos_x = std::stoi(line.substr(0, line.find(',')));
+          line.erase(0, line.find(',') + 1);
+          int pos_y = std::stoi(line);
+          
+          BaseStation basestation(name, base_station_radius);
+          std::pair<int, int> position = {pos_x, pos_y};
+          basestation.setPosition(position);
+          basestations.push_back(basestation);
+          
+          std::cout << "Parsed base station: " << std::endl;
+          std::cout << "\tbasestation name: " << basestation.getName() << std::endl
+                    << "\tbasestation radius: " << basestation.getRadius() << std::endl
+                    << "\tbasestation positon: (" << basestation.getPosition().first
+                    << ", " << basestation.getPosition().second << ")" << std::endl;
+          
         } else if (token == "N") {
-          std::cout << "Parsed node: " << line << std::endl; 
+          line.erase(0, line.find(' ') + 1);
+          std::string name = line.substr(0, line.find(' '));
+          line.erase(0, line.find(' ') + 1);
+          int pos_x = std::stoi(line.substr(0, line.find(',')));
+          line.erase(0, line.find(',') + 1);
+          int pos_y = std::stoi(line);
+          
+          Node node;
+          node.setName(name);
+          std::pair<int, int> position = {pos_x, pos_y};
+          node.setPosition(position);
+          nodes.push_back(node);
+          
+          std::cout << "Parsed node: " << std::endl;
+          std::cout << "\tnode name: " << node.getName() << std::endl
+                    << "\tnode positon: (" << node.getPosition().first
+                    << ", " << node.getPosition().second << ")" << std::endl;
           
         } else if (token == "R") {
           std::cout << "Parsed route request: " << line << std::endl;
