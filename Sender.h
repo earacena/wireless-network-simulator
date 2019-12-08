@@ -9,16 +9,22 @@
 #ifndef SENDER_H
 #define SENDER_H
 
+#include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
+#include <tuple>
+
+typedef std::tuple<std::string, int, std::string> Hop;
 
 class Sender {
-  Sender();
-  
-  void read_data();
-  
-  void export_data();
+ public:
+  Sender(const std::string & filename);
+    
+  void export_data(const std::vector<std::vector<Hop>> & results);
 
+ private:
+  std::string filename_;
 };
 
 #endif // SENDER_H
