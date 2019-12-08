@@ -28,6 +28,6 @@ void Sender::export_data(const std::vector<std::vector<Hop>> & results) {
     }
     file.close();
   } else {
-    std::cout << "[ERROR] Failed to open [" + filename_ + "]...";
+    std::cout << "[ERROR] Failed to open [" + filename_ + "]..." << std::endl;
   } 
 }

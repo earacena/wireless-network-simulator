@@ -4,7 +4,10 @@
 //              Data format, every line is a new path:
 //                srcId,channel,destId,...\n
 //                ..
-
+//
+// How to build:
+// g++ TestSender.cpp Sender.cpp -o testsender
+//
 #include <iostream>
 #include "Sender.h"
 
