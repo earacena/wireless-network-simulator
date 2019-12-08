@@ -43,10 +43,10 @@ void Node::setPosition(int x, int y){			// sets position of node, separate entry
 	position.first = x;
 	position.second = y;
 }
-void Node::setBasestation(char station){ // assigns node to given basestation		
+void Node::setBasestation(string station){ // assigns node to given basestation		
 	basestation = station;
 }
-char Node::getBasestation(){ // gets the basestation of current node
+string Node::getBasestation(){ // gets the basestation of current node
 	return basestation;
 }
 void Node::setName(string nodename){
@@ -178,7 +178,7 @@ bool Node::reserveChannel(int num){
 	}
 	else
 	{
-	//	cout << "Reserving the requested channel " << num << endl;
+		cout << " Reserving the requested channel " << num << " for node " << getName() << endl;
 		Channels[num].used = true;
 		return true;
 	}
@@ -209,7 +209,7 @@ bool Node::checkChannelStatus(int num){ // check status of a channel
 	}
 	else
 	{	
-		//cout << "Checking status of channel " << num << " | " << Channels.size() << endl;
+	//	cout << " Checking status of channel " << num << " | " << "for node" << getName() << endl;
 		return Channels[num].used;
 	}
 }

@@ -29,9 +29,9 @@ public:
 
 	void setPosition(int x, int y);			// sets position of node, separate entry
 
-	void setBasestation(char basestation); // assigns node to given basestation		
+	void setBasestation(string basestation); // assigns node to given basestation		
 	
-	char getBasestation(); // gets the basestation of current node
+	string getBasestation(); // gets the basestation of current node
 
 	void setDestination(Node &nodesrc, Node &nodedes);
 
@@ -84,7 +84,7 @@ private:
 	pair<int, int> position;
 	int radius;
 
-	char basestation;
+	string basestation;
 	
 	string name;
 	string dest;

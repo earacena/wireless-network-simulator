@@ -2,128 +2,191 @@ Reading file data:
 	GD 10
 	BSN 10
 	BSR 20
-	NN 5
+	NN 6
 	NR 5
 	B A 25,30
+	B B 155,170
 	N 0 10,20
 	N 1 20,30
+	N 2 15,20
+	N 3 25,28
+	N 4 15,25
+	N 5 157,165
 	R 0,1
 Parsed grid size: 10
 Parsed number of base stations: 10
 Parsed base station radius: 20
-Parsed number of nodes: 5
-Parsed base station: B A 25,30
-Parsed node: N 0 10,20
-Parsed node: N 1 20,30
-Parsed route request: R 0,1
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-gnerating route between nodes 1,2,3 and basestation A
-is channel 9 used 0
-gnerating route between nodes 2,3,4 and basestation A
-is channel 4 used 0
-is channel 8 used 0
-is channel 8 used 0
-All channels for 0 0000000100
-All channels for 1 0000100101
-All channels for 2 0100100011
-All channels for 3 0100001111
-All channels for 4 0000001101
+Parsed number of nodes: 6
+Parsed base station: 
+	basestation name: A
+	basestation radius: 20
+	basestation positon: (25, 30)
+Parsed base station: 
+	basestation name: B
+	basestation radius: 20
+	basestation positon: (155, 170)
+Parsed node: 
+	node name: 0
+	node positon: (10, 20)
+Parsed node: 
+	node name: 1
+	node positon: (20, 30)
+Parsed node: 
+	node name: 2
+	node positon: (15, 20)
+Parsed node: 
+	node name: 3
+	node positon: (25, 28)
+Parsed node: 
+	node name: 4
+	node positon: (15, 25)
+Parsed node: 
+	node name: 5
+	node positon: (157, 165)
+Parsed route request: (0 -> 1)
+Finished Parsing Data
+Node 0 is in BS A's Radius
+Adding a new node 0 to A
+All channels for 0 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 7
+ |Channel: 1 |Channel Use Status: 0 |With weight: 14
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 13
+ |Channel: 5 |Channel Use Status: 0 |With weight: 7
+ |Channel: 6 |Channel Use Status: 0 |With weight: 14
+ |Channel: 7 |Channel Use Status: 0 |With weight: 8
+ |Channel: 8 |Channel Use Status: 0 |With weight: 5
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
-Generating route between0 | 1
-is channel 7 used 0
-is channel 7 used 0
+Node 1 is in BS A's Radius
+Adding a new node 1 to A
+All channels for 1 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 16
+ |Channel: 2 |Channel Use Status: 0 |With weight: 6
+ |Channel: 3 |Channel Use Status: 0 |With weight: 11
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 6
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 19
+ |Channel: 9 |Channel Use Status: 0 |With weight: 10
 
-Generating route between node 2 and 3
+Node 2 is in BS A's Radius
+Adding a new node 2 to A
+All channels for 2 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 14
+ |Channel: 1 |Channel Use Status: 0 |With weight: 7
+ |Channel: 2 |Channel Use Status: 0 |With weight: 10
+ |Channel: 3 |Channel Use Status: 0 |With weight: 4
+ |Channel: 4 |Channel Use Status: 0 |With weight: 12
+ |Channel: 5 |Channel Use Status: 0 |With weight: 9
+ |Channel: 6 |Channel Use Status: 0 |With weight: 12
+ |Channel: 7 |Channel Use Status: 0 |With weight: 16
+ |Channel: 8 |Channel Use Status: 0 |With weight: 10
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
-is channel 9 used 0
-is channel 9 used 0
+Node 3 is in BS A's Radius
+Adding a new node 3 to A
+All channels for 3 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 9
+ |Channel: 2 |Channel Use Status: 0 |With weight: 5
+ |Channel: 3 |Channel Use Status: 0 |With weight: 13
+ |Channel: 4 |Channel Use Status: 0 |With weight: 12
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 7
+ |Channel: 8 |Channel Use Status: 0 |With weight: 6
+ |Channel: 9 |Channel Use Status: 0 |With weight: 12
 
-is channel 7 used 0
-is channel 7 used 0
+Node 4 is in BS A's Radius
+Adding a new node 4 to A
+All channels for 4 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 6
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 15
+ |Channel: 6 |Channel Use Status: 0 |With weight: 7
+ |Channel: 7 |Channel Use Status: 0 |With weight: 10
+ |Channel: 8 |Channel Use Status: 0 |With weight: 7
+ |Channel: 9 |Channel Use Status: 0 |With weight: 10
 
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-Generating route between node 1,2 and 3
-All channels for 0 1111000110
-All channels for 1 1111111111
-All channels for 2 0101111011
+Node 5 is not in BS A's Radius
+Node 0 is not in BS B's Radius
+Node 1 is not in BS B's Radius
+Node 2 is not in BS B's Radius
+Node 3 is not in BS B's Radius
+Node 4 is not in BS B's Radius
+Node 5 is in BS B's Radius
+Adding a new node 5 to B
+All channels for 5 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 7
+ |Channel: 1 |Channel Use Status: 0 |With weight: 6
+ |Channel: 2 |Channel Use Status: 0 |With weight: 14
+ |Channel: 3 |Channel Use Status: 0 |With weight: 13
+ |Channel: 4 |Channel Use Status: 0 |With weight: 16
+ |Channel: 5 |Channel Use Status: 0 |With weight: 7
+ |Channel: 6 |Channel Use Status: 0 |With weight: 7
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 11
+ |Channel: 9 |Channel Use Status: 0 |With weight: 11
 
-weight is = 11 * 8 = 88
-weight is = 11 * 10 = 110
-weight is = 11 * 4 = 44
-weight is = 11 * 9 = 99
-weight is = 11 * 10 = 110
-weight is = 11 * 11 = 121
-weight is = 11 * 9 = 99
-weight is = 11 * 10 = 110
-weight is = 11 * 8 = 88
-weight is = 11 * 21 = 231
-weight is = 12 * 10 = 120
-weight is = 12 * 4 = 48
-weight is = 12 * 9 = 108
-weight is = 12 * 10 = 120
-weight is = 12 * 11 = 132
-weight is = 12 * 9 = 108
-weight is = 12 * 10 = 120
-weight is = 12 * 8 = 96
-weight is = 12 * 21 = 252
-weight is = 11 * 4 = 44
-weight is = 11 * 9 = 99
-weight is = 11 * 10 = 110
-weight is = 11 * 11 = 121
-weight is = 11 * 9 = 99
-weight is = 11 * 10 = 110
-weight is = 11 * 8 = 88
-weight is = 11 * 21 = 231
-weight is = 9 * 9 = 81
-weight is = 9 * 10 = 90
-weight is = 9 * 11 = 99
-weight is = 9 * 9 = 81
-weight is = 9 * 10 = 90
-weight is = 9 * 8 = 72
-weight is = 9 * 21 = 189
-weight is = 10 * 10 = 100
-weight is = 10 * 11 = 110
-weight is = 10 * 9 = 90
-weight is = 10 * 10 = 100
-weight is = 10 * 8 = 80
-weight is = 10 * 21 = 210
-weight is = 4 * 11 = 44
-weight is = 4 * 9 = 36
-weight is = 4 * 10 = 40
-weight is = 4 * 8 = 32
-weight is = 4 * 21 = 84
-weight is = 10 * 9 = 90
-weight is = 10 * 10 = 100
-weight is = 10 * 8 = 80
-weight is = 10 * 21 = 210
-weight is = 12 * 10 = 120
-weight is = 12 * 8 = 96
-weight is = 12 * 21 = 252
-weight is = 9 * 8 = 72
-weight is = 9 * 21 = 189
-weight is = 6 * 21 = 126
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-Couldn't find a channel 
-No route possible, implement logic later -_-
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-Couldn't find a channel 
-No route possible, implement logic later -_-
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-Couldn't find a channel 
-No route possible, implement logic later -_-
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-Couldn't find a channel 
-No route possible, implement logic later -_-
-gnerating route between nodes 0,1,2 and basestation A
-is channel 7 used 0
-Couldn't find a channel 
-No route possible, implement logic later -_-
-All channels for 0 1111000110
-All channels for 1 1111111111
-All channels for 2 0101111011
+Finished Populating all basestations
+Total number of requests are1
+Current requested is 0 | 1
+currently at A
+Found a node 
+Found a node 
+currently at B
+Source and Dest Basestation is A
+is channel 6 used 0
+ Reserving the requested channel 6 for node 0
+ Reserving the requested channel 6 for node 1
+Both Channels are now reserved 
+Source Basestation is A
+Dest Basestation is A
+All channels for 0 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 7
+ |Channel: 1 |Channel Use Status: 0 |With weight: 14
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 13
+ |Channel: 5 |Channel Use Status: 0 |With weight: 7
+ |Channel: 6 |Channel Use Status: 1 |With weight: 14
+ |Channel: 7 |Channel Use Status: 0 |With weight: 8
+ |Channel: 8 |Channel Use Status: 0 |With weight: 5
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
+
+All channels for 1 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 16
+ |Channel: 2 |Channel Use Status: 0 |With weight: 6
+ |Channel: 3 |Channel Use Status: 0 |With weight: 11
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 1 |With weight: 6
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 19
+ |Channel: 9 |Channel Use Status: 0 |With weight: 10
+
+Finshed Dealing with all requests
+Displaying all weights for bs A
+0 channel weights are: 
+1 channel weights are: 
+Getting all weights for 0 and 1
+1 channel weights are: 
+2 channel weights are: 
+Getting all weights for 1 and 2
+2 channel weights are: 
+3 channel weights are: 
+Getting all weights for 2 and 3
+3 channel weights are: 
+4 channel weights are: 
+Getting all weights for 3 and 4
+Displaying all weights for bs B
+5
+5 channel weights are: 

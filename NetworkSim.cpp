@@ -16,14 +16,18 @@ void assignChannels(Node &node,BaseStation &bs){
 	auto values = bs.poisson(total_channels);
 	//cout << "assigning " << total_channels <<" channels for " << node.getName() << endl;
 	node.setChannels(total_channels,values);
+	node.setBasestation(bs.getName());
 }
 
 void displayAllChannels(Node node){
 	auto allchan = node.getAllChannelsStatus();
-	cout << "All channels for " << node.getName() << " ";
+	cout << "All channels for " << node.getName() << " " << endl;
 	for (size_t i = 0; i < allchan.size(); i++)
 	{
-		cout << allchan[i];
+		cout << " |Channel: " << i;
+		cout << " |Channel Use Status: " << allchan[i];
+		cout << " |With weight: " <<node.checkChannelWeight(i);
+		cout << endl;
 	}
 	cout << endl;
 }
@@ -47,7 +51,6 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes)
 }
 
 bool generateRoute(Node &n1, Node &n2,BaseStation &bs){
-	bs.createRoute(n1,n2);
 	bool valid = bs.createRoute(n1,n2);
 	if(!valid){
 		cout << "No route possible, implement logic later -_-" << endl;
@@ -93,56 +96,70 @@ int main(){
 	populateBaseStations(basestations,allnodes); // populate the base stations
 	cout << "Finished Populating all basestations" <<endl;
 
+	//go through all requests
+	// then go through each basestation
+	// then go through each node to find match
  	vector<Request> requests = receiver.requests;
-	// GENERATING ROUTE BELOW HERE
-	// Based on route req find the correct basestation and choose only those 2 nodes
-	for (size_t i = 0; i < basestations.size(); i++)// for testing with just 1 basestation
-	{
-		BaseStation current = basestations[i]; // adding nodes the the basestation
-		allnodes = current.get_Nodes();
-		int max = allnodes.size();
-		cout << "currently at " << current.getName() << endl;
-		for (size_t n = 0; n < max; n++) // This whole section can change once data passed in
+	 cout << "Total number of requests are" << requests.size() << endl;
+	for (size_t r = 0; r < requests.size(); r++){
+
+		string curReqSrcId = requests.at(r).first;
+		string curReqDestId = requests.at(r).second;
+		cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
+
+		vector<Node> nodes;	 
+		Node srcnode;
+		Node destnode;
+
+		for (size_t i = 0; i < basestations.size(); i++){
+			BaseStation current = basestations[i]; 
+			allnodes = current.get_Nodes();
+			int max = allnodes.size();
+			cout << "currently at " << current.getName() << endl;
+			for (size_t n = 0; n < allnodes.size(); n++)
+			{
+				if(	allnodes[n].getBasestation() == current.getName()){ // Found only nodes belonging to bs needed
+					if(allnodes[n].getName() == curReqSrcId || allnodes[n].getName() == curReqDestId){ //Found src and dest nodes in bs
+						cout << "Found a node " << endl;
+						nodes.push_back(allnodes[n]);	
+					}
+				}
+			}
+		}
+		// At this point should have found both nodes needed
+		for (size_t m = 0; m < nodes.size(); m++)
 		{
-			if(n == 0 && max == 1){ // Only 1 node
-				Node node1 = current.findNode(allnodes[n].getName());
+			if(nodes.at(m).getName() == curReqSrcId){
+				srcnode = nodes.at(m);
 			}
-			if(n == 1 && max == 2){ // Only 2 node
-				Node node1 = current.findNode(allnodes[n-1].getName());
-				Node node2 = current.findNode(allnodes[n].getName());
-				generateRoute(node1,node2,basestations[i]);
+			if(nodes.at(m).getName() == curReqDestId){
+				destnode = nodes.at(m);
+			}			
+		}
+		
+		string srcbs = srcnode.getBasestation();
+		string destbs = destnode.getBasestation();
 
-				current.updateNode(node1);
-				current.updateNode(node2);
-				basestations[i] = current;
-				displayAllChannels(node1);
-				displayAllChannels(node2);
+		bool routeGenerated = false;
+		for (size_t i = 0; i < basestations.size(); i++)
+		{
+			BaseStation current = basestations[i]; 
+			if(!routeGenerated && current.getName() == srcbs && current.getName() == destbs ){
+				cout << "Source and Dest Basestation is " << current.getName() <<endl;
+				generateRoute(srcnode,destnode,current);
+				routeGenerated = true;
+			}	
+			if(current.getName() == srcbs){
+				cout << "Source Basestation is " << srcbs <<endl;
 			}
-			if(n < max-2 && n >= 2){ // Can assign 3 nodes
-				Node node1 = current.findNode(allnodes[n].getName());
-				Node node2 = current.findNode(allnodes[n+1].getName());
-				Node node3 = current.findNode(allnodes[n+2].getName());
-
-		//		cout << "NS Establising route between nodes " << node1.getName() << "," << node2.getName() << "," << node3.getName() << " and basestation " << basestations[i].getName() << endl;	
-				generateRoute(node1,node2,node3,basestations[i]);
-		
-				current.updateNode(node1);
-				current.updateNode(node2);
-				current.updateNode(node3);
-				basestations[i] = current;
-				displayAllChannels(node1);
-				displayAllChannels(node2);
-				displayAllChannels(node3);
+			if(current.getName() == destbs){
+				cout << "Dest Basestation is " << srcbs <<endl;
 			}
-			
-		}			
-			cout << endl;
-		
-		
+		}
+		displayAllChannels(srcnode);
+		displayAllChannels(destnode);
 	}
-	 Node first = basestations[0].findNode("0");
-	 Node second = basestations[0].findNode("1");
-	 Node third = basestations[0].findNode("2");
+		cout << "Finshed Dealing with all requests" << endl;	
 
 	 for (size_t i = 0; i < basestations.size(); i++)
 	 {
