@@ -6,6 +6,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+#include <bits/stdc++.h> 
 #include "Node.h"
 
 using namespace std;
@@ -51,6 +52,7 @@ public:
 	
 	vector<vector<int>> weightBetweenTwoNodes(Node &node1, Node &node2); // get the weight of the routes between two nodes
 
+	vector<int> allChannelWeights(Node &node1);
 	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
 	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
 

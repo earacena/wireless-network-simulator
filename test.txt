@@ -1,0 +1,129 @@
+Reading file data:
+	GD 10
+	BSN 10
+	BSR 20
+	NN 5
+	NR 5
+	B A 25,30
+	N 0 10,20
+	N 1 20,30
+	R 0,1
+Parsed grid size: 10
+Parsed number of base stations: 10
+Parsed base station radius: 20
+Parsed number of nodes: 5
+Parsed base station: B A 25,30
+Parsed node: N 0 10,20
+Parsed node: N 1 20,30
+Parsed route request: R 0,1
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+gnerating route between nodes 1,2,3 and basestation A
+is channel 9 used 0
+gnerating route between nodes 2,3,4 and basestation A
+is channel 4 used 0
+is channel 8 used 0
+is channel 8 used 0
+All channels for 0 0000000100
+All channels for 1 0000100101
+All channels for 2 0100100011
+All channels for 3 0100001111
+All channels for 4 0000001101
+
+Generating route between0 | 1
+is channel 7 used 0
+is channel 7 used 0
+
+Generating route between node 2 and 3
+
+is channel 9 used 0
+is channel 9 used 0
+
+is channel 7 used 0
+is channel 7 used 0
+
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+Generating route between node 1,2 and 3
+All channels for 0 1111000110
+All channels for 1 1111111111
+All channels for 2 0101111011
+
+weight is = 11 * 8 = 88
+weight is = 11 * 10 = 110
+weight is = 11 * 4 = 44
+weight is = 11 * 9 = 99
+weight is = 11 * 10 = 110
+weight is = 11 * 11 = 121
+weight is = 11 * 9 = 99
+weight is = 11 * 10 = 110
+weight is = 11 * 8 = 88
+weight is = 11 * 21 = 231
+weight is = 12 * 10 = 120
+weight is = 12 * 4 = 48
+weight is = 12 * 9 = 108
+weight is = 12 * 10 = 120
+weight is = 12 * 11 = 132
+weight is = 12 * 9 = 108
+weight is = 12 * 10 = 120
+weight is = 12 * 8 = 96
+weight is = 12 * 21 = 252
+weight is = 11 * 4 = 44
+weight is = 11 * 9 = 99
+weight is = 11 * 10 = 110
+weight is = 11 * 11 = 121
+weight is = 11 * 9 = 99
+weight is = 11 * 10 = 110
+weight is = 11 * 8 = 88
+weight is = 11 * 21 = 231
+weight is = 9 * 9 = 81
+weight is = 9 * 10 = 90
+weight is = 9 * 11 = 99
+weight is = 9 * 9 = 81
+weight is = 9 * 10 = 90
+weight is = 9 * 8 = 72
+weight is = 9 * 21 = 189
+weight is = 10 * 10 = 100
+weight is = 10 * 11 = 110
+weight is = 10 * 9 = 90
+weight is = 10 * 10 = 100
+weight is = 10 * 8 = 80
+weight is = 10 * 21 = 210
+weight is = 4 * 11 = 44
+weight is = 4 * 9 = 36
+weight is = 4 * 10 = 40
+weight is = 4 * 8 = 32
+weight is = 4 * 21 = 84
+weight is = 10 * 9 = 90
+weight is = 10 * 10 = 100
+weight is = 10 * 8 = 80
+weight is = 10 * 21 = 210
+weight is = 12 * 10 = 120
+weight is = 12 * 8 = 96
+weight is = 12 * 21 = 252
+weight is = 9 * 8 = 72
+weight is = 9 * 21 = 189
+weight is = 6 * 21 = 126
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+Couldn't find a channel 
+No route possible, implement logic later -_-
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+Couldn't find a channel 
+No route possible, implement logic later -_-
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+Couldn't find a channel 
+No route possible, implement logic later -_-
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+Couldn't find a channel 
+No route possible, implement logic later -_-
+gnerating route between nodes 0,1,2 and basestation A
+is channel 7 used 0
+Couldn't find a channel 
+No route possible, implement logic later -_-
+All channels for 0 1111000110
+All channels for 1 1111111111
+All channels for 2 0101111011
