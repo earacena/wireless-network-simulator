@@ -4,6 +4,7 @@
 #define BASESTATION_H_
 
 #include <iostream>
+#include <string>
 #include <utility>
 #include <vector>
 #include <bits/stdc++.h> 
@@ -22,11 +23,11 @@ public:
 
 	BaseStation(int x, int y, int r);
 
-	BaseStation(char BSID,int r);
+        BaseStation(std::string BSID,int r);
 
 	vector<int> poisson(int numofchannels); // returns a poisson generated random number for number of channels
-
-	char getName();
+  
+        std::string getName();
 
 	Pair getPosition();	//returns a Pair of position
 
@@ -57,7 +58,7 @@ public:
 	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
 
 private:
-	char name;
+        std::string name;
 	Pair position;
 	int radius;
 	vector<Node> adjacency_list;
