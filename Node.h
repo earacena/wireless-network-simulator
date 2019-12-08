@@ -49,6 +49,8 @@ public:
 
 	void setRadius(int r);	// set radius of node
 
+	bool inNodeRadius(Node &nodetocheck); // check if the nodes is in the radius of the other
+
 	void setChannels(int n, vector<int> &weight); // set the number of channels with corresponding weight	
 
 	vector<int> getChannelWeights(); // get the channel weights for current node
@@ -75,7 +77,7 @@ public:
 	
 	int checkChannelWeight(int channel);// check weight of a channel
 
-	void createRoute(Node othernode); // Create a route to another node
+	void addRoute(Node &node,int channelused); // add the route to the list
 
 	vector<int> getSortedChannelsByWeights();
 
@@ -100,7 +102,7 @@ private:
 	};
 	
 	vector<Channel> Channels; // Vector of the number of channels for each node
-	vector<pair<Node,Node>> routes; // Vector that contains the current routes through node
+	vector<pair<Node,int>> routes; // Vector that contains the current routes through node <Node , channel 
 };
 
 

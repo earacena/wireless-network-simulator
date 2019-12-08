@@ -62,6 +62,33 @@ int Node::getRadius(){	// return radius of node
 void Node::setRadius(int r){	// set radius of node
 	radius = r; 
 }
+bool Node::inNodeRadius(Node &nodetocheck){ // check if other node is in radius of this one
+	double dist = 0;
+	int currnoderadius = getRadius();
+
+	cout << "Current radius is " << currnoderadius;
+
+	Pair currcoords = getPosition();
+	int currnodexcoord = currcoords.first;
+	int currnodeycoord = currcoords.second;
+
+	Pair othernodecoords = nodetocheck.getPosition();
+	int othernodexcoord = othernodecoords.first;
+	int othernodeycoord = othernodecoords.second;
+
+	dist = sqrt(pow(abs(currnodexcoord - othernodexcoord), 2) + pow(abs(currnodeycoord - othernodeycoord), 2) * 1.0); 
+
+	if(dist <= currnoderadius){
+		cout << "dist " << dist << endl;
+		cout << "Node " << nodetocheck.getName() << " is in node" << getName() << "'s Radius" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Node " << nodetocheck.getName() << " is not in node" << getName() << "'s Radius" << endl;
+		return false;
+	}
+}
 void Node::setChannels(int n,vector<int> &weight){ // set the number of channels and their weights
 	Channels.resize(n);
 	for(int i = 0; i < Channels.size(); i++){
@@ -228,5 +255,14 @@ vector<int> Node::getSortedChannelsByWeights(){
 	auto test = SortedWeightsByBest();
 	//cout << " getting sorted weights of " << getName() << " " << bestChannelIds.size() << " " << test.size()<< endl;
 	return bestChannelIds;
+}
+
+void Node::addRoute(Node &node, int channel){ // add the route to the list
+	pair<Node,int> nodetoenter;
+	nodetoenter.first = node;
+	nodetoenter.second = channel;
+
+	routes.push_back(nodetoenter); 
+	
 }
 

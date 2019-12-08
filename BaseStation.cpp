@@ -55,7 +55,7 @@ int BaseStation::getRadius(){	// return radius of node
 void BaseStation::setRadius(int r){	// set radius of node
 	radius = r;
 }
-bool BaseStation::inBaseStationRadius(Node &node){ // check if node in basestation of radius
+bool BaseStation::inBaseStationRadius(Node &node){ // check if node in radius of basestation
 	double dist = 0;
 	int bsradius = getRadius();
 	int noderadius = node.getRadius();
@@ -68,7 +68,7 @@ bool BaseStation::inBaseStationRadius(Node &node){ // check if node in basestati
 	int bsxcoord = bscoords.first;
 	int bsycoord = bscoords.second;
 
-	dist = sqrt(pow(nodexcoord - bsxcoord, 2) + pow(nodeycoord - bsycoord, 2) * 1.0); 
+	dist = sqrt(pow(abs(nodexcoord - bsxcoord), 2) + pow(abs(nodeycoord - bsycoord), 2) * 1.0); 
 
 	if(dist <= bsradius){
 		cout << "Node " << node.getName() << " is in BS " << getName() << "'s Radius" << endl;
@@ -182,6 +182,8 @@ bool BaseStation::createRoute(Node &n1, Node &n2){ // Create a new route between
 	}
 	else {
 		cout << "Both Channels are now reserved " << endl;
+		n1.addRoute(n2,node1channel);
+		n2.addRoute(n1,node2channel);
 		return true;
 	}
 

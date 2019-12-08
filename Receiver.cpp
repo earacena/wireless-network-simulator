@@ -42,6 +42,11 @@ void Receiver::parse_data() {
           line.erase(0, line.find(' ') + 1);
           num_of_nodes = std::stoi(line);
           std::cout << "Parsed number of nodes: " << num_of_nodes << std::endl;
+        } else if (token == "NR") {
+          line.erase(0, line.find(' ') + 1);
+          node_radius = std::stoi(line);
+          std::cout << "Parsed node radius: " << node_radius << std::endl;
+
 
         } else if (token == "B") {
 

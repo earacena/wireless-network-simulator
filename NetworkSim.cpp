@@ -24,15 +24,15 @@ void displayAllChannels(Node node){
 	cout << "All channels for " << node.getName() << " " << endl;
 	for (size_t i = 0; i < allchan.size(); i++)
 	{
-		cout << " |Channel: " << i;
-		cout << " |Channel Use Status: " << allchan[i];
-		cout << " |With weight: " <<node.checkChannelWeight(i);
-		cout << endl;
+	//	cout << " |Channel: " << i;
+	//	cout << " |Channel Use Status: " << allchan[i];
+	//	cout << " |With weight: " <<node.checkChannelWeight(i);
+	//	cout << endl;
 	}
 	cout << endl;
 }
 
-void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes){
+void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,int noderadius){
 	for (size_t i = 0; i < basestations.size(); i++)
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
@@ -42,6 +42,7 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes)
 			if(current.inBaseStationRadius(nodes[n])){ // current node is in the current basestation radius
 				assignChannels(nodes[n],current);
 				cout << "Adding a new node " << nodes[n].getName() << " to " << current.getName() << endl;
+				nodes[n].setRadius(noderadius);
 				current.addNode(nodes[n]);	
 				basestations[i] = current;		
 				displayAllChannels(nodes[n]);
@@ -95,8 +96,10 @@ int main(){
 	int total_basestations = receiver.num_of_base_stations; // Parse number of basestations from file
 
 	int number_of_nodes = receiver.num_of_nodes;
+	int node_radius = receiver.node_radius;
+
 	vector<Node> allnodes = receiver.nodes;
-	populateBaseStations(basestations,allnodes); // populate the base stations
+	populateBaseStations(basestations,allnodes,node_radius); // populate the base stations
 	cout << "Finished Populating all basestations" <<endl;
 
 	//go through all requests
@@ -151,21 +154,57 @@ int main(){
 			// Both nodes in one basestation
 			if(!routeGenerated && current.getName() == srcbs && current.getName() == destbs ){
 				cout << "Source and Dest Basestation is " << current.getName() <<endl;
-				routeGenerated = generateRoute(srcnode,destnode,current);
+				//if(srcnode.inNodeRadius(destnode)){
+					routeGenerated = generateRoute(srcnode,destnode,current);
 
-				allnodes = current.get_Nodes();		
-				for (size_t n = 0; n < allnodes.size(); n++)
-				{
-					if(allnodes[n].getName() == srcnode.getName()){
-						Node srcnodetoupd = srcnode;
-						current.updateNode(srcnodetoupd);
+					allnodes = current.get_Nodes();		
+					// update nodes and basestations
+					for (size_t n = 0; n < allnodes.size(); n++)
+					{
+						if(allnodes[n].getName() == srcnode.getName()){
+							Node srcnodetoupd = srcnode;
+							current.updateNode(srcnodetoupd);
+						}
+						if(allnodes[n].getName() == destnode.getName()){
+							Node destnodetoupd = destnode;
+							current.updateNode(destnodetoupd);
+						}
 					}
-					if(allnodes[n].getName() == destnode.getName()){
-						Node destnodetoupd = destnode;
-						current.updateNode(destnodetoupd);
-					}
-				}
-				basestations[i] = current;
+					basestations[i] = current;
+				//}
+				// else // might need to be a while loop to keep going till it runs out
+				// {
+				// 	cout << "The source and destination are currently not in the same radius " << endl;
+				// 	//Need a list of all nodes in range of this node to choose from
+				// 	vector<Node> nodesinrange;
+				// 	vector<Node> nodesused;
+				// 	allnodes = current.get_Nodes();
+				// 	for (size_t i = 0; i < allnodes.size(); i++)
+				// 	{
+				// 		if(allnodes[i].getName() != srcnode.getName() && srcnode.inNodeRadius(allnodes[i])){
+				// 			cout << "Found another node to hop to " << allnodes[i].getName() << endl;
+				// 			nodesinrange.push_back(allnodes[i]);							
+				// 		}
+				// 	}
+				// 	// This is where the graph generation choices come into play
+				// 	// Current non smart way below
+				// 	for (size_t i = 0; i < nodesinrange.size(); i++)
+				// 	{
+				// 		Node nextNode = nodesinrange[i];
+				// 		if(srcnode.inNodeRadius(nextNode)){
+							
+				// 		}
+				// 		else
+				// 		{
+				// 			nodesused.push_back(nextNode);
+				// 		}
+						
+				// 	}
+
+
+
+				// }
+				
 			}	
 			// If the destination is not in current basestation
 			else if(current.getName() == srcbs && current.getName() != destbs){
