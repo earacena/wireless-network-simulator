@@ -30,7 +30,7 @@ def make_edge(root, source_x, source_y, dest_x, dest_y, channel_no):
         color = "cyan"
     root.create_line(source_x, source_y, dest_x, dest_y, fill=color, width=2)
 
-def make_routes(root, Lbl, button, B):
+def make_routes(root, Lbl, button):
     button.destroy()
     Lbl["text"] = ""
     file = open("routes.txt", "r")
@@ -38,7 +38,7 @@ def make_routes(root, Lbl, button, B):
     l = text.split("\n")
     ls = []
     for i in range(len(l)):
-        ls += [l[i].split(",")]
+        ls += [l[i][0:len(l[i])-1].split(",")]
     print(ls)
     #Get node coordinates
     info_file = open("data.txt", "r")
@@ -74,7 +74,7 @@ def make_routes(root, Lbl, button, B):
             make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
             i += 2
         Lbl["text"] += "\n"
-    B.pack(side=TOP)
+    generate_random_graphs()
 
 def dist_bool(Ax,Ay,Bx,By, max_dist):
     a = abs(Ax-Bx)
@@ -182,23 +182,129 @@ def conf_rts(rt_lst_wgt, butt, file_string, pkbutton, destbutton):
     pkbutton.pack(side=TOP, pady=4)
     destbutton.destroy()
 
-def init_metrics(canv, root, fr):
-    canv.destroy()
-    fr.destroy()
+def randomize_node(pair, bs_crd_list):
+    radius=250
+    rand_bs = random.randrange(1, len(bs_crd_list))
+    x = bs_crd_list[rand_bs][0]
+    y = bs_crd_list[rand_bs][1]
+    dvx = random.randrange(x-radius, x+radius)
+    dvy = random.randrange(y-radius, y+radius)
+    while not dist_bool(x,y,dvx,dvy,radius) and dvx<1000 and dvy<1000:
+            dvx = random.randrange(x-radius, x+radius)
+            dvy = random.randrange(y-radius, y+radius)
+    pair = [dvx, dvy]
+    return pair
+
+def generate_random_graphs():
+    f = open("data.txt","r")
+    s = f.read()
+    print("modifying file...")
+    lsf = s.split('\n')
+    print(s)
+    nls = []
+    bls = []
+    rls = []
+    for i in range(len(lsf)):
+        if(lsf[i][0]=='N' and lsf[i][1]==' ' ):
+            ln = lsf[i].split(" ")[2].split(",")
+            nls.append([int(ln[0]),int(ln[1])])
+        if(lsf[i][0]=='B' and lsf[i][1]==' ' ):
+            ln = lsf[i].split(" ")[2].split(",")
+            bls.append([int(ln[0]),int(ln[1])])        
+        if(lsf[i][0]=='R' and lsf[i][1]==' ' ):
+            ln = lsf[i].split(" ")[1].split(",")
+            rls.append([int(ln[0]),int(ln[1])])
+    snode = int(rls[0][0])
+    enode = int(rls[0][1])
+    for h in range(2):
+        lsf_temp = lsf
+        nls_temp = []
+        for i in range(len(nls)):
+            if i!=snode and i!=enode:
+                nls_temp.append(randomize_node(nls[i], bls))
+            else:
+                nls_temp.append(nls[i])
+        j = 0
+        for i in range(len(lsf_temp)):
+            if(lsf_temp[i][0]=='N' and lsf_temp[i][1]==' ' ):
+                lsf_temp[i] = 'N '+str(j)+" "+str(nls_temp[j][0])+','+str(nls_temp[j][1])
+                j += 1
+        s_temp = '\n'.join(lsf_temp)
+        filename = "data"+str(h+1)+".txt"
+        file = open(filename, "w")
+        file.write(s_temp)
+        file.close()
+        print(s_temp)
+    if len(nls) < 10:
+        for h in range(3):
+            print("version "+str(h+1))
+            lsf_temp = lsf[:]
+            nls_temp = []
+            for i in range(len(nls)+1):
+                if i!=snode and i!=enode:
+                    nls_temp.append(randomize_node([0,0], bls))
+                else:
+                    nls_temp.append(nls[i])
+            print("Len: "+str(len(nls_temp)))
+            j = 0
+            for i in range(len(lsf_temp)+1):
+                if(i < len(lsf_temp)-1 and lsf_temp[i][0]=='N' and lsf_temp[i][1]=='N' ):
+                    lsf_temp[i] = 'NN '+str(len(nls_temp))
+                if(i < len(lsf_temp)-1 and lsf_temp[i][0]=='N' and lsf_temp[i][1]==' ' ):
+                    lsf_temp[i] = 'N '+str(j)+" "+str(nls_temp[j][0])+','+str(nls_temp[j][1])
+                    j += 1
+                if i==len(lsf_temp):
+                    lsf_temp.append('N '+str(j)+" "+str(nls_temp[j][0])+','+str(nls_temp[j][1]))
+            print(lsf)
+            print(lsf_temp)
+            s_temp = '\n'.join(lsf_temp)
+            filename = "data"+str(h+1)+"B.txt"
+            file = open(filename, "w")
+            file.write(s_temp)
+            file.close()
+            print(s_temp)
+    if len(nls) == 10:
+        for h in range(3):
+            print("version "+str(h+1))
+            lsf_temp = lsf[:]
+            nls_temp = []
+            for i in range(len(nls)):
+                if i!=snode and i!=enode:
+                    nls_temp.append(randomize_node([0,0], bls))
+                else:
+                    nls_temp.append(nls[i])
+            print("Len: "+str(len(nls_temp)))
+            j = 0
+            toggle = 0
+            for i in range(len(lsf_temp)):
+                if(i < len(lsf_temp)-1 and lsf_temp[i][0]=='N' and lsf_temp[i][1]=='N' ):
+                    lsf_temp[i] = 'NN '+str(len(nls_temp)-1)
+                if(i < len(lsf_temp)-1 and lsf_temp[i][0]=='N' and lsf_temp[i][1]==' ' ):
+                    lsf_temp[i] = 'N '+str(j)+" "+str(nls_temp[j][0])+','+str(nls_temp[j][1])
+                    j += 1
+            rn = random.randrange(0,9)
+            while (rn==snode or rn==enode):
+                rn = random.randrange(0,10)
+            for i in range(len(lsf_temp)):
+                if(i < len(lsf_temp)-1 and lsf_temp[i][0]=='N' and lsf_temp[i][1]==' ' and int(lsf_temp[i][2])==rn):
+                     del lsf_temp[i]
+                
+            print(lsf)
+            print(lsf_temp)
+            s_temp = '\n'.join(lsf_temp)
+            filename = "data"+str(h+1)+"B.txt"
+            file = open(filename, "w")
+            file.write(s_temp)
+            file.close()
+            print(s_temp)
     Metrics.main()
-    imgA = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-hops-nodes.png")
-    photoA = ImageTk.PhotoImage(imgA)
-    imgB = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-switches-channels.png")
-    photoB = ImageTk.PhotoImage(imgB)
+##    imgA = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-hops-nodes.png")
+##    photoA = ImageTk.PhotoImage(imgA)
+##    imgB = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-switches-channels.png")
+##    photoB = ImageTk.PhotoImage(imgB)
 ##    photoA = PhotoImage("graph-hops-nodes.png")
 ##    photoB = PhotoImage("graph-switches-channels.png")
-    pLA = Label(root, image=photoA)
-    pLA.image = photoA
-    pLA.pack(side=LEFT)
-    pLB = Label(root, image=photoB)
-    pLB.image = photoB
-    pLB.pack(side=LEFT)
-    #create_image(50,50,image=photoB)
+
     
     
     
@@ -272,10 +378,6 @@ confB = Button(f, text="Confirm Route Selection")
 confB.pack(side=TOP, pady=4)
 confX = Button(f, text="Execute Routes")
 confB['command']=partial(conf_rts, rL, rB, file,confX, confB)
-
-#metrics
-metB = Button(f, text="Show Metrics", command=partial(init_metrics, w, master, f))
-
-confX['command']=partial(make_routes, w, rL, confX, metB)
+confX['command']=partial(make_routes, w, rL, confX)
 
 mainloop()
