@@ -54,6 +54,34 @@ int BaseStation::getRadius(){	// return radius of node
 void BaseStation::setRadius(int r){	// set radius of node
 	radius = r;
 }
+bool BaseStation::inBaseStationRadius(Node &node){ // check if node in basestation of radius
+	double dist = 0;
+	int bsradius = getRadius();
+	int noderadius = node.getRadius();
+
+	Pair coords = node.getPosition();
+	int nodexcoord = coords.first;
+	int nodeycoord = coords.second;
+
+	Pair bscoords = getPosition();
+	int bsxcoord = bscoords.first;
+	int bsycoord = bscoords.second;
+
+	dist = sqrt(pow(nodexcoord - bsxcoord, 2) + pow(nodeycoord - bsycoord, 2) * 1.0); 
+
+	if(dist <= bsradius){
+		cout << "Node " << node.getName() << " is in BS " << getName() << "'s Radius" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Node " << node.getName() << " is not in BS " << getName() << "'s Radius" << endl;
+		return false;
+	}
+	
+
+}
+
 void BaseStation::addNode(Node &node){ // add a node to the current basestation
 	adjacency_list.push_back(node);
 //	cout << adjacency_list.size() << endl;
@@ -71,6 +99,7 @@ Node BaseStation::findNode(string nodetofind){
 			return adjacency_list[i];
 	}
 	Node blank("error");
+	cout << "Looking for " << nodetofind << " it was not found" << endl;
 	return blank;	
 }
 void BaseStation::updateNode(Node &node){ // update current node to new node 
@@ -144,9 +173,12 @@ bool BaseStation::createRoute(Node &n1, Node &n2){ // Create a new route between
 	}
 	//cout << "Found channels for first two nodes" << endl;
 	if(n1.checkChannelStatus(node1channel) == 0 && n2.checkChannelStatus(node1channel) == 0){ // The channel selections are available
-	//	cerr << "reserving channels for first two nodes " << node1channel << '\n';
-		n1.reserveChannel(node1channel);
-		n2.reserveChannel(node1channel);
+		if(!n1.reserveChannel(node1channel)){
+			return false;
+		}
+		if(!n2.reserveChannel(node1channel)){
+			return false;
+		}
 		return true;
 	}
 	else
@@ -211,10 +243,18 @@ bool BaseStation::createRoute(Node &n1, Node &n2,Node &n3){ // Create a new rout
 	}
 	cerr << "Found channels for last two nodes/3 " << endl;
 	if(n1.checkChannelStatus(node1channel) == 0 && n2.checkChannelStatus(node2channel) == 0 && n2.checkChannelStatus(node3channel) == 0 && n3.checkChannelStatus(node3channel) == 0){ // The channel selections are available
-		n1.reserveChannel(node1channel);
-		n2.reserveChannel(node2channel);
-		n2.reserveChannel(node3channel);
-		n3.reserveChannel(node3channel);
+		if(!n1.reserveChannel(node1channel)){
+			return false;
+		}
+		if(!n2.reserveChannel(node2channel)){
+			return false;
+		}
+		if(!n2.reserveChannel(node3channel)){
+			return false;
+		}
+		if(!n3.reserveChannel(node3channel)){
+			return false;
+		}
 		return true;
 	}
 	else
@@ -231,12 +271,13 @@ vector<vector<int>> BaseStation::weightBetweenTwoNodes(Node &node1, Node &node2)
 	//cout << "getting " << node2.getName()<<  " weights" << endl;
 	vector<int> n2weight = node2.getChannelWeights();
 
+	cout << "Getting all weights for " << node1.getName() << " and " << node2.getName() << endl;
 	for (size_t i = 0; i < finalweights.size(); i++)
 	{
 		for (size_t j = i; j < finalweights[i].size(); j++)
 		{
 			finalweights[i][j] = n1weight[i] * n2weight[j];
-			cout << "weight is = " << n1weight[i] << " * " << n2weight[j] << " = " << finalweights[i][j] << endl;
+//			cout << "weight is = " << n1weight[i] << " * " << n2weight[j] << " = " << finalweights[i][j] << endl;
 		}
 		
 	}

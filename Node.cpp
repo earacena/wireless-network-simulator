@@ -113,9 +113,9 @@ vector<int> Node::SortedWeightsByBest(){
 }
 vector<int> Node::getChannelWeights(){// get the channel weights for current node
 	vector<int> currentChannelsWeights;
-	//cout << getName() << " channel weights are: " << endl;
+	cout << getName() << " channel weights are: " << endl;
 	for(int i = 0; i < Channels.size(); i++){
-	//	cout << "Weight for Channel " << i << " is " << Channels[i].weight << " " << endl;
+//		cout << "Weight for Channel " << i << " is " << Channels[i].weight << " " << endl;
 		currentChannelsWeights.push_back(Channels[i].weight);
 	}
 	return currentChannelsWeights;
@@ -171,14 +171,16 @@ int Node::getBestAvailableChannel(int channeltoskip){ // get the best currently 
 	else
 		return bestchannel;
 }
-void Node::reserveChannel(int num){
+bool Node::reserveChannel(int num){
 	if(num > Channels.size()){
 		cout << "Error that channel doesnt exist";
+		return false;
 	}
 	else
 	{
 	//	cout << "Reserving the requested channel " << num << endl;
 		Channels[num].used = true;
+		return true;
 	}
 	
 

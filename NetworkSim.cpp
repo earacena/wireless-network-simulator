@@ -28,20 +28,20 @@ void displayAllChannels(Node node){
 	cout << endl;
 }
 
-void populateBaseStations(vector<BaseStation> &basestations, int number_of_nodes){
+void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes){
 	for (size_t i = 0; i < basestations.size(); i++)
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
+		int number_of_nodes = nodes.size();
 		for (size_t n = 0; n < number_of_nodes; n++)
 		{
-			string name = to_string(n);
-			Node newnode;
-			newnode.setName(name);
-			assignChannels(newnode,current);
-			cout << "Adding a new node " << name << " to " << current.getName() << endl;
-			current.addNode(newnode);	
-			basestations[i] = current;		
-		//	displayAllChannels(newnode);
+			if(current.inBaseStationRadius(nodes[n])){ // current node is in the current basestation radius
+				assignChannels(nodes[n],current);
+				cout << "Adding a new node " << nodes[n].getName() << " to " << current.getName() << endl;
+				current.addNode(nodes[n]);	
+				basestations[i] = current;		
+				displayAllChannels(nodes[n]);
+			}
 		}	
 	}
 }
@@ -89,53 +89,53 @@ int main(){
 	int total_basestations = receiver.num_of_base_stations; // Parse number of basestations from file
 
 	int number_of_nodes = receiver.num_of_nodes;
-	populateBaseStations(basestations,number_of_nodes); // populate the base stations
+	vector<Node> allnodes = receiver.nodes;
+	populateBaseStations(basestations,allnodes); // populate the base stations
+	cout << "Finished Populating all basestations" <<endl;
 
-	vector<Node> allnodes;
-		for (size_t i = 0; i < 1; i++)// for testing with just 1 basestation
+ 	vector<Request> requests = receiver.requests;
+	// GENERATING ROUTE BELOW HERE
+	// Based on route req find the correct basestation and choose only those 2 nodes
+	for (size_t i = 0; i < basestations.size(); i++)// for testing with just 1 basestation
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
 		allnodes = current.get_Nodes();
-		for (size_t n = 0; n < number_of_nodes-1; n++) // This whole section can change once data passed in
+		int max = allnodes.size();
+		cout << "currently at " << current.getName() << endl;
+		for (size_t n = 0; n < max; n++) // This whole section can change once data passed in
 		{
-			if(n < number_of_nodes-2){ // Can assign 3 nodes
-
-			Node node1 = current.findNode(allnodes[n].getName());
-			Node node2 = current.findNode(allnodes[n+1].getName());
-			Node node3 = current.findNode(allnodes[n+2].getName());
-
-	//		cout << "NS Establising route between nodes " << node1.getName() << "," << node2.getName() << "," << node3.getName() << " and basestation " << basestations[i].getName() << endl;	
-			generateRoute(node1,node2,node3,basestations[i]);
-		
-			current.updateNode(node1);
-			current.updateNode(node2);
-			current.updateNode(node3);
-			basestations[i] = current;
-			}
-			else
-			{
+			if(n == 0 && max == 1){ // Only 1 node
 				Node node1 = current.findNode(allnodes[n].getName());
-				Node node2 = current.findNode(allnodes[n+1].getName());
+			}
+			if(n == 1 && max == 2){ // Only 2 node
+				Node node1 = current.findNode(allnodes[n-1].getName());
+				Node node2 = current.findNode(allnodes[n].getName());
 				generateRoute(node1,node2,basestations[i]);
 
 				current.updateNode(node1);
 				current.updateNode(node2);
-
 				basestations[i] = current;
+				displayAllChannels(node1);
+				displayAllChannels(node2);
+			}
+			if(n < max-2 && n >= 2){ // Can assign 3 nodes
+				Node node1 = current.findNode(allnodes[n].getName());
+				Node node2 = current.findNode(allnodes[n+1].getName());
+				Node node3 = current.findNode(allnodes[n+2].getName());
 
+		//		cout << "NS Establising route between nodes " << node1.getName() << "," << node2.getName() << "," << node3.getName() << " and basestation " << basestations[i].getName() << endl;	
+				generateRoute(node1,node2,node3,basestations[i]);
+		
+				current.updateNode(node1);
+				current.updateNode(node2);
+				current.updateNode(node3);
+				basestations[i] = current;
+				displayAllChannels(node1);
+				displayAllChannels(node2);
+				displayAllChannels(node3);
 			}
 			
-		}
-			Node node1 = basestations[0].findNode("0");
-			Node node2 = basestations[0].findNode("1");
-			Node node3 = basestations[0].findNode("2");
-			Node node4 = basestations[0].findNode("3");
-			Node node5 = basestations[0].findNode("4");						
-			displayAllChannels(node1);
-			displayAllChannels(node2);
-			displayAllChannels(node3);
-			displayAllChannels(node4);
-			displayAllChannels(node5);
+		}			
 			cout << endl;
 		
 		
@@ -144,33 +144,23 @@ int main(){
 	 Node second = basestations[0].findNode("1");
 	 Node third = basestations[0].findNode("2");
 
-	  BaseStation firstbs = basestations[0];
-	  cout << "Generating route between" << first.getName() << " | " << second.getName() <<endl; 
-	  generateRoute(first,second,basestations[0]);
-	  cout << endl;
-	  cout << "Generating route between node 2 and 3" <<endl; 
-	  cout << endl;
-	  generateRoute(second,third,firstbs);
-	  cout << endl;
-	  generateRoute(first,second,firstbs);
-	  cout << endl;
-	  generateRoute(first,second,third,firstbs);
-	  cout << "Generating route between node 1,2 and 3" <<endl; 
-	  displayAllChannels(first);
-	  displayAllChannels(second);
-	  displayAllChannels(third);
-	  cout << endl;
+	 for (size_t i = 0; i < basestations.size(); i++)
+	 {
+		cout << "Displaying all weights for bs " << basestations[i].getName() << endl;
+		auto allnodes = basestations[i].get_Nodes();
+		int max = allnodes.size();
+		if(max == 1){
+			cout << allnodes.at(0).getName() << endl;
+			Node first = basestations[i].findNode(allnodes.at(0).getName());	
+			auto allweights = first.getChannelWeights();
+		}		
+		for (size_t t = 0; t < max-1; t++)
+		{
+			Node first = basestations[i].findNode(allnodes.at(t).getName());
+		   	Node second = basestations[i].findNode(allnodes.at(t+1).getName());
+			auto allweights = basestations[i].weightBetweenTwoNodes(first,second);			
 
-
-	  auto allweights = firstbs.weightBetweenTwoNodes(first,second);
-
-	  generateRoute(first,second,third,firstbs);
-	  generateRoute(first,second,third,firstbs);
-	  generateRoute(first,second,third,firstbs);
-	  generateRoute(first,second,third,firstbs);
-	  generateRoute(first,second,third,firstbs);
-	  displayAllChannels(first);
-	  displayAllChannels(second);
-	  displayAllChannels(third);
+		}
+	 }
 
 }

@@ -67,7 +67,7 @@ public:
 	
 	int getBestAvailableChannel(int channeltoskip); // get the best currently available channel thats not the parameter
 
-	void reserveChannel(int channel);// reserve a channel
+	bool reserveChannel(int channel);// reserve a channel
  
 	void releaseChannel(int channel); // release a channel
 

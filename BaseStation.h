@@ -23,11 +23,11 @@ public:
 
 	BaseStation(int x, int y, int r);
 
-        BaseStation(std::string BSID,int r);
+    BaseStation(std::string BSID,int r);
 
 	vector<int> poisson(int numofchannels); // returns a poisson generated random number for number of channels
   
-        std::string getName();
+    std::string getName();
 
 	Pair getPosition();	//returns a Pair of position
 
@@ -36,6 +36,8 @@ public:
 	int getRadius();	// return radius of node
 		
 	void setRadius(int r);	// set radius of node
+
+	bool inBaseStationRadius(Node &node); // check if node in basestation of radius
 
 	void addNode(Node &node); // add a node to the current basestation
 
@@ -58,7 +60,7 @@ public:
 	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
 
 private:
-        std::string name;
+    std::string name;
 	Pair position;
 	int radius;
 	vector<Node> adjacency_list;
