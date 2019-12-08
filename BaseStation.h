@@ -28,6 +28,7 @@ public:
 	vector<int> poisson(int numofchannels); // returns a poisson generated random number for number of channels
   
     std::string getName();
+	
 
 	Pair getPosition();	//returns a Pair of position
 
@@ -57,7 +58,7 @@ public:
 
 	vector<int> allChannelWeights(Node &node1);
 	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
-	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
+	bool createRoute(Node &node1); // Create a new route for a node
 
 private:
     std::string name;

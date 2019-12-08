@@ -49,8 +49,22 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes)
 		}	
 	}
 }
+bool generateRoute(Node &n1,BaseStation &bs){
+//	cout << "Route for " << bs.getName() << " with nodes " << n1.getName() << endl;
+	bool valid = bs.createRoute(n1);
+	if(!valid){
+		cout << "No route possible, implement logic later -_-" << endl;
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+	
+}
 
 bool generateRoute(Node &n1, Node &n2,BaseStation &bs){
+//	cout << "Route for " << bs.getName() << " with nodes " << n1.getName() << " & " << n2.getName() << endl;
 	bool valid = bs.createRoute(n1,n2);
 	if(!valid){
 		cout << "No route possible, implement logic later -_-" << endl;
@@ -62,19 +76,8 @@ bool generateRoute(Node &n1, Node &n2,BaseStation &bs){
 	}
 	
 }
-bool generateRoute(Node &n1, Node &n2,Node &n3,BaseStation &bs){
-	cout << "gnerating route between nodes " << n1.getName() << "," << n2.getName() << "," << n3.getName() << " and basestation " << bs.getName() << endl;		
-	bool valid = bs.createRoute(n1,n2,n3);
-	if(!valid){
-		cout << "No route possible, implement logic later -_-" << endl;
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-	
-}
+
+void export_data();
 
 int main(){
 
@@ -105,7 +108,7 @@ int main(){
 
 		string curReqSrcId = requests.at(r).first;
 		string curReqDestId = requests.at(r).second;
-		cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
+	//	cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
 
 		vector<Node> nodes;	 
 		Node srcnode;
@@ -115,12 +118,12 @@ int main(){
 			BaseStation current = basestations[i]; 
 			allnodes = current.get_Nodes();
 			int max = allnodes.size();
-			cout << "currently at " << current.getName() << endl;
+		//	cout << "currently at " << current.getName() << endl;
 			for (size_t n = 0; n < allnodes.size(); n++)
 			{
 				if(	allnodes[n].getBasestation() == current.getName()){ // Found only nodes belonging to bs needed
 					if(allnodes[n].getName() == curReqSrcId || allnodes[n].getName() == curReqDestId){ //Found src and dest nodes in bs
-						cout << "Found a node " << endl;
+					//	cout << "Found a node " << endl;
 						nodes.push_back(allnodes[n]);	
 					}
 				}
@@ -141,20 +144,62 @@ int main(){
 		string destbs = destnode.getBasestation();
 
 		bool routeGenerated = false;
+		bool routeGeneratedOtherBS = false;
 		for (size_t i = 0; i < basestations.size(); i++)
 		{
 			BaseStation current = basestations[i]; 
+			// Both nodes in one basestation
 			if(!routeGenerated && current.getName() == srcbs && current.getName() == destbs ){
 				cout << "Source and Dest Basestation is " << current.getName() <<endl;
-				generateRoute(srcnode,destnode,current);
-				routeGenerated = true;
+				routeGenerated = generateRoute(srcnode,destnode,current);
+
+				allnodes = current.get_Nodes();		
+				for (size_t n = 0; n < allnodes.size(); n++)
+				{
+					if(allnodes[n].getName() == srcnode.getName()){
+						Node srcnodetoupd = srcnode;
+						current.updateNode(srcnodetoupd);
+					}
+					if(allnodes[n].getName() == destnode.getName()){
+						Node destnodetoupd = destnode;
+						current.updateNode(destnodetoupd);
+					}
+				}
+				basestations[i] = current;
 			}	
-			if(current.getName() == srcbs){
+			// If the destination is not in current basestation
+			else if(current.getName() == srcbs && current.getName() != destbs){
 				cout << "Source Basestation is " << srcbs <<endl;
+				cout << "Dest Basestation is " << destbs <<endl;
+				for (size_t j = i+1; j < basestations.size(); j++)
+				{
+					BaseStation second = basestations[j];
+					if(basestations[j].getName() == destbs && !routeGeneratedOtherBS && ! routeGenerated){
+						cout << "Generating a route between two basestations " << endl;
+						routeGenerated = generateRoute(srcnode,current);
+						routeGeneratedOtherBS = generateRoute(destnode,second);	
+
+						for (size_t n = 0; n < allnodes.size(); n++)
+						{
+							if(allnodes[n].getName() == srcnode.getName()){
+							Node srcnodetoupd = srcnode;
+							current.updateNode(srcnodetoupd);
+						}
+							if(allnodes[n].getName() == destnode.getName()){
+							Node destnodetoupd = destnode;
+							second.updateNode(destnodetoupd);
+					}
+				}					
+						basestations[i] = current;
+						basestations[j] = second;
+					}
+				}
+				
+
 			}
-			if(current.getName() == destbs){
-				cout << "Dest Basestation is " << srcbs <<endl;
-			}
+		}
+		if(!routeGenerated){
+			cout << "Route generation not possible " << endl;
 		}
 		displayAllChannels(srcnode);
 		displayAllChannels(destnode);

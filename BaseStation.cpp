@@ -39,6 +39,7 @@ BaseStation::BaseStation(std::string BSID,int r){
 std::string BaseStation::getName(){ // return the name
 	return name;
 }
+
 Pair BaseStation::getPosition(){	//returns a Pair of position
 	return position;
 }
@@ -185,75 +186,35 @@ bool BaseStation::createRoute(Node &n1, Node &n2){ // Create a new route between
 	}
 
 }
-bool BaseStation::createRoute(Node &n1, Node &n2,Node &n3){ // Create a new route between three nodes
+bool BaseStation::createRoute(Node &n1){ // Create a new route between three nodes
 	int node1channel = -1;
-	int node2channel = -1;
-	int node3channel = -1;
 
 	auto wn1 = n1.getSortedChannelsByWeights();
-	auto wn2 = n2.getSortedChannelsByWeights();
-	auto wn3 = n3.getSortedChannelsByWeights();
+
 	//Get the best channel 
+//	cout << "Looking for best channel for nodes " << n1.getName() << " & " << n2.getName() << endl;
 	node1channel = helpCreateRoute(n1);
-	node2channel = node1channel;
-	node3channel = n3.getBestAvailableChannel(node2channel); // find a channel thats not used on node 1 and 2
-
-	if(node3channel == -1){ // No point in trying if node 3 has no channels available
-		return false;
-	}
-	//cerr << "Checking that status of all three chosen channels "  << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << " | " << n2.checkChannelStatus(node3channel) << " | " << n3.checkChannelStatus(node3channel) << " " << endl;
-
+	//cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | using the same channel for " << n2.getName() << " which is " << node2channel << '\n';
+	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
 	int count = 0;
-	while (n1.checkChannelStatus(node1channel) == 1 || n2.checkChannelStatus(node2channel) == 1 && count < wn1.size()-1) // Channel is not avail for n1 or n2
+	while (n1.checkChannelStatus(node1channel) == 1)
 	{	
-		if(count > wn1.size()-1){
-			cout << "Couldn't find a channel " << endl;
-			return false;
-		}
-		else{
-			node1channel = wn1[count];
-			node2channel = node1channel;
-	//		cout << "New channel names " << node1channel << " | " << node2channel << endl;
-	//		cout << "New channels" << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << endl;
-			count ++;
-		}
-	}
-//	cout << "Found channels for first two nodes/3" << endl;
-//	cout << "current channels stat " << n2.checkChannelStatus(node2channel) << " | " << n2.checkChannelStatus(node3channel) << " | " << n3.checkChannelStatus(node3channel) << endl;
-	count = 0;
-	while (n2.checkChannelStatus(node2channel) == 1 || n2.checkChannelStatus(node3channel) == 1 || n3.checkChannelStatus(node3channel) == 1 && count < wn2.size()-1)
-	{
-		if(count > wn2.size()-1){
-			cout << "Couldn't find a channel " << endl;
-			return false;
-		}
-		else{
-			vector<int> tries;
-			tries.push_back(node2channel);
-			node2channel = wn2[count];
-			node3channel = node2channel;
-		//cout << "New channel names " << node2channel << " | " << node3channel << endl;
-		//cout << "New channels" << n2.checkChannelStatus(node2channel) << " | " << n3.checkChannelStatus(node3channel) << endl;
+		cout << " The requested channel is not available for the node trying again " << endl;
+		node1channel = wn1[count];
+	//	cout << "New channel names " << node1channel << " | " << node2channel << endl;
+	//	cout << " New channels " << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << endl;
 		count ++;
-		}
 	}
-	cerr << "Found channels for last two nodes/3 " << endl;
-	 // The channel selections are available
+	// The channel selections are available
 	if(!n1.reserveChannel(node1channel)){
+		cout << "Couldn't reserve channel on " << n1.getName() << endl;
 		return false;
 	}
-	if(!n2.reserveChannel(node2channel)){
-		return false;
+	else {
+		cout << "Channel is now reserved " << endl;
+		return true;
 	}
-	if(!n2.reserveChannel(node3channel)){
-		return false;
-	}
-	if(!n3.reserveChannel(node3channel)){
-		return false;
-	}
-	return true;
 }
-
 vector<vector<int>> BaseStation::weightBetweenTwoNodes(Node &node1, Node &node2){ // get the weight of the routes between two nodes	
 	
 	vector<vector<int>> finalweights(10, vector<int>(10)); // 10 by 10 vector 
