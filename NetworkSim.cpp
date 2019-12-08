@@ -29,7 +29,7 @@ void displayAllChannels(Node node){
 }
 
 void populateBaseStations(vector<BaseStation> &basestations, int number_of_nodes){
-	for (size_t i = 0; i < 1; i++) // for testing with just 1 basestation
+	for (size_t i = 0; i < basestations.size(); i++)
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
 		for (size_t n = 0; n < number_of_nodes; n++)
@@ -38,7 +38,7 @@ void populateBaseStations(vector<BaseStation> &basestations, int number_of_nodes
 			Node newnode;
 			newnode.setName(name);
 			assignChannels(newnode,current);
-		//	cout << "Adding a new node " << name << " to " << current.getName() << endl;
+			cout << "Adding a new node " << name << " to " << current.getName() << endl;
 			current.addNode(newnode);	
 			basestations[i] = current;		
 		//	displayAllChannels(newnode);
@@ -75,29 +75,24 @@ bool generateRoute(Node &n1, Node &n2,Node &n3,BaseStation &bs){
 
 int main(){
 
+	
 	//Parse the initial gui text file
 	Receiver receiver;
   
   	receiver.read_data_from_GUI("test-file-receiver.txt");
   	receiver.parse_data();
-
 	
+	cout << "Finished Parsing Data" << endl;
+
+	vector<BaseStation> basestations = receiver.basestations;
 	int basestation_radius = receiver.base_station_radius;
 	int total_basestations = receiver.num_of_base_stations; // Parse number of basestations from file
-	vector<BaseStation> basestations;
-	for (size_t i = 0; i < total_basestations; i++)
-	{
-		char name = 'A' + i; // Generate a new name
-		BaseStation new_basestation(name,basestation_radius);
-		basestations.push_back(new_basestation);	
-	}
 
 	int number_of_nodes = receiver.num_of_nodes;
-	
 	populateBaseStations(basestations,number_of_nodes); // populate the base stations
-	vector<Node> allnodes;
 
-		for (size_t i = 0; i < 1; i++) // for testing with just 1 basestation
+	vector<Node> allnodes;
+		for (size_t i = 0; i < 1; i++)// for testing with just 1 basestation
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
 		allnodes = current.get_Nodes();
