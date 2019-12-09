@@ -265,11 +265,6 @@ void Node::graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path){
         }
     }
 
-
-
-
-
-
 bool Node:: pathCheck(const Node & nextNode, const vector<Node> & path){
     for (auto visited : path){
         if (visited.name == nextNode.name){
@@ -278,3 +273,4 @@ bool Node:: pathCheck(const Node & nextNode, const vector<Node> & path){
     }
     return true;
 }
+

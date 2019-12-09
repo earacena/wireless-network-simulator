@@ -168,8 +168,6 @@ bool BaseStation::createRoute(Node &n1, Node &n2){ // Create a new route between
 	}
 	else {
 		cout << "Both Channels are now reserved " << endl;
-		n1.addRoute(n2,node1channel);
-		n2.addRoute(n1,node2channel);
 		return true;
 	}
 

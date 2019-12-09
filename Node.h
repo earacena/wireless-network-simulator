@@ -77,6 +77,9 @@ public:
 
 	void createRoute(Node othernode); // Create a route to another node
 
+	void getRoute(Node &node); // get the route taken by the node
+
+
 	vector<int> getSortedChannelsByWeights();
 
     void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
