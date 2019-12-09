@@ -14,7 +14,7 @@ Node::Node(){	// default constructor
 	radius = 0;
 }
 
-Node::Node(Pair p, int r){	// 2 arg constructor 
+Node::Node(Pair p, int r){	// 2 arg constructor
 	position = p;
 	radius = r;
 }
@@ -24,7 +24,7 @@ Node::Node(int x, int y, int r){ // 3 arg contructor
 	position.second = y;
 	radius = r;
 }
-Node::Node(string nodename){ 
+Node::Node(string nodename){
 	position.first = 0;
 	position.second = 0;
 	radius = 0;
@@ -34,7 +34,7 @@ Node::Node(string nodename){
 Pair Node::getPosition(){	//returns a Pair of position
 	return position;
 }
-	
+
 void Node::setPosition(Pair pos){	// sets position of node, pair version
 	position = pos;
 }
@@ -43,7 +43,7 @@ void Node::setPosition(int x, int y){			// sets position of node, separate entry
 	position.first = x;
 	position.second = y;
 }
-void Node::setBasestation(string station){ // assigns node to given basestation		
+void Node::setBasestation(string station){ // assigns node to given basestation
 	basestation = station;
 }
 string Node::getBasestation(){ // gets the basestation of current node
@@ -60,34 +60,7 @@ int Node::getRadius(){	// return radius of node
 }
 
 void Node::setRadius(int r){	// set radius of node
-	radius = r; 
-}
-bool Node::inNodeRadius(Node &nodetocheck){ // check if other node is in radius of this one
-	double dist = 0;
-	int currnoderadius = getRadius();
-
-	cout << "Current radius is " << currnoderadius;
-
-	Pair currcoords = getPosition();
-	int currnodexcoord = currcoords.first;
-	int currnodeycoord = currcoords.second;
-
-	Pair othernodecoords = nodetocheck.getPosition();
-	int othernodexcoord = othernodecoords.first;
-	int othernodeycoord = othernodecoords.second;
-
-	dist = sqrt(pow(abs(currnodexcoord - othernodexcoord), 2) + pow(abs(currnodeycoord - othernodeycoord), 2) * 1.0); 
-
-	if(dist <= currnoderadius){
-		cout << "dist " << dist << endl;
-		cout << "Node " << nodetocheck.getName() << " is in node" << getName() << "'s Radius" << endl;
-		return true;
-	}
-	else
-	{
-		cout << "Node " << nodetocheck.getName() << " is not in node" << getName() << "'s Radius" << endl;
-		return false;
-	}
+	radius = r;
 }
 void Node::setChannels(int n,vector<int> &weight){ // set the number of channels and their weights
 	Channels.resize(n);
@@ -106,7 +79,7 @@ void Node::setSource(Node &src, Node &dest){}
 string Node::getSource(){}
 
 bool Node::getBiggerWeight(Pair w1, Pair w2){
-	
+
 	return(w1.second > w2.second);
 
 }
@@ -164,7 +137,7 @@ vector<int> Node::getAllAvailableChannels(){// get all the free channels
 			freechannels.push_back(i); // push back if channel is free
 		}
 	}
-	
+
 	return freechannels;
 }
 int Node::getBestAvailableChannel(){ // get the best currently available channel for current node
@@ -209,7 +182,7 @@ bool Node::reserveChannel(int num){
 		Channels[num].used = true;
 		return true;
 	}
-	
+
 
 }
 
@@ -235,7 +208,7 @@ bool Node::checkChannelStatus(int num){ // check status of a channel
 		return -1;
 	}
 	else
-	{	
+	{
 	//	cout << " Checking status of channel " << num << " | " << "for node" << getName() << endl;
 		return Channels[num].used;
 	}
@@ -257,12 +230,51 @@ vector<int> Node::getSortedChannelsByWeights(){
 	return bestChannelIds;
 }
 
-void Node::addRoute(Node &node, int channel){ // add the route to the list
-	pair<Node,int> nodetoenter;
-	nodetoenter.first = node;
-	nodetoenter.second = channel;
 
-	routes.push_back(nodetoenter); 
-	
+void Node::graphGenerationAlgo(Node startNode, Node endNode){//during the first call of the function
+    vector<Node> path_track;
+    path_track.push_back(startNode);
+    for(auto nodecheck : routes){
+         if (nodecheck.second.name == endNode.name){
+            path_track.push_back(nodecheck.second);
+            fullroutes.push_back(path_track);
+        }
+         else if (nodecheck.first.name == startNode.name){
+                path_track.push_back(nodecheck.second);
+                graphGenerationAlgo(nodecheck.second, endNode, path_track);
+            }
+    }
 }
 
+
+
+
+void Node::graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path){//this is called during all subsequent function calls
+    path.push_back(startNode);
+    for(auto nodecheck : routes){
+        if (nodecheck.second.name == endNode.name){
+            path.push_back(nodecheck.second);
+            fullroutes.push_back(path);
+        }
+        else if (nodecheck.first.name == startNode.name){
+                if (pathCheck(nodecheck.second, path) == true){
+                    path.push_back(nodecheck.second);
+                    graphGenerationAlgo(nodecheck.second, endNode, path);
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+bool Node:: pathCheck(const Node & nextNode, const vector<Node> & path){
+    for (auto visited : path){
+        if (visited.name == nextNode.name){
+            return false;
+        }
+    }
+    return true;
+}
