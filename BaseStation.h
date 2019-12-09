@@ -25,11 +25,8 @@ public:
 
     BaseStation(std::string BSID,int r);
 
-	vector<int> poisson(int numofchannels); // returns a poisson generated random number for number of channels
-  
     std::string getName();
 	
-
 	Pair getPosition();	//returns a Pair of position
 
 	void setPosition(Pair pos);	// returns position of node

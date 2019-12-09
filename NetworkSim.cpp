@@ -10,10 +10,24 @@
 using namespace std;
 
 typedef pair<int,int> Pair;
-void assignChannels(Node &node,BaseStation &bs){
+
+vector<int> poisson(int numofchannels){
+  // construct a trivial random generator engine from a time-based seed:
+  unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+  std::default_random_engine generator (seed);
+
+  std::poisson_distribution<int> distribution (numofchannels);
+
+ // std::cout << "some Poisson-distributed results (mean=numofchannels: ";
+  vector<int> values;
+  for (int i=0; i<numofchannels; ++i){
+	  values.push_back(distribution(generator));
+  }
+  return values;
+}
+void assignChannels(Node &node,BaseStation &bs,vector<int> &values){
 
 	int total_channels = 10; 
-	auto values = bs.poisson(total_channels);
 	//cout << "assigning " << total_channels <<" channels for " << node.getName() << endl;
 	node.setChannels(total_channels,values);
 	node.setBasestation(bs.getName());
@@ -24,15 +38,16 @@ void displayAllChannels(Node node){
 	cout << "All channels for " << node.getName() << " " << endl;
 	for (size_t i = 0; i < allchan.size(); i++)
 	{
-	//	cout << " |Channel: " << i;
-	//	cout << " |Channel Use Status: " << allchan[i];
-	//	cout << " |With weight: " <<node.checkChannelWeight(i);
-	//	cout << endl;
+		cout << " |Channel: " << i;
+		cout << " |Channel Use Status: " << allchan[i];
+		cout << " |With weight: " <<node.checkChannelWeight(i);
+		cout << endl;
 	}
 	cout << endl;
 }
 
-void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,int noderadius){
+void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,int noderadius,int numofchannels){
+	auto values = poisson(numofchannels);
 	for (size_t i = 0; i < basestations.size(); i++)
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
@@ -40,7 +55,7 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,
 		for (size_t n = 0; n < number_of_nodes; n++)
 		{
 			if(current.inBaseStationRadius(nodes[n])){ // current node is in the current basestation radius
-				assignChannels(nodes[n],current);
+				assignChannels(nodes[n],current,values);
 				cout << "Adding a new node " << nodes[n].getName() << " to " << current.getName() << endl;
 				nodes[n].setRadius(noderadius);
 				current.addNode(nodes[n]);	
@@ -97,9 +112,10 @@ int main(){
 
 	int number_of_nodes = receiver.num_of_nodes;
 	int node_radius = receiver.node_radius;
+	int number_of_channels = 10;
 
 	vector<Node> allnodes = receiver.nodes;
-	populateBaseStations(basestations,allnodes,node_radius); // populate the base stations
+	populateBaseStations(basestations,allnodes,node_radius,number_of_channels); // populate the base stations
 	cout << "Finished Populating all basestations" <<endl;
 
 	//go through all requests

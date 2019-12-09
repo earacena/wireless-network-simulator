@@ -112,20 +112,6 @@ void BaseStation::updateNode(Node &node){ // update current node to new node
 		}
 	}
 }
-vector<int> BaseStation::poisson(int numofchannels){
-  // construct a trivial random generator engine from a time-based seed:
-  unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-  std::default_random_engine generator (seed);
-
-  std::poisson_distribution<int> distribution (numofchannels);
-
- // std::cout << "some Poisson-distributed results (mean=numofchannels: ";
-  vector<int> values;
-  for (int i=0; i<numofchannels; ++i){
-	  values.push_back(distribution(generator));
-  }
-  return values;
-}
 int helpCreateRoute(Node &node){ // keep trying next best with no repeats
 	auto channels = node.getSortedChannelsByWeights();
 	
