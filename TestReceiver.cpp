@@ -3,8 +3,9 @@
 int main() {
   Receiver receiver;
   
-  receiver.read_data_from_GUI("test-file-receiver.txt");
-  receiver.parse_data();
+  // no need for next 2 line since Receiver default constructor does both automatically
+  // receiver.read_data_from_GUI("test-file-receiver.txt");
+  // receiver.parse_data();
 
   return 0;
 }
