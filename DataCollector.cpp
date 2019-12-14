@@ -39,8 +39,9 @@ void DataCollector::collect_results(const std::vector<Hop> & path) {
 void DataCollector::export_data() {
   std::ofstream file(filename_);
   if (file.is_open()) {
-    file << num_of_nodes_ << std::endl;
-    file << num_of_samples_ << std::endl;
+    file << "! " << num_of_nodes_ << std::endl;
+    file << "@ 10" << std::endl;
+    file << "^ " << num_of_samples_ << std::endl;
 
     // process hops
     for (int hops : hops_data_) 
@@ -58,4 +59,5 @@ void DataCollector::export_data() {
   } else {
     std::cout << "[Error] Creating file named [" + filename_ + "]..." << std::endl;
   }
+
 }

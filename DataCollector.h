@@ -5,9 +5,9 @@
 //                   class and methods.
 //
 // Data format:
-// # of nodes
-// # of channels
-// # of randomization files
+// ! # of nodes
+// @ # of channels
+// ^ # of randomization files
 // % hops of gen 0 (original)
 // % hops of gen 1
 // % hops of gen 2

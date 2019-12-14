@@ -97,28 +97,49 @@ def parse_incoming_data(filename):
     """
     Read data from specified file and parse into sublists.
     Data Format:
-        Grid size                       |
-        Number of Nodes                 |
-        Number of Stations              |
-        Number of Hops                  | 1
-        Number of Channels              |
-        Number of channel switches      |
-        Number of Hops (avg)            |
-        Number of channel switches (avg)|
-        .                               Seperator
-        ...                             | 2
+        # of nodes
+        # of channels
+        # of randomization samples
+        % hops of gen 0 (original graph)
+        % hops of gen 1 (rand)
+        % hops of gen 2 (rand)
+        ...
+        % hops of gen n (rand)
+        * switches of gen 0 (original)
+        * switches of gen 1 (rand)
+        * switches of gen 2 (rand)
+        ...
+        * switches of gen n (rand)
+        $ channels utilized of gen 0 (original)
+        $ channels utilized of gen 1 (rand)
+        $ channels utilized of gen 2 (rand)
+        ...
+        $ channels utilized of gen n (rand)
+
     """
-    dataset = []
-    subset = []
+    num_of_nodes = 0
+    num_of_channels = 0
+    num_of_samples = 0
+    hops = []
+    switches = []
+    channels_utilized = []
+
     with open(filename) as data:
         for line in data:
-            if line.strip('\n') == ".":
-                dataset.append(subset)
-                subset = []
-            else:
-                subset.append(int(line.strip('\n')))
+            if '!' in line:
+                num_of_nodes = int(line.strip('\n').strip('!').strip(' '))
+            if '@' in line:
+                num_of_channels = int(line.strip('\n').strip('@').strip(' '))
+            if '^' in line:
+                num_of_samples = int(line.strip('\n').strip('^').strip(' '))
+            if '%' in line:
+                hops.append(int(line.strip('\n').strip('%').strip(' ')))
+            if '*' in line:
+                switches.append(int(line.strip('\n').strip('*').strip(' ')))
+            if '%' in line:
+                channels_utilized.append(int(line.strip('\n').strip('$').strip(' ')))
 
-    dataset.append(subset)
+    dataset = [num_of_nodes, num_of_channels, num_of_samples, hops, switches, channels_utilized]
     return dataset
 
 def main():
@@ -130,4 +151,3 @@ def main():
     # Generate plots
     metrics.generate_hops_vs_devices()
     metrics.generate_switches_vs_channels()
-
