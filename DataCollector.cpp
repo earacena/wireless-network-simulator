@@ -8,12 +8,12 @@
 
 DataCollector::DataCollector(const std::string & filename) : filename_(filename) {};
 
-void DataCollector::initialize(int num_of_nodes, int num_of_samples_)
-    : num_of_nodes_(num_of_nodes), num_of_samples_(num_of_samples) {
+void DataCollector::initialize(int num_of_nodes) {
   // Delete previous file of same filename to prevent data being overwritten
+  num_of_nodes_ = num_of_nodes;
 }
 
-void collect_results(const std::vector<Hop> & result) {
+void DataCollector::collect_results(const std::vector<Hop> & path) {
   hops_data_.push_back(path.size());
 
   std::vector<int> channels;
@@ -32,11 +32,11 @@ void collect_results(const std::vector<Hop> & result) {
   }
   switches = channels.size() - 1;
 
-  switches_data.push_back(switches);
+  switches_data_.push_back(switches);
   channels_utilized_data_.push_back(utilized);
 }
 
-void export_data() {
+void DataCollector::export_data() {
   std::ofstream file(filename_);
   if (file.is_open()) {
     file << num_of_nodes_ << std::endl;

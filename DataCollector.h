@@ -27,6 +27,7 @@
 #ifndef DATACOLLECTOR_HPP
 #define DATACOLLECTOR_HPP
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <utility>
@@ -42,10 +43,10 @@ class DataCollector {
 public:
 
   DataCollector(const std::string & filename);
-  void initialize(int num_of_nodes, int num_of_samples_);
+  void initialize(int num_of_nodes);
 
   /* Data collection */
-  void collect_results(const std::vector<std::vector<Hop>> & results);
+  void collect_results(const std::vector<Hop> & path);
 
   // Write all collected data to file.
   void export_data();
@@ -53,7 +54,7 @@ public:
 private:
   std::string filename_;
 
-  int num_of_samples_;
+  const int num_of_samples_ = 5;
   // Simulator graph parameters
   // Must be reset every scale up
   int num_of_nodes_;
