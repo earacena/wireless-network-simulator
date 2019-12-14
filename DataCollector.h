@@ -4,13 +4,38 @@
 // File Description: This file contains the interface for the DataCollector 
 //                   class and methods.
 //
+// Data format:
+// ! # of nodes
+// @ # of channels
+// ^ # of randomization files
+// % hops of gen 0 (original)
+// % hops of gen 1
+// % hops of gen 2
+// % hops of gen 3
+// ...
+// %hops of gen n
+// * switches of gen 0 (original)
+// * switches of gen 1 
+// * switches of gen 2 
+// ...
+// * switches of gen n
+// $ channels utilized of gen 0 (original)
+// $ channels utilized of gen 1
+// ...
+// $ channels utilized of gen n
 
 #ifndef DATACOLLECTOR_HPP
 #define DATACOLLECTOR_HPP
 
+#include <iostream>
 #include <string>
-#include <pair>
+#include <vector>
+#include <utility>
+#include <algorithm>
 #include <fstream>
+#include <tuple>
+
+typedef std::tuple<std::string, int, std::string> Hop;
 
 // DataCollector will record important performance metrics during simulation
 // that will be used to generate graphs and visualizations.
@@ -18,22 +43,10 @@ class DataCollector {
 public:
 
   DataCollector(const std::string & filename);
-  void initialize(int grid_size, int num_of_channels, int num_of_devices,
-                  const std::vector<std::pair<int, int> > & node_pos,
-                  const std::vector<std::pair<int, int> > & station_pos);
+  void initialize(int num_of_nodes);
 
   /* Data collection */
-  // Store computed path as a Path object in a vector.
-  // post: Path object is stored in DataCollector.nodePaths.
-  // void storePath();
-
-  // After finishing a path computation, update the vector containing hops across
-  // n transmissions by recording the value.
-  void update_hops_for_session(int hops);
-
-  // After finishing a path computation, update the vector containing channel switches
-  // across n transmissions by recording the value.
-  void update_switches_for_session(int switches);
+  void collect_results(const std::vector<Hop> & path);
 
   // Write all collected data to file.
   void export_data();
@@ -41,18 +54,13 @@ public:
 private:
   std::string filename_;
 
-  // Simulator session parameters
-  int grid_size_;
-  int num_of_channels_;
-  int num_of_devices_;
-
-  // Performance metrics
-  std::vector<int> num_of_hops_;
-  int num_of_channel_switches_;
-
-  // Fill these directly from Receiver class.
-  std::vector<std::pair<int, int> > node_positions;
-  std::vector<std::pair<int, int> > station_positions;
+  const int num_of_samples_ = 5;
+  // Simulator graph parameters
+  // Must be reset every scale up
+  int num_of_nodes_;
+  std::vector<int> hops_data_;
+  std::vector<int> switches_data_;
+  std::vector<int> channels_utilized_data_;
 };
 
 #endif // DATACOLLECTOR_HPP

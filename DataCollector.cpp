@@ -6,50 +6,58 @@
 
 #include "DataCollector.h"
 
-DataCollector::DataCollector(const std::string & filename) { filename_ = filename; }
+DataCollector::DataCollector(const std::string & filename) : filename_(filename) {};
 
-void DataCollector::initialize(int grid_size, int num_of_channels,
-                               int num_of_devices, 
-                               const std::vector<std::pair<int, int> > & node_pos,
-                               const std::vector<std::pair<int, int> > & station_pos) {
-  grid_size_ = grid_size;
-  num_of_channels_ = num_of_channels;
-  num_of_devices_ = num_of_devices;
-  node_positions = node_pos;
-  station_positions = station_pos;
+void DataCollector::initialize(int num_of_nodes) {
+  // Delete previous file of same filename to prevent data being overwritten
+  num_of_nodes_ = num_of_nodes;
 }
- 
-// void storePath() { }
 
-void update_hops_for_session(int hops) { num_of_hops_.push_back(hops); }
+void DataCollector::collect_results(const std::vector<Hop> & path) {
+  hops_data_.push_back(path.size());
 
-void update_switches_for_session(int switches) { num_of_switches.push_back(switches); }
+  std::vector<int> channels;
+  int switches = 0;
+  int utilized = 0;
+  for (const Hop & hop : path) {
+    if (std::find(channels.begin(), channels.end(), std::get<1>(hop)) == channels.end())
+      channels.push_back(std::get<1>(hop));
+  }
+  utilized = channels.size();
+  channels.clear();
+  for (const Hop & hop : path) {
+    if (std::find(channels.begin(), channels.end(), std::get<1>(hop)) == channels.end()) {
+      channels.push_back(std::get<1>(hop)); 
+    }
+  }
+  switches = channels.size() - 1;
 
-void export_data() {
+  switches_data_.push_back(switches);
+  channels_utilized_data_.push_back(utilized);
+}
+
+void DataCollector::export_data() {
   std::ofstream file(filename_);
-  // Simulator parameters
-  file << "[parameters]\n"
-  file << grid_size_ << "\n";
-  file << num_of_devices_ << "\n";
-  file << num_of_channels_ << "\n";
+  if (file.is_open()) {
+    file << "! " << num_of_nodes_ << std::endl;
+    file << "@ 10" << std::endl;
+    file << "^ " << num_of_samples_ << std::endl;
 
-  // Node positions
-  file << "[nodes]\n";
-  for (std::pair<int, int> & position : nodes_positions) 
-    file << position.first << " " << position.second << "\n";
+    // process hops
+    for (int hops : hops_data_) 
+      file << "% " << hops << std::endl;
+      
+    // process switches
+    for (int switches : switches_data_) 
+      file << "* " << switches << std::endl;
+    
+    // process channels utilized
+    for (int utilized : channels_utilized_data_) 
+      file << "$ " << utilized << std::endl; 
+    
+    file.close();
+  } else {
+    std::cout << "[Error] Creating file named [" + filename_ + "]..." << std::endl;
+  }
 
-  // Station positions
-  file << "[stations]\n";
-  for (std::pair<int, int> & position: station_positions)
-    file << position.first << " " << position.second << "\n";
-
-  // Performance metrics
-  file << "[performance]\n";
-  file << "[hops]\n";
-  for (int value : num_of_hop_)
-    file << value << "\n";
-
-  file << "[switches]\n";
-  for(int value: num_of_channel_switches) 
-    file << value << "\n";
 }

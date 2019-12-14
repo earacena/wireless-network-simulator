@@ -2,11 +2,33 @@
 // File: Receiver.cpp
 // File Description: This file contains the implementations for the Receiver class. 
 
+// Changes by AL:
+// 12/13/19 
+// - read_data_from_GUI now has 2 arguments: file_name (name of file) and vector<string>(where each line from file gets stored as string) 
+// - default allocator now opens and parses those files automatically
+
 #include "Receiver.h"
 
-Receiver::Receiver() {  }
+Receiver::Receiver() {
+  // reads all data from all 6 files
+  read_data_from_GUI("data.txt", read_data);
+  read_data_from_GUI("data1.txt", read_data1);
+  read_data_from_GUI("data1B.txt", read_data1B);
+  read_data_from_GUI("data2.txt", read_data2);
+  read_data_from_GUI("data2B.txt", read_data2B);
+  read_data_from_GUI("data3B.txt", read_data3B);
 
-void Receiver::read_data_from_GUI(const std::string & filename) {
+  // output all data from all 6 files
+  parse_data(read_data);
+  parse_data(read_data1);
+  parse_data(read_data1B);
+  parse_data(read_data2);
+  parse_data(read_data2B);
+  parse_data(read_data3B);
+  
+}
+
+void Receiver::read_data_from_GUI(const std::string & filename, std::vector<std::string> &file_data) {
   std::ifstream file(filename);
   if (file.is_open()) {
     std::string line;
@@ -18,9 +40,10 @@ void Receiver::read_data_from_GUI(const std::string & filename) {
   }
 }
 
-void Receiver::parse_data() {
+void Receiver::parse_data(const std::vector<std::string> &data_name) {
     std::string token;
-    for(std::string line : file_data_) {
+
+    for(std::string line : data_name) {  
         token = line.substr(0, line.find(' '));
         if (token == "GD") {
           line.erase(0, line.find(' ') + 1);
