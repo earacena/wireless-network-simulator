@@ -65,15 +65,24 @@ public:
 
 	int getBestAvailableChannel(); // get the best currently available channel for current node
 
-	int getBestAvailableChannel(int channeltoskip); // get the best currently available channel thats not the parameter
+	int getBestAvailableChannel(vector<int> channelstoskip); // get the best currently available channel thats not the parameter
 
 	bool reserveChannel(int channel);// reserve a channel
 
 	void releaseChannel(int channel); // release a channel
 
-	bool checkChannelStatus(int channel); // check status of a channel
+	bool checkChannelStatus(int channel); // chec  k status of a channel
 
 	int checkChannelWeight(int channel);// check weight of a channel
+
+	int getChannelName(); // get the name of the channel
+	int getSendingChannel(); // get the sending channel used by the node
+	
+	void setSendingChannel(int channel); // set the channel the node is currently transmitting on
+	
+	int getListeningChannel();// get the listening channel used by the node
+
+	void setListeningChannel(int channel); // set the channel the node is currently receieving on
 
 	void createRoute(Node othernode); // Create a route to another node
 
@@ -82,6 +91,11 @@ public:
 	void nodesInRange(Node & initialNode, vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
 	vector<int> getSortedChannelsByWeights();
+
+	int helpCreateRoute(); // keep trying next best with no repeats
+	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
+	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
+	bool createRoute(); // Create a new route for a node
 
     void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
 
@@ -93,6 +107,10 @@ private:
 	string name;
 	string dest;
 	string source;
+
+	int sendingchannel;
+	int listeningchannel;
+
 
 	vector<int> bestChannelIds;
     void graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path);//overloaded for use within the graphGenerationAlgo function

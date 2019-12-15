@@ -54,8 +54,6 @@ public:
 	vector<vector<int>> weightBetweenTwoNodes(Node &node1, Node &node2); // get the weight of the routes between two nodes
 
 	vector<int> allChannelWeights(Node &node1);
-	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
-	bool createRoute(Node &node1); // Create a new route for a node
 
 private:
     std::string name;

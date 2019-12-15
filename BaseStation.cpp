@@ -112,95 +112,10 @@ void BaseStation::updateNode(Node &node){ // update current node to new node
 		}
 	}
 }
-int helpCreateRoute(Node &node){ // keep trying next best with no repeats
-	auto channels = node.getSortedChannelsByWeights();
-	
-	vector<int> tries;
-	int channel = 0;
-	bool used = false;
-	for (size_t i = 0; i < channels.size(); i++)
-	{
-	//
-		cout << "is channel " << channels[i] << " used " << used << endl;		
-		if(!used){
-				used = node.checkChannelStatus(channels[i]);	
-				channel = channels[i];
-				used = true;
-		//		cout << "current status of chan " << channel << " " << used << endl;
-				break;
-		}
-	}
-//	cout << "Found a channel for the current node "<< node.getName() << " channel " << channel << endl;
-	return channel;
-}
 
-bool BaseStation::createRoute(Node &n1, Node &n2){ // Create a new route between two nodes
-	int node1channel = -1;
-	int node2channel = -1;
-
-	auto wn1 = n1.getSortedChannelsByWeights();
-	auto wn2 = n2.getSortedChannelsByWeights();
-
-	//Get the best channel 
-//	cout << "Looking for best channel for nodes " << n1.getName() << " & " << n2.getName() << endl;
-	node1channel = helpCreateRoute(n1);
-	node2channel = node1channel;
-	//cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | using the same channel for " << n2.getName() << " which is " << node2channel << '\n';
-	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
-	int count = 0;
-	while (n1.checkChannelStatus(node1channel) == 1 || n2.checkChannelStatus(node2channel) == 1)
-	{	
-		cout << " The requested channel is not available for both nodes trying again " << endl;
-		node1channel = wn1[count];
-		node2channel = node1channel;
-	//	cout << "New channel names " << node1channel << " | " << node2channel << endl;
-	//	cout << " New channels " << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << endl;
-		count ++;
-	}
-	// The channel selections are available
-	if(!n1.reserveChannel(node1channel)){
-		cout << "Couldn't reserve channel on " << n1.getName() << endl;
-		return false;
-	}
-	if(!n2.reserveChannel(node1channel)){
-		cout << "Couldn't reserve channel on " << n2.getName() << endl;
-		return false;
-	}
-	else {
-		cout << "Both Channels are now reserved " << endl;
-		return true;
-	}
-
-}
-bool BaseStation::createRoute(Node &n1){ // Create a new route between three nodes
-	int node1channel = -1;
-
-	auto wn1 = n1.getSortedChannelsByWeights();
-
-	//Get the best channel 
-//	cout << "Looking for best channel for nodes " << n1.getName() << " & " << n2.getName() << endl;
-	node1channel = helpCreateRoute(n1);
-	//cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | using the same channel for " << n2.getName() << " which is " << node2channel << '\n';
-	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
-	int count = 0;
-	while (n1.checkChannelStatus(node1channel) == 1)
-	{	
-		cout << " The requested channel is not available for the node trying again " << endl;
-		node1channel = wn1[count];
-	//	cout << "New channel names " << node1channel << " | " << node2channel << endl;
-	//	cout << " New channels " << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << endl;
-		count ++;
-	}
-	// The channel selections are available
-	if(!n1.reserveChannel(node1channel)){
-		cout << "Couldn't reserve channel on " << n1.getName() << endl;
-		return false;
-	}
-	else {
-		cout << "Channel is now reserved " << endl;
-		return true;
-	}
-}
+//	Co-channel 			interference --- Implemented
+//	Adj Channel 		interference --- 
+// 	Exposed terminal 	problem		 --- 
 vector<vector<int>> BaseStation::weightBetweenTwoNodes(Node &node1, Node &node2){ // get the weight of the routes between two nodes	
 	
 	vector<vector<int>> finalweights(10, vector<int>(10)); // 10 by 10 vector 

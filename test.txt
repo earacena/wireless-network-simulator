@@ -57,72 +57,72 @@ Finished Parsing Data
 Node 0 is in BS A's Radius
 Adding a new node 0 to A
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Node 1 is in BS A's Radius
 Adding a new node 1 to A
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Node 2 is in BS A's Radius
 Adding a new node 2 to A
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Node 3 is in BS A's Radius
 Adding a new node 3 to A
 All channels for 3 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Node 4 is in BS A's Radius
 Adding a new node 4 to A
 All channels for 4 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Node 5 is not in BS A's Radius
 Node 0 is not in BS B's Radius
@@ -133,180 +133,178 @@ Node 4 is not in BS B's Radius
 Node 5 is in BS B's Radius
 Adding a new node 5 to B
 All channels for 5 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Finished Populating all basestations
 Total number of requests are5
 Source and Dest Basestation is A
-is channel 8 used 0
- Reserving the requested channel 8 for node 0
- Reserving the requested channel 8 for node 1
+is channel 2 used 0
+Found the best channel for the current node 0 channel 2
+ Reserving the requested channel 2 for node 0
+ Reserving the requested channel 2 for node 1
 Both Channels are now reserved 
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Source and Dest Basestation is A
-is channel 8 used 0
- The requested channel is not available for both nodes trying again 
- The requested channel is not available for both nodes trying again 
- Reserving the requested channel 3 for node 0
- Reserving the requested channel 3 for node 2
+is channel 2 used 0
+Found the best channel for the current node 0 channel 7
+ Reserving the requested channel 7 for node 0
+ Reserving the requested channel 7 for node 2
 Both Channels are now reserved 
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 1 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 1 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 1 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 1 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Source and Dest Basestation is A
-is channel 8 used 0
- The requested channel is not available for both nodes trying again 
- The requested channel is not available for both nodes trying again 
- The requested channel is not available for both nodes trying again 
- Reserving the requested channel 1 for node 0
- Reserving the requested channel 1 for node 3
+is channel 2 used 0
+Found the best channel for the current node 0 channel 5
+ Reserving the requested channel 5 for node 0
+ Reserving the requested channel 5 for node 3
 Both Channels are now reserved 
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 1 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 1 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 1 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 All channels for 3 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 1 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Source and Dest Basestation is A
-is channel 8 used 0
+is channel 2 used 0
+Found the best channel for the current node 1 channel 7
  The requested channel is not available for both nodes trying again 
  The requested channel is not available for both nodes trying again 
  The requested channel is not available for both nodes trying again 
- Reserving the requested channel 1 for node 1
- Reserving the requested channel 1 for node 2
+ Reserving the requested channel 5 for node 1
+ Reserving the requested channel 5 for node 2
 Both Channels are now reserved 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 1 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 1 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 1 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 1 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Source Basestation is A
 Dest Basestation is B
 Generating a route between two basestations 
-is channel 8 used 0
- The requested channel is not available for the node trying again 
- The requested channel is not available for the node trying again 
- Reserving the requested channel 3 for node 1
+is channel 2 used 0
+Found the best channel for the current node 1 channel 7
+ Reserving the requested channel 7 for node 1
 Channel is now reserved 
-is channel 8 used 0
- Reserving the requested channel 8 for node 5
+is channel 2 used 0
+Found the best channel for the current node 5 channel 2
+ Reserving the requested channel 2 for node 5
 Channel is now reserved 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 1 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 1 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 1 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 All channels for 5 
- |Channel: 0 |Channel Use Status: 0 |With weight: 8
- |Channel: 1 |Channel Use Status: 0 |With weight: 14
- |Channel: 2 |Channel Use Status: 0 |With weight: 11
- |Channel: 3 |Channel Use Status: 0 |With weight: 14
- |Channel: 4 |Channel Use Status: 0 |With weight: 12
- |Channel: 5 |Channel Use Status: 0 |With weight: 5
- |Channel: 6 |Channel Use Status: 0 |With weight: 11
- |Channel: 7 |Channel Use Status: 0 |With weight: 10
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 9
+ |Channel: 1 |Channel Use Status: 0 |With weight: 5
+ |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 9
+ |Channel: 9 |Channel Use Status: 0 |With weight: 5
 
 Finshed Dealing with all requests
-Displaying all weights for bs A
 0 channel weights are: 
 1 channel weights are: 
 Getting all weights for 0 and 1
@@ -319,6 +317,5 @@ Getting all weights for 2 and 3
 3 channel weights are: 
 4 channel weights are: 
 Getting all weights for 3 and 4
-Displaying all weights for bs B
 5
 5 channel weights are: 

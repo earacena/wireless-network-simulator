@@ -6,6 +6,7 @@
 #include "Node.h"
 #include "BaseStation.h"
 #include "Receiver.h"
+#include "Sender.h"
 
 using namespace std;
 
@@ -67,7 +68,8 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,
 }
 bool generateRoute(Node &n1,BaseStation &bs){
 //	cout << "Route for " << bs.getName() << " with nodes " << n1.getName() << endl;
-	bool valid = bs.createRoute(n1);
+	bool valid = n1.createRoute();
+	bs.updateNode(n1);
 	if(!valid){
 		cout << "No route possible, implement logic later -_-" << endl;
 		return false;
@@ -78,27 +80,13 @@ bool generateRoute(Node &n1,BaseStation &bs){
 	}
 	
 }
-
-bool generateRoute(Node &n1, Node &n2,BaseStation &bs){
-//	cout << "Route for " << bs.getName() << " with nodes " << n1.getName() << " & " << n2.getName() << endl;
-	bool valid = bs.createRoute(n1,n2);
-	if(!valid){
-		cout << "No route possible, implement logic later -_-" << endl;
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-	
-}
-
 void export_data();
 
 int main(){
 
 	
-	//Parse the initial gui text file
+	//Parse the initial gui text file and initialize all basestations and nodes
+
 	Receiver receiver;
   
   	receiver.read_data_from_GUI("test-file-receiver.txt");
@@ -129,7 +117,23 @@ int main(){
 		string curReqDestId = requests.at(r).second;
 	//	cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
 
-		vector<Node> nodes;	 
+		/*
+		vector<Node> NodesinPath = srcnode.getPath();
+		int totalnodes = NodesinPath.size();
+		Node srcnode = NodesinPath[0]
+		Node destnode = NodesinPath[totalnodes-1]
+
+		if(totalnodes = 2)
+
+		else
+
+		
+
+		skip to line 181
+		**/
+		vector<Node> basestationnodes;	 
+
+
 		Node srcnode;
 		Node destnode;
 
@@ -138,29 +142,33 @@ int main(){
 			allnodes = current.get_Nodes();
 			int max = allnodes.size();
 		//	cout << "currently at " << current.getName() << endl;
-			for (size_t n = 0; n < allnodes.size(); n++)
+			for (size_t n = 0; n < max; n++)
 			{
-				if(	allnodes[n].getBasestation() == current.getName()){ // Found only nodes belonging to bs needed
+				if(	allnodes[n].getBasestation() == current.getName()){ // Found only nodes belonging to bs needed. Now in correct basestation
 					if(allnodes[n].getName() == curReqSrcId || allnodes[n].getName() == curReqDestId){ //Found src and dest nodes in bs
 					//	cout << "Found a node " << endl;
-						nodes.push_back(allnodes[n]);	
+						basestationnodes.push_back(allnodes[n]);	
 					}
 				}
 			}
 		}
 		// At this point should have found both nodes needed
-		for (size_t m = 0; m < nodes.size(); m++)
+
+		// Assign srcnode and destnode
+		for (size_t m = 0; m < basestationnodes.size(); m++)
 		{
-			if(nodes.at(m).getName() == curReqSrcId){
-				srcnode = nodes.at(m);
+			if(basestationnodes.at(m).getName() == curReqSrcId){
+				srcnode = basestationnodes.at(m);
 			}
-			if(nodes.at(m).getName() == curReqDestId){
-				destnode = nodes.at(m);
+			if(basestationnodes.at(m).getName() == curReqDestId){
+				destnode = basestationnodes.at(m);
 			}			
 		}
 		
 		string srcbs = srcnode.getBasestation();
 		string destbs = destnode.getBasestation();
+
+
 
 		bool routeGenerated = false;
 		bool routeGeneratedOtherBS = false;
@@ -171,7 +179,7 @@ int main(){
 			if(!routeGenerated && current.getName() == srcbs && current.getName() == destbs ){
 				cout << "Source and Dest Basestation is " << current.getName() <<endl;
 				//if(srcnode.inNodeRadius(destnode)){
-					routeGenerated = generateRoute(srcnode,destnode,current);
+					routeGenerated = generateRoute(srcnode,current);
 
 					allnodes = current.get_Nodes();		
 					// update nodes and basestations
@@ -186,41 +194,7 @@ int main(){
 							current.updateNode(destnodetoupd);
 						}
 					}
-					basestations[i] = current;
-				//}
-				// else // might need to be a while loop to keep going till it runs out
-				// {
-				// 	cout << "The source and destination are currently not in the same radius " << endl;
-				// 	//Need a list of all nodes in range of this node to choose from
-				// 	vector<Node> nodesinrange;
-				// 	vector<Node> nodesused;
-				// 	allnodes = current.get_Nodes();
-				// 	for (size_t i = 0; i < allnodes.size(); i++)
-				// 	{
-				// 		if(allnodes[i].getName() != srcnode.getName() && srcnode.inNodeRadius(allnodes[i])){
-				// 			cout << "Found another node to hop to " << allnodes[i].getName() << endl;
-				// 			nodesinrange.push_back(allnodes[i]);							
-				// 		}
-				// 	}
-				// 	// This is where the graph generation choices come into play
-				// 	// Current non smart way below
-				// 	for (size_t i = 0; i < nodesinrange.size(); i++)
-				// 	{
-				// 		Node nextNode = nodesinrange[i];
-				// 		if(srcnode.inNodeRadius(nextNode)){
-							
-				// 		}
-				// 		else
-				// 		{
-				// 			nodesused.push_back(nextNode);
-				// 		}
-						
-				// 	}
-
-
-
-				// }
-				
+					basestations[i] = current;			
 			}	
 			// If the destination is not in current basestation
 			else if(current.getName() == srcbs && current.getName() != destbs){
@@ -259,11 +233,14 @@ int main(){
 		displayAllChannels(srcnode);
 		displayAllChannels(destnode);
 	}
-		cout << "Finshed Dealing with all requests" << endl;	
 
+	cout << "Finshed Dealing with all requests" << endl;	
+
+
+	// Display all channels and all weights
 	 for (size_t i = 0; i < basestations.size(); i++)
 	 {
-		cout << "Displaying all weights for bs " << basestations[i].getName() << endl;
+	//	cout << "Displaying all weights for bs " << basestations[i].getName() << endl;
 		auto allnodes = basestations[i].get_Nodes();
 		int max = allnodes.size();
 		if(max == 1){
@@ -279,5 +256,10 @@ int main(){
 
 		}
 	 }
+
+
+	//Being outputting results to Sender
+	typedef std::tuple<std::string, int, std::string> Hop;
+    std::vector< std::vector<Hop> > Path;
 
 }
