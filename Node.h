@@ -79,6 +79,7 @@ public:
 
 	void getRoute(Node &node); // get the route taken by the node
 
+	void nodesInRange(Node & initialNode, vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
 	vector<int> getSortedChannelsByWeights();
 
@@ -102,7 +103,7 @@ private:
 		int weight; // weight of the channel
 		int id; // id of the current channel
 	};
-
+    vector<pair<Node,Node>> adjlist;//adjacency list
 	vector<Channel> Channels; // Vector of the number of channels for each node
 	vector<pair<Node,Node>> routes; // Vector that contains the current routes through node
 	vector<vector<Node>> fullroutes;//passes back a list of all the routes from the start to the destination

@@ -264,7 +264,26 @@ void Node::graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path){
         }
     }
 
-
+void Node::nodesInRange(Node & initialNode, vector<Node> & allNodes){
+    for (auto & theNode : allNodes){
+        if (initialNode.name != theNode.name){
+            int distance = distanceFormula(initialNode.position.first, initialNode.position.second, theNode.position.first, theNode.position.second);
+            if (distance <= initialNode.radius){
+                //vector<Node> replaceVec;
+                pair<Node,Node> inrange(initialNode, theNode);
+                initialNode.adjlist.push_back(inrange);
+                //replaceVec.push_back
+            }
+        }
+    }
+       /* for (auto & subNodes : initialNode.adjlist){
+                cout<<"the intit node "<<initialNode.name<<'\n';
+                cout<<"the sub node " <<subNodes.second.name<<'\n';
+            if(subNodes.second.adjlist.empty()){
+                nodesInRange(subNodes.second, allNodes);
+            }
+        }*/
+}
 
 
 
