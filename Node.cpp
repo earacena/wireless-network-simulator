@@ -30,6 +30,9 @@ Node::Node(string nodename){
 	radius = 0;
 	name = nodename;
 }
+Node& Node::returnNode(){
+	return *this;
+}
 
 Pair Node::getPosition(){	//returns a Pair of position
 	return position;
@@ -117,7 +120,7 @@ vector<int> Node::getChannelWeights(){// get the channel weights for current nod
 	vector<int> currentChannelsWeights;
 	cout << getName() << " channel weights are: " << endl;
 	for(int i = 0; i < Channels.size(); i++){
-		//cout << "Weight for Channel " << i << " is " << Channels[i].weight << " " << endl;
+		cout << "Weight for Channel " << i << " is " << Channels[i].weight << " " << endl;
 		currentChannelsWeights.push_back(Channels[i].weight);
 	}
 	return currentChannelsWeights;
@@ -291,14 +294,15 @@ bool Node::createRoute(){ // Create a new route between three nodes
 	auto allnodesinpath = fullroutes;
 
 	if (fullroutes.size() == 2){ // Only two nodes
+		cout << "Only two total nodes in path detected " << endl;
 		int node1channel = -1;
 		int node2channel = -1;
 
 		//Get the first and only two nodes 
-		Node srcnode = fullroutes.at(0).at(0);
-		Node destnode = fullroutes.at(0).at(1);
+		cout << fullroutes.size() << "all routes size" << endl;
+		Node destnode = fullroutes.at(0).at(fullroutes.size()-1);
 
-		auto wn1 = srcnode.SortedWeightsByBest(); // Node 1
+		auto wn1 = SortedWeightsByBest(); // Node 1
 		auto wn2 = destnode.SortedWeightsByBest(); // Node 2
 
 		//Get the best channel 
@@ -311,7 +315,7 @@ bool Node::createRoute(){ // Create a new route between three nodes
 		// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
 
 		int count = 0;
-		while (srcnode.checkChannelStatus(node1channel) == 1 || destnode.checkChannelStatus(node2channel) == 1)
+		while (checkChannelStatus(node1channel) == 1 || destnode.checkChannelStatus(node2channel) == 1)
 		{	
 			cout << " The requested channel is not available for both nodes trying again " << endl;
 			node1channel = wn1[count];
@@ -323,34 +327,36 @@ bool Node::createRoute(){ // Create a new route between three nodes
 			count ++;
 		}
 		// The channel selections are available
-		if(!srcnode.reserveChannel(node1channel)){
-			cout << "Couldn't reserve channel on " << srcnode.getName() << endl;
+		if(!this->reserveChannel(node1channel)){
+			cout << "Couldn't reserve channel on " << getName() << endl;
 			return false;
 		}
 		if(!destnode.reserveChannel(node1channel)){
-			cout << "Couldn't reserve channel on " << srcnode.getName() << endl;
+			cout << "Couldn't reserve channel on " << getName() << endl;
 			return false;
 		}
 		else {
 			cout << "Both Channels are now reserved " << endl;
+			fullroutes.at(0).at(fullroutes.size()-1) = destnode;
 			return true;
 		}
 
 	}		
 	else // at least 3 nodes
 	{
-		for (size_t i = 0; i < fullroutes.size()-2; i+2)
+		cout << "3 + total nodes in path detected " << endl;
+		for (size_t i = 0; i <= fullroutes.size()-2; i+2)
 		{
 			int node1channel = -1;
 			int node2channel = -1;
 			int node3channel = -1;
 		
-				//Get the first and only two nodes 
-			Node n1 = fullroutes.at(0).at(0);
-			Node n2 = fullroutes.at(0).at(1);
-			Node n3 = fullroutes.at(0).at(2);
+			//Get the first three nodes 
+			cout << fullroutes.size() << " all routes size" << endl;
+			Node n2 = fullroutes.at(0).at(i+1);
+			Node n3 = fullroutes.at(0).at(i+2);
 
-			auto wn1 = n1.SortedWeightsByBest(); // Node 1
+			auto wn1 = SortedWeightsByBest(); // Node 1
 			auto wn2 = n2.SortedWeightsByBest(); // Node 2
 			auto wn3 = n3.SortedWeightsByBest(); // Node 2
 
@@ -368,7 +374,7 @@ bool Node::createRoute(){ // Create a new route between three nodes
 			//cerr << "Checking that status of all three chosen channels "  << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << " | " << n2.checkChannelStatus(node3channel) << " | " << n3.checkChannelStatus(node3channel) << " " << endl;
 
  			int count = 0;
- 			while (n1.checkChannelStatus(node1channel) == 1 || n2.checkChannelStatus(node2channel) == 1 && count < wn1.size()-1) // Channel is not avail for n1 or n2
+ 			while (checkChannelStatus(node1channel) == 1 || n2.checkChannelStatus(node2channel) == 1 && count < wn1.size()-1) // Channel is not avail for n1 or n2
 			{	
 				if(count > wn1.size()-1){
 					cout << "Couldn't find a channel " << endl;
@@ -402,8 +408,8 @@ bool Node::createRoute(){ // Create a new route between three nodes
 			}
 			cerr << "Found channels for last two nodes/3 " << endl;
 	 		// The channel selections are available
-	 		if(!n1.reserveChannel(node1channel)){
-				cout << "Couldn't reserve channel on " << n1.getName() << endl;
+	 		if(!this->reserveChannel(node1channel)){
+				cout << "Couldn't reserve channel on " << getName() << endl;
 			return false;
 			}
 			if(!n2.reserveChannel(node2channel)){
@@ -416,13 +422,30 @@ bool Node::createRoute(){ // Create a new route between three nodes
 				return false;
 			}
 			else {
-				cout << "Channel is now reserved " << endl;
+				cout << "Channels are  now reserved " << endl;
+				fullroutes.at(0).at(i) = returnNode();
+				fullroutes.at(0).at(i+1) = n2;
+				fullroutes.at(0).at(i+2) = n3;
 				return true;
 			}
 
 		}
 	}
 }
+
+vector<vector<Node>> Node::getRoutes(){ // get the routes taken by the node
+	return fullroutes;
+}
+
+void Node::testRouteGen(Node &n1, Node &n2, Node &n3){ // Test Function
+    vector<Node> path_track;
+    path_track.push_back(n1);
+	path_track.push_back(n2);
+	path_track.push_back(n3);
+
+    n1.fullroutes.push_back(path_track);
+}
+
 
 void Node::graphGenerationAlgo(Node startNode, Node endNode){//during the first call of the function
     vector<Node> path_track;
@@ -456,15 +479,15 @@ void Node::graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path){
 
 void Node::nodesInRange(Node & initialNode, vector<Node> & allNodes){
     for (auto & theNode : allNodes){
-        if (initialNode.name != theNode.name){
-            int distance = distanceFormula(initialNode.position.first, initialNode.position.second, theNode.position.first, theNode.position.second);
-            if (distance <= initialNode.radius){
-                vector<Node> replaceVec;
-            	pair<Node,Node> inrange(initialNode, theNode);
-                initialNode.adjlist.push_back(inrange);
-                replaceVec.push_back
-            }
-        }
+      //  if (initialNode.name != theNode.name){
+        //    int distance = distanceFormula(initialNode.position.first, initialNode.position.second, theNode.position.first, theNode.position.second);
+        //    if (distance <= initialNode.radius){
+        //        vector<Node> replaceVec;
+        //    	pair<Node,Node> inrange(initialNode, theNode);
+        //        initialNode.adjlist.push_back(inrange);
+        //        replaceVec.push_back
+        //    }
+        //}
     }
        /* for (auto & subNodes : initialNode.adjlist){
                 cout<<"the intit node "<<initialNode.name<<'\n';

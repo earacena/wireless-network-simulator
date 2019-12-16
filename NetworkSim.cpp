@@ -26,6 +26,23 @@ vector<int> poisson(int numofchannels){
   }
   return values;
 }
+Node findNodeInBasestation(Node &nodetofind,vector<BaseStation> &basestations){
+		cout << "Looking for a node in the basestation " << endl;
+		for (size_t i = 0; i < basestations.size(); i++)
+		{
+			BaseStation current = basestations[i]; 
+			auto allnodes = current.get_Nodes();
+			cerr << "test3 " << current.getName() << " || " << nodetofind.getName() << endl;	
+			for (size_t i = 0; i < allnodes.size(); i++)
+			{
+				if(allnodes.at(i).getName() == nodetofind.getName()){
+					cerr << "test4" << endl;
+					return allnodes.at(i);
+				}
+			}
+		}		
+
+}
 void assignChannels(Node &node,BaseStation &bs,vector<int> &values){
 
 	int total_channels = 10; 
@@ -115,85 +132,80 @@ int main(){
 
 		string curReqSrcId = requests.at(r).first;
 		string curReqDestId = requests.at(r).second;
-	//	cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
-
-		/*
-		vector<Node> NodesinPath = srcnode.getPath();
-		int totalnodes = NodesinPath.size();
-		Node srcnode = NodesinPath[0]
-		Node destnode = NodesinPath[totalnodes-1]
-
-		if(totalnodes = 2)
-
-		else
-
-		
-
-		skip to line 181
-		**/
-		vector<Node> basestationnodes;	 
-
+		cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
 
 		Node srcnode;
 		Node destnode;
 
-		for (size_t i = 0; i < basestations.size(); i++){
-			BaseStation current = basestations[i]; 
-			allnodes = current.get_Nodes();
-			int max = allnodes.size();
-		//	cout << "currently at " << current.getName() << endl;
-			for (size_t n = 0; n < max; n++)
-			{
-				if(	allnodes[n].getBasestation() == current.getName()){ // Found only nodes belonging to bs needed. Now in correct basestation
-					if(allnodes[n].getName() == curReqSrcId || allnodes[n].getName() == curReqDestId){ //Found src and dest nodes in bs
-					//	cout << "Found a node " << endl;
-						basestationnodes.push_back(allnodes[n]);	
-					}
-				}
-			}
-		}
-		// At this point should have found both nodes needed
-
-		// Assign srcnode and destnode
-		for (size_t m = 0; m < basestationnodes.size(); m++)
-		{
-			if(basestationnodes.at(m).getName() == curReqSrcId){
-				srcnode = basestationnodes.at(m);
-			}
-			if(basestationnodes.at(m).getName() == curReqDestId){
-				destnode = basestationnodes.at(m);
-			}			
-		}
+		cout <<" TEST SRCNODE " << endl;
+		srcnode.getChannelWeights();
 		
-		string srcbs = srcnode.getBasestation();
-		string destbs = destnode.getBasestation();
+		srcnode.setName(curReqSrcId);
+		destnode.setName(curReqDestId);
 
-
+		Node test1;
+		Node test2;
+		cout <<" TEST1 values " << endl;
+		test1.getChannelWeights();
+		test1.setName("3");
+		test2.setName("4");
 
 		bool routeGenerated = false;
 		bool routeGeneratedOtherBS = false;
+		
 		for (size_t i = 0; i < basestations.size(); i++)
 		{
 			BaseStation current = basestations[i]; 
+			
 			// Both nodes in one basestation
+			srcnode = findNodeInBasestation(srcnode,basestations);
+			destnode = findNodeInBasestation(destnode,basestations);
+			cout <<" TEST bs srcnodes vals " << endl;
+			srcnode.getChannelWeights();
+			string srcbs = srcnode.getBasestation();
+			string destbs = destnode.getBasestation();
+
+			cout << "Going through the Basestations " << " | " << srcbs << " | " << destbs << endl;
+
 			if(!routeGenerated && current.getName() == srcbs && current.getName() == destbs ){
 				cout << "Source and Dest Basestation is " << current.getName() <<endl;
-				//if(srcnode.inNodeRadius(destnode)){
-					routeGenerated = generateRoute(srcnode,current);
 
-					allnodes = current.get_Nodes();		
+
+				test1 = findNodeInBasestation(test1,basestations);
+				cout <<" New test1 values " << endl;
+				test2 = findNodeInBasestation(test2,basestations);
+				
+				srcnode.testRouteGen(srcnode,test1,test2);
+		
+				routeGenerated = srcnode.createRoute();
+				auto test = srcnode.getAllChannelsStatus();
+				for (size_t i = 0; i < test.size(); i++)
+				{
+				//	cout << i << " the status of the src nodes channel " << test[i] << endl;
+				}
+
+				cout << "was the route generation done ? " <<  routeGenerated << endl;
+				//if(srcnode.inNodeRadius(destnode)){
+				//Generate routes for the path chosen
+
+				allnodes = current.get_Nodes();
+				vector<vector<Node>>  NodesinPath = srcnode.getRoutes();
+				vector<vector<Node>>::iterator row;
+				vector<Node>::iterator col;
+	
 					// update nodes and basestations
-					for (size_t n = 0; n < allnodes.size(); n++)
-					{
-						if(allnodes[n].getName() == srcnode.getName()){
-							Node srcnodetoupd = srcnode;
-							current.updateNode(srcnodetoupd);
-						}
-						if(allnodes[n].getName() == destnode.getName()){
-							Node destnodetoupd = destnode;
-							current.updateNode(destnodetoupd);
-						}
-					}
+					for(row = NodesinPath.begin(); row !=NodesinPath.end(); row++){
+						for (col =row->begin(); col != row->end(); col++)
+						{
+							current.updateNode(*col);
+							cout << col->getName() << " Just updated that node " << endl;
+							auto test = col->getAllChannelsStatus();
+							for (size_t i = 0; i < test.size(); i++)
+							{
+					//			cout << i << " the status of that channel " << test[i] << endl;
+							}							
+						}					
+					}	
 					basestations[i] = current;			
 			}	
 			// If the destination is not in current basestation
@@ -205,11 +217,18 @@ int main(){
 					BaseStation second = basestations[j];
 					if(basestations[j].getName() == destbs && !routeGeneratedOtherBS && ! routeGenerated){
 						cout << "Generating a route between two basestations " << endl;
-						routeGenerated = generateRoute(srcnode,current);
-						routeGeneratedOtherBS = generateRoute(destnode,second);	
+						srcnode = findNodeInBasestation(srcnode,basestations);
+						test1 = findNodeInBasestation(test1,basestations);
+						test2 = findNodeInBasestation(test2,basestations);
+						srcnode.testRouteGen(srcnode,test1,test2);
+						routeGenerated = srcnode.createRoute();
+
+						cout << "was the route generation done ? " << routeGenerated << endl;
+					//	routeGeneratedOtherBS = generateRoute(destnode,second);	
 
 						for (size_t n = 0; n < allnodes.size(); n++)
 						{
+							cout << "Updating nodes with new values " << endl;
 							if(allnodes[n].getName() == srcnode.getName()){
 							Node srcnodetoupd = srcnode;
 							current.updateNode(srcnodetoupd);

@@ -57,72 +57,72 @@ Finished Parsing Data
 Node 0 is in BS A's Radius
 Adding a new node 0 to A
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Node 1 is in BS A's Radius
 Adding a new node 1 to A
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Node 2 is in BS A's Radius
 Adding a new node 2 to A
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Node 3 is in BS A's Radius
 Adding a new node 3 to A
 All channels for 3 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Node 4 is in BS A's Radius
 Adding a new node 4 to A
 All channels for 4 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Node 5 is not in BS A's Radius
 Node 0 is not in BS B's Radius
@@ -133,189 +133,511 @@ Node 4 is not in BS B's Radius
 Node 5 is in BS B's Radius
 Adding a new node 5 to B
 All channels for 5 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Finished Populating all basestations
 Total number of requests are5
+Current requested is 0 | 1
+ TEST SRCNODE 
+ channel weights are: 
+ TEST1 values 
+ channel weights are: 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 Source and Dest Basestation is A
-is channel 2 used 0
-Found the best channel for the current node 0 channel 2
- Reserving the requested channel 2 for node 0
- Reserving the requested channel 2 for node 1
-Both Channels are now reserved 
+Looking for a node in the basestation 
+ New test1 values 
+Looking for a node in the basestation 
+3 + total nodes in path detected 
+1 all routes size
+is channel 8 used 0
+Found the best channel for the current node 0 channel 8
+Checking for no Adj Channel Problems
+ Reserving the requested channel 8 for node 0
+ Reserving the requested channel 8 for node 3
+ Reserving the requested channel 3 for node 3
+ Reserving the requested channel 3 for node 4
+Channels are  now reserved 
+was the route generation done ? 1
+0 Just updated that node 
+3 Just updated that node 
+4 Just updated that node 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 1 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
+Current requested is 0 | 2
+ TEST SRCNODE 
+ channel weights are: 
+ TEST1 values 
+ channel weights are: 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 Source and Dest Basestation is A
-is channel 2 used 0
-Found the best channel for the current node 0 channel 7
- Reserving the requested channel 7 for node 0
- Reserving the requested channel 7 for node 2
+Looking for a node in the basestation 
+ New test1 values 
+Looking for a node in the basestation 
+Only two total nodes in path detected 
+2all routes size
+is channel 8 used 0
+Found the best channel for the current node 0 channel 4
+ Reserving the requested channel 4 for node 0
+ Reserving the requested channel 4 for node 3
 Both Channels are now reserved 
+was the route generation done ? 1
+0 Just updated that node 
+3 Just updated that node 
+4 Just updated that node 
+0 Just updated that node 
+3 Just updated that node 
+4 Just updated that node 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 1 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 1 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 1 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
+Current requested is 0 | 3
+ TEST SRCNODE 
+ channel weights are: 
+ TEST1 values 
+ channel weights are: 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 Source and Dest Basestation is A
-is channel 2 used 0
-Found the best channel for the current node 0 channel 5
- Reserving the requested channel 5 for node 0
- Reserving the requested channel 5 for node 3
+Looking for a node in the basestation 
+ New test1 values 
+Looking for a node in the basestation 
+Only two total nodes in path detected 
+2all routes size
+is channel 8 used 0
+Found the best channel for the current node 0 channel 4
+ Reserving the requested channel 4 for node 0
+ Reserving the requested channel 4 for node 3
 Both Channels are now reserved 
+was the route generation done ? 1
+0 Just updated that node 
+3 Just updated that node 
+4 Just updated that node 
+0 Just updated that node 
+3 Just updated that node 
+4 Just updated that node 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
- |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 1 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 1 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 All channels for 3 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
- |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
+ |Channel: 3 |Channel Use Status: 1 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 1 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
+Current requested is 1 | 2
+ TEST SRCNODE 
+ channel weights are: 
+ TEST1 values 
+ channel weights are: 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+1 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
 Source and Dest Basestation is A
-is channel 2 used 0
-Found the best channel for the current node 1 channel 7
- The requested channel is not available for both nodes trying again 
- The requested channel is not available for both nodes trying again 
- The requested channel is not available for both nodes trying again 
- Reserving the requested channel 5 for node 1
- Reserving the requested channel 5 for node 2
-Both Channels are now reserved 
+Looking for a node in the basestation 
+ New test1 values 
+Looking for a node in the basestation 
+3 + total nodes in path detected 
+1 all routes size
+is channel 8 used 0
+Found the best channel for the current node 1 channel 8
+Checking for no Adj Channel Problems
+was the route generation done ? 0
+1 Just updated that node 
+3 Just updated that node 
+4 Just updated that node 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+1 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | A
+Route generation not possible 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
- |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 0 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
- |Channel: 5 |Channel Use Status: 1 |With weight: 12
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 1 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
+Current requested is 1 | 5
+ TEST SRCNODE 
+ channel weights are: 
+ TEST1 values 
+ channel weights are: 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+1 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | B
 Source Basestation is A
 Dest Basestation is B
 Generating a route between two basestations 
-is channel 2 used 0
-Found the best channel for the current node 1 channel 7
- Reserving the requested channel 7 for node 1
-Channel is now reserved 
-is channel 2 used 0
-Found the best channel for the current node 5 channel 2
- Reserving the requested channel 2 for node 5
-Channel is now reserved 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+3 + total nodes in path detected 
+1 all routes size
+is channel 8 used 0
+Found the best channel for the current node 1 channel 8
+Checking for no Adj Channel Problems
+was the route generation done ? 0
+Updating nodes with new values 
+Updating nodes with new values 
+Updating nodes with new values 
+Updating nodes with new values 
+Updating nodes with new values 
+Looking for a node in the basestation 
+Looking for a node in the basestation 
+ TEST bs srcnodes vals 
+1 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
+Going through the Basestations  | A | B
+Route generation not possible 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
  |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
- |Channel: 5 |Channel Use Status: 1 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 1 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
-
-All channels for 5 
- |Channel: 0 |Channel Use Status: 0 |With weight: 9
- |Channel: 1 |Channel Use Status: 0 |With weight: 5
- |Channel: 2 |Channel Use Status: 1 |With weight: 17
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 8
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
  |Channel: 5 |Channel Use Status: 0 |With weight: 12
  |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 12
- |Channel: 8 |Channel Use Status: 0 |With weight: 9
- |Channel: 9 |Channel Use Status: 0 |With weight: 5
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
+
+All channels for 5 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 10
+ |Channel: 1 |Channel Use Status: 0 |With weight: 10
+ |Channel: 2 |Channel Use Status: 0 |With weight: 12
+ |Channel: 3 |Channel Use Status: 0 |With weight: 7
+ |Channel: 4 |Channel Use Status: 0 |With weight: 14
+ |Channel: 5 |Channel Use Status: 0 |With weight: 12
+ |Channel: 6 |Channel Use Status: 0 |With weight: 9
+ |Channel: 7 |Channel Use Status: 0 |With weight: 9
+ |Channel: 8 |Channel Use Status: 0 |With weight: 14
+ |Channel: 9 |Channel Use Status: 0 |With weight: 8
 
 Finshed Dealing with all requests
+Looking for 0
+Looking for 1
 0 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 1 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 Getting all weights for 0 and 1
+Looking for 1
+Looking for 2
 1 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 2 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 Getting all weights for 1 and 2
+Looking for 2
+Looking for 3
 2 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 3 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 Getting all weights for 2 and 3
+Looking for 3
+Looking for 4
 3 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 4 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 
 Getting all weights for 3 and 4
 5
+Looking for 5
 5 channel weights are: 
+Weight for Channel 0 is 10 
+Weight for Channel 1 is 10 
+Weight for Channel 2 is 12 
+Weight for Channel 3 is 7 
+Weight for Channel 4 is 14 
+Weight for Channel 5 is 12 
+Weight for Channel 6 is 9 
+Weight for Channel 7 is 9 
+Weight for Channel 8 is 14 
+Weight for Channel 9 is 8 

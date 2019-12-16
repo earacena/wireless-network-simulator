@@ -94,6 +94,7 @@ void BaseStation::removeNode(Node &node){ // remove a node from the basestation
 }
 
 Node BaseStation::findNode(string nodetofind){
+	cout << "Looking for " << nodetofind << endl;
 	for (size_t i = 0; i < adjacency_list.size(); i++)
 	{
 		if(adjacency_list[i].getName() == nodetofind)

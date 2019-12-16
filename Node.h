@@ -23,6 +23,8 @@ public:
 
 	Node(string nodename);
 
+	Node& returnNode();
+
 	Pair getPosition();	//returns a Pair of position
 
 	void setPosition(Pair pos);	// sets position of node, pair version
@@ -86,7 +88,7 @@ public:
 
 	void createRoute(Node othernode); // Create a route to another node
 
-	void getRoute(Node &node); // get the route taken by the node
+	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
 	void nodesInRange(Node & initialNode, vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
@@ -97,6 +99,7 @@ public:
 	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
 	bool createRoute(); // Create a new route for a node
 
+	void testRouteGen(Node &n1, Node &n2, Node &n3); // Test Function
     void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
 
 private:
