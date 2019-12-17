@@ -57,72 +57,72 @@ Finished Parsing Data
 Node 0 is in BS A's Radius
 Adding a new node 0 to A
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Node 1 is in BS A's Radius
 Adding a new node 1 to A
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Node 2 is in BS A's Radius
 Adding a new node 2 to A
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Node 3 is in BS A's Radius
 Adding a new node 3 to A
 All channels for 3 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Node 4 is in BS A's Radius
 Adding a new node 4 to A
 All channels for 4 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Node 5 is not in BS A's Radius
 Node 0 is not in BS B's Radius
@@ -133,16 +133,16 @@ Node 4 is not in BS B's Radius
 Node 5 is in BS B's Radius
 Adding a new node 5 to B
 All channels for 5 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Finished Populating all basestations
 Total number of requests are5
@@ -155,31 +155,73 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+1 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Source and Dest Basestation is A
 Looking for a node in the basestation 
- New test1 values 
 Looking for a node in the basestation 
-3 + total nodes in path detected 
-1 all routes size
+Current path length is 3
+Only 2+ hops needed 
+3 + total nodes in path detected 3
+3 all routes size
 is channel 8 used 0
+channel to skip are -1
+8 is the best available channel for node: 0
+7 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+2 is the best available channel for node: 0
+Total number of valid channels 5
 Found the best channel for the current node 0 channel 8
-Checking for no Adj Channel Problems
+is channel 8 used 0
+channel to skip are -1
+8 is the best available channel for node: 0
+7 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+2 is the best available channel for node: 0
+Total number of valid channels 5
+Found the best channel for the current node 0 channel 8
+channel to skip are 8
+1 is the best available channel for node: 4
+6 is the best available channel for node: 4
+5 is the best available channel for node: 4
+9 is the best available channel for node: 4
+0 is the best available channel for node: 4
+Total number of valid channels 5
+Checking that status of all four chosen channels 0 | 0 | 0 | 0 
+Found channels for last two nodes/3 
  Reserving the requested channel 8 for node 0
  Reserving the requested channel 8 for node 3
- Reserving the requested channel 3 for node 3
- Reserving the requested channel 3 for node 4
-Channels are  now reserved 
+ Reserving the requested channel 1 for node 3
+ Reserving the requested channel 1 for node 4
+All 4 Channels are now reserved 
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 0
+Current Dest Node on this channel is 4
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 3
+total number of hops = 2
 was the route generation done ? 1
 0 Just updated that node 
 3 Just updated that node 
@@ -188,40 +230,50 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+1 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 1 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Current requested is 0 | 2
  TEST SRCNODE 
@@ -232,28 +284,101 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+2 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Source and Dest Basestation is A
 Looking for a node in the basestation 
- New test1 values 
 Looking for a node in the basestation 
-Only two total nodes in path detected 
-2all routes size
+Current path length is 3
+Only 2+ hops needed 
+3 + total nodes in path detected 3
+3 all routes size
 is channel 8 used 0
-Found the best channel for the current node 0 channel 4
- Reserving the requested channel 4 for node 0
- Reserving the requested channel 4 for node 3
-Both Channels are now reserved 
+channel to skip are -1
+8 is the best available channel for node: 0
+7 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+2 is the best available channel for node: 0
+Total number of valid channels 5
+Found the best channel for the current node 0 channel 8
+is channel 8 used 0
+channel to skip are -1
+8 is the best available channel for node: 0
+7 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+2 is the best available channel for node: 0
+Total number of valid channels 5
+Found the best channel for the current node 0 channel 8
+channel to skip are 8
+1 is the best available channel for node: 4
+6 is the best available channel for node: 4
+5 is the best available channel for node: 4
+9 is the best available channel for node: 4
+0 is the best available channel for node: 4
+Total number of valid channels 5
+Checking that status of all four chosen channels 1 | 0 | 0 | 0 
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  1
+Avoiding adj interference avoiding ( ) for first hop out of two hops  -1
+channel to skip are 9
+channel to skip are 7
+8 is the best available channel for node: 0
+1 is the best available channel for node: 0
+6 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+9 is the best available channel for node: 0
+0 is the best available channel for node: 0
+22061 is the best available channel for node: 0
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  2
+Avoiding adj interference avoiding ( ) for first hop out of two hops  0
+channel to skip are 2
+channel to skip are 0
+8 is the best available channel for node: 0
+1 is the best available channel for node: 0
+6 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+9 is the best available channel for node: 0
+0 is the best available channel for node: 0
+22061 is the best available channel for node: 0
+Total number of valid channels 8
+Found channels for last two nodes/3 
+ Reserving the requested channel 1 for node 0
+ Reserving the requested channel 8 for node 3
+ Reserving the requested channel 1 for node 3
+ Reserving the requested channel 1 for node 4
+All 4 Channels are now reserved 
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 0
+Current Dest Node on this channel is 4
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 3
+total number of hops = 2
 was the route generation done ? 1
 0 Just updated that node 
 3 Just updated that node 
@@ -265,40 +390,50 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+2 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 1 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Current requested is 0 | 3
  TEST SRCNODE 
@@ -309,28 +444,101 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+3 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Source and Dest Basestation is A
 Looking for a node in the basestation 
- New test1 values 
 Looking for a node in the basestation 
-Only two total nodes in path detected 
-2all routes size
+Current path length is 3
+Only 2+ hops needed 
+3 + total nodes in path detected 3
+3 all routes size
 is channel 8 used 0
-Found the best channel for the current node 0 channel 4
- Reserving the requested channel 4 for node 0
- Reserving the requested channel 4 for node 3
-Both Channels are now reserved 
+channel to skip are -1
+8 is the best available channel for node: 0
+7 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+2 is the best available channel for node: 0
+Total number of valid channels 5
+Found the best channel for the current node 0 channel 8
+is channel 8 used 0
+channel to skip are -1
+8 is the best available channel for node: 0
+7 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+2 is the best available channel for node: 0
+Total number of valid channels 5
+Found the best channel for the current node 0 channel 8
+channel to skip are 8
+1 is the best available channel for node: 4
+6 is the best available channel for node: 4
+5 is the best available channel for node: 4
+9 is the best available channel for node: 4
+0 is the best available channel for node: 4
+Total number of valid channels 5
+Checking that status of all four chosen channels 1 | 0 | 0 | 0 
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  1
+Avoiding adj interference avoiding ( ) for first hop out of two hops  -1
+channel to skip are 9
+channel to skip are 7
+8 is the best available channel for node: 0
+1 is the best available channel for node: 0
+6 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+9 is the best available channel for node: 0
+0 is the best available channel for node: 0
+22061 is the best available channel for node: 0
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  2
+Avoiding adj interference avoiding ( ) for first hop out of two hops  0
+channel to skip are 2
+channel to skip are 0
+8 is the best available channel for node: 0
+1 is the best available channel for node: 0
+6 is the best available channel for node: 0
+4 is the best available channel for node: 0
+3 is the best available channel for node: 0
+9 is the best available channel for node: 0
+0 is the best available channel for node: 0
+22061 is the best available channel for node: 0
+Total number of valid channels 8
+Found channels for last two nodes/3 
+ Reserving the requested channel 1 for node 0
+ Reserving the requested channel 8 for node 3
+ Reserving the requested channel 1 for node 3
+ Reserving the requested channel 1 for node 4
+All 4 Channels are now reserved 
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 0
+Current Dest Node on this channel is 4
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 3
+Current Dest Node on this channel is 3
+total number of hops = 2
 was the route generation done ? 1
 0 Just updated that node 
 3 Just updated that node 
@@ -342,40 +550,50 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+3 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 All channels for 0 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 1 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 All channels for 3 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 1 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 1 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 1 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 1 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Current requested is 1 | 2
  TEST SRCNODE 
@@ -386,26 +604,216 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 1 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+2 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Source and Dest Basestation is A
 Looking for a node in the basestation 
- New test1 values 
 Looking for a node in the basestation 
-3 + total nodes in path detected 
-1 all routes size
+Current path length is 3
+Only 2+ hops needed 
+3 + total nodes in path detected 3
+3 all routes size
 is channel 8 used 0
+channel to skip are -1
+8 is the best available channel for node: 1
+7 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+2 is the best available channel for node: 1
+Total number of valid channels 5
 Found the best channel for the current node 1 channel 8
-Checking for no Adj Channel Problems
+Avoiding adj interference avoiding ( ) for first hop  2
+Avoiding adj interference avoiding ( ) for first hop  0
+Avoiding adj interference avoiding ( ) for first hop  9
+Avoiding adj interference avoiding ( ) for first hop  7
+is channel 8 used 0
+channel to skip are -1
+channel to skip are 0
+channel to skip are 2
+channel to skip are 7
+channel to skip are 9
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+7 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+2 is the best available channel for node: 1
+0 is the best available channel for node: 1
+Total number of valid channels 9
+Found the best channel for the current node 1 channel 8
+Avoiding adj interference avoiding ( ) for second hop  2
+Avoiding adj interference avoiding ( ) for second hop  0
+channel to skip are 8
+channel to skip are 0
+channel to skip are 2
+8 is the best available channel for node: 4
+1 is the best available channel for node: 4
+6 is the best available channel for node: 4
+4 is the best available channel for node: 4
+5 is the best available channel for node: 4
+9 is the best available channel for node: 4
+2 is the best available channel for node: 4
+0 is the best available channel for node: 4
+Total number of valid channels 8
+Checking that status of all four chosen channels 0 | 1 | 1 | 0 
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  1
+Avoiding adj interference avoiding ( ) for first hop out of two hops  -1
+channel to skip are 9
+channel to skip are 7
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  2
+Avoiding adj interference avoiding ( ) for first hop out of two hops  0
+channel to skip are 2
+channel to skip are 0
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  3
+Avoiding adj interference avoiding ( ) for first hop out of two hops  1
+channel to skip are 8
+channel to skip are 6
+8 is the best available channel for node: 1
+7 is the best available channel for node: 1
+4 is the best available channel for node: 1
+5 is the best available channel for node: 1
+9 is the best available channel for node: 1
+2 is the best available channel for node: 1
+Total number of valid channels 6
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  4
+Avoiding adj interference avoiding ( ) for first hop out of two hops  2
+channel to skip are 7
+channel to skip are 5
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  5
+Avoiding adj interference avoiding ( ) for first hop out of two hops  3
+channel to skip are 5
+channel to skip are 3
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  6
+Avoiding adj interference avoiding ( ) for first hop out of two hops  4
+channel to skip are 6
+channel to skip are 4
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+5 is the best available channel for node: 1
+3 is the best available channel for node: 1
+2 is the best available channel for node: 1
+0 is the best available channel for node: 1
+Total number of valid channels 7
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  7
+Avoiding adj interference avoiding ( ) for first hop out of two hops  5
+channel to skip are 4
+channel to skip are 2
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  8
+Avoiding adj interference avoiding ( ) for first hop out of two hops  6
+channel to skip are 10
+channel to skip are 8
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  9
+Avoiding adj interference avoiding ( ) for first hop out of two hops  7
+channel to skip are 3
+channel to skip are 1
+8 is the best available channel for node: 1
+7 is the best available channel for node: 1
+6 is the best available channel for node: 1
+5 is the best available channel for node: 1
+3 is the best available channel for node: 1
+2 is the best available channel for node: 1
+0 is the best available channel for node: 1
+Total number of valid channels 7
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  10
+Avoiding adj interference avoiding ( ) for first hop out of two hops  8
+channel to skip are 1
+channel to skip are -1
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Couldn't find a channel 
 was the route generation done ? 0
 1 Just updated that node 
 3 Just updated that node 
@@ -414,41 +822,51 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 1 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | A
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+2 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Route generation not possible 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 All channels for 2 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Current requested is 1 | 5
  TEST SRCNODE 
@@ -459,28 +877,219 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 1 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | B
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+5 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Source Basestation is A
 Dest Basestation is B
 Generating a route between two basestations 
 Looking for a node in the basestation 
 Looking for a node in the basestation 
 Looking for a node in the basestation 
-3 + total nodes in path detected 
-1 all routes size
+Current path length is 3
+Only 2+ hops needed 
+3 + total nodes in path detected 3
+3 all routes size
 is channel 8 used 0
+channel to skip are -1
+8 is the best available channel for node: 1
+7 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+2 is the best available channel for node: 1
+Total number of valid channels 5
 Found the best channel for the current node 1 channel 8
-Checking for no Adj Channel Problems
+Avoiding adj interference avoiding ( ) for first hop  2
+Avoiding adj interference avoiding ( ) for first hop  0
+Avoiding adj interference avoiding ( ) for first hop  9
+Avoiding adj interference avoiding ( ) for first hop  7
+is channel 8 used 0
+channel to skip are -1
+channel to skip are 0
+channel to skip are 2
+channel to skip are 7
+channel to skip are 9
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+7 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+2 is the best available channel for node: 1
+0 is the best available channel for node: 1
+Total number of valid channels 9
+Found the best channel for the current node 1 channel 8
+Avoiding adj interference avoiding ( ) for second hop  2
+Avoiding adj interference avoiding ( ) for second hop  0
+channel to skip are 8
+channel to skip are 0
+channel to skip are 2
+8 is the best available channel for node: 4
+1 is the best available channel for node: 4
+6 is the best available channel for node: 4
+4 is the best available channel for node: 4
+5 is the best available channel for node: 4
+9 is the best available channel for node: 4
+2 is the best available channel for node: 4
+0 is the best available channel for node: 4
+Total number of valid channels 8
+Checking that status of all four chosen channels 0 | 1 | 1 | 0 
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  1
+Avoiding adj interference avoiding ( ) for first hop out of two hops  -1
+channel to skip are 9
+channel to skip are 7
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  2
+Avoiding adj interference avoiding ( ) for first hop out of two hops  0
+channel to skip are 2
+channel to skip are 0
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  3
+Avoiding adj interference avoiding ( ) for first hop out of two hops  1
+channel to skip are 8
+channel to skip are 6
+8 is the best available channel for node: 1
+7 is the best available channel for node: 1
+4 is the best available channel for node: 1
+5 is the best available channel for node: 1
+9 is the best available channel for node: 1
+2 is the best available channel for node: 1
+Total number of valid channels 6
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  4
+Avoiding adj interference avoiding ( ) for first hop out of two hops  2
+channel to skip are 7
+channel to skip are 5
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  5
+Avoiding adj interference avoiding ( ) for first hop out of two hops  3
+channel to skip are 5
+channel to skip are 3
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  6
+Avoiding adj interference avoiding ( ) for first hop out of two hops  4
+channel to skip are 6
+channel to skip are 4
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+5 is the best available channel for node: 1
+3 is the best available channel for node: 1
+2 is the best available channel for node: 1
+0 is the best available channel for node: 1
+Total number of valid channels 7
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  7
+Avoiding adj interference avoiding ( ) for first hop out of two hops  5
+channel to skip are 4
+channel to skip are 2
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  8
+Avoiding adj interference avoiding ( ) for first hop out of two hops  6
+channel to skip are 10
+channel to skip are 8
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  9
+Avoiding adj interference avoiding ( ) for first hop out of two hops  7
+channel to skip are 3
+channel to skip are 1
+8 is the best available channel for node: 1
+7 is the best available channel for node: 1
+6 is the best available channel for node: 1
+5 is the best available channel for node: 1
+3 is the best available channel for node: 1
+2 is the best available channel for node: 1
+0 is the best available channel for node: 1
+Total number of valid channels 7
+Finding 
+Avoiding adj interference avoiding ( ) for first hop out of two hops  10
+Avoiding adj interference avoiding ( ) for first hop out of two hops  8
+channel to skip are 1
+channel to skip are -1
+8 is the best available channel for node: 1
+1 is the best available channel for node: 1
+6 is the best available channel for node: 1
+4 is the best available channel for node: 1
+3 is the best available channel for node: 1
+9 is the best available channel for node: 1
+0 is the best available channel for node: 1
+22061 is the best available channel for node: 1
+Total number of valid channels 8
+Couldn't find a channel 
 was the route generation done ? 0
 Updating nodes with new values 
 Updating nodes with new values 
@@ -491,153 +1100,265 @@ Looking for a node in the basestation
 Looking for a node in the basestation 
  TEST bs srcnodes vals 
 1 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
-Going through the Basestations  | A | B
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+5 channel weights are: 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Route generation not possible 
 All channels for 1 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 All channels for 5 
- |Channel: 0 |Channel Use Status: 0 |With weight: 10
- |Channel: 1 |Channel Use Status: 0 |With weight: 10
- |Channel: 2 |Channel Use Status: 0 |With weight: 12
- |Channel: 3 |Channel Use Status: 0 |With weight: 7
- |Channel: 4 |Channel Use Status: 0 |With weight: 14
- |Channel: 5 |Channel Use Status: 0 |With weight: 12
- |Channel: 6 |Channel Use Status: 0 |With weight: 9
- |Channel: 7 |Channel Use Status: 0 |With weight: 9
- |Channel: 8 |Channel Use Status: 0 |With weight: 14
- |Channel: 9 |Channel Use Status: 0 |With weight: 8
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
 
 Finshed Dealing with all requests
 Looking for 0
 Looking for 1
 0 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 1 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Getting all weights for 0 and 1
 Looking for 1
 Looking for 2
 1 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 2 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Getting all weights for 1 and 2
 Looking for 2
 Looking for 3
 2 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 3 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Getting all weights for 2 and 3
 Looking for 3
 Looking for 4
 3 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 4 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
 Getting all weights for 3 and 4
 5
 Looking for 5
 5 channel weights are: 
-Weight for Channel 0 is 10 
-Weight for Channel 1 is 10 
-Weight for Channel 2 is 12 
-Weight for Channel 3 is 7 
-Weight for Channel 4 is 14 
-Weight for Channel 5 is 12 
-Weight for Channel 6 is 9 
-Weight for Channel 7 is 9 
-Weight for Channel 8 is 14 
-Weight for Channel 9 is 8 
+Weight for Channel 0 is 8 
+Weight for Channel 1 is 15 
+Weight for Channel 2 is 8 
+Weight for Channel 3 is 10 
+Weight for Channel 4 is 11 
+Weight for Channel 5 is 10 
+Weight for Channel 6 is 11 
+Weight for Channel 7 is 12 
+Weight for Channel 8 is 18 
+Weight for Channel 9 is 9 
+Sending results for 0
+Looking for 0
+All channels for 0 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 1 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
+
+ LENGTH OF RESULTS Looking for 0
+0 <-
+Looking for 0
+Sending results for 1
+Looking for 1
+All channels for 1 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
+
+ LENGTH OF RESULTS Looking for 1
+0 <-
+Looking for 1
+Sending results for 2
+Looking for 2
+All channels for 2 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
+
+ LENGTH OF RESULTS Looking for 2
+0 <-
+Looking for 2
+Sending results for 3
+Looking for 3
+All channels for 3 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 1 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 1 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
+
+ LENGTH OF RESULTS Looking for 3
+0 <-
+Looking for 3
+Sending results for 4
+Looking for 4
+All channels for 4 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 1 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
+
+ LENGTH OF RESULTS Looking for 4
+0 <-
+Looking for 4
+Sending results for 5
+Looking for 5
+All channels for 5 
+ |Channel: 0 |Channel Use Status: 0 |With weight: 8
+ |Channel: 1 |Channel Use Status: 0 |With weight: 15
+ |Channel: 2 |Channel Use Status: 0 |With weight: 8
+ |Channel: 3 |Channel Use Status: 0 |With weight: 10
+ |Channel: 4 |Channel Use Status: 0 |With weight: 11
+ |Channel: 5 |Channel Use Status: 0 |With weight: 10
+ |Channel: 6 |Channel Use Status: 0 |With weight: 11
+ |Channel: 7 |Channel Use Status: 0 |With weight: 12
+ |Channel: 8 |Channel Use Status: 0 |With weight: 18
+ |Channel: 9 |Channel Use Status: 0 |With weight: 9
+
+ LENGTH OF RESULTS Looking for 5
+0 <-
+Looking for 5

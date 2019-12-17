@@ -32,11 +32,9 @@ Node findNodeInBasestation(Node &nodetofind,vector<BaseStation> &basestations){
 		{
 			BaseStation current = basestations[i]; 
 			auto allnodes = current.get_Nodes();
-			cerr << "test3 " << current.getName() << " || " << nodetofind.getName() << endl;	
 			for (size_t i = 0; i < allnodes.size(); i++)
 			{
 				if(allnodes.at(i).getName() == nodetofind.getName()){
-					cerr << "test4" << endl;
 					return allnodes.at(i);
 				}
 			}
@@ -82,20 +80,6 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,
 			}
 		}	
 	}
-}
-bool generateRoute(Node &n1,BaseStation &bs){
-//	cout << "Route for " << bs.getName() << " with nodes " << n1.getName() << endl;
-	bool valid = n1.createRoute();
-	bs.updateNode(n1);
-	if(!valid){
-		cout << "No route possible, implement logic later -_-" << endl;
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-	
 }
 void export_data();
 
@@ -162,51 +146,47 @@ int main(){
 			destnode = findNodeInBasestation(destnode,basestations);
 			cout <<" TEST bs srcnodes vals " << endl;
 			srcnode.getChannelWeights();
+			destnode.getChannelWeights();
 			string srcbs = srcnode.getBasestation();
 			string destbs = destnode.getBasestation();
 
-			cout << "Going through the Basestations " << " | " << srcbs << " | " << destbs << endl;
+			cerr << "Going through the Basestations " << " | " << srcbs << " | " << destbs << endl;
 
 			if(!routeGenerated && current.getName() == srcbs && current.getName() == destbs ){
 				cout << "Source and Dest Basestation is " << current.getName() <<endl;
 
 
 				test1 = findNodeInBasestation(test1,basestations);
-				cout <<" New test1 values " << endl;
 				test2 = findNodeInBasestation(test2,basestations);
-				
-				srcnode.testRouteGen(srcnode,test1,test2);
+				cerr << "Generating route for " << test1.getName() << " and " << test2.getName() << endl;
+				srcnode.testRouteGen(test1,test2);
 		
+
 				routeGenerated = srcnode.createRoute();
 				auto test = srcnode.getAllChannelsStatus();
-				for (size_t i = 0; i < test.size(); i++)
-				{
-				//	cout << i << " the status of the src nodes channel " << test[i] << endl;
-				}
-
 				cout << "was the route generation done ? " <<  routeGenerated << endl;
-				//if(srcnode.inNodeRadius(destnode)){
-				//Generate routes for the path chosen
 
 				allnodes = current.get_Nodes();
 				vector<vector<Node>>  NodesinPath = srcnode.getRoutes();
 				vector<vector<Node>>::iterator row;
 				vector<Node>::iterator col;
 	
-					// update nodes and basestations
-					for(row = NodesinPath.begin(); row !=NodesinPath.end(); row++){
-						for (col =row->begin(); col != row->end(); col++)
+				
+				vector<Hop> allHops;
+				// update nodes and basestations
+				for(row = NodesinPath.begin(); row !=NodesinPath.end(); row++){
+					for (col =row->begin(); col != row->end(); col++)
+					{		
+						current.updateNode(*col);
+						cout << col->getName() << " Just updated that node " << endl;
+						test = col->getAllChannelsStatus();
+						for (size_t i = 0; i < test.size(); i++)
 						{
-							current.updateNode(*col);
-							cout << col->getName() << " Just updated that node " << endl;
-							auto test = col->getAllChannelsStatus();
-							for (size_t i = 0; i < test.size(); i++)
-							{
-					//			cout << i << " the status of that channel " << test[i] << endl;
-							}							
-						}					
-					}	
-					basestations[i] = current;			
+							//			cout << i << " the status of that channel " << test[i] << endl;
+						}							
+					}					
+				}	
+				basestations[i] = current;			
 			}	
 			// If the destination is not in current basestation
 			else if(current.getName() == srcbs && current.getName() != destbs){
@@ -220,7 +200,7 @@ int main(){
 						srcnode = findNodeInBasestation(srcnode,basestations);
 						test1 = findNodeInBasestation(test1,basestations);
 						test2 = findNodeInBasestation(test2,basestations);
-						srcnode.testRouteGen(srcnode,test1,test2);
+						srcnode.testRouteGen(test1,test2);
 						routeGenerated = srcnode.createRoute();
 
 						cout << "was the route generation done ? " << routeGenerated << endl;
@@ -242,8 +222,6 @@ int main(){
 						basestations[j] = second;
 					}
 				}
-				
-
 			}
 		}
 		if(!routeGenerated){
@@ -277,8 +255,37 @@ int main(){
 	 }
 
 
-	//Being outputting results to Sender
-	typedef std::tuple<std::string, int, std::string> Hop;
-    std::vector< std::vector<Hop> > Path;
+	//Begin outputting results to Sender
+	for (size_t i = 0; i < basestations.size(); i++)
+	 {
+	//	cout << "Displaying all weights for bs " << basestations[i].getName() << endl;
+		BaseStation current = basestations[i]; 
+		auto allnodes = current.get_Nodes();
+		for (size_t j = 0; j < allnodes.size(); j++)
+		{
+			if(allnodes[j].getBasestation() == current.getName()){
+				cout << "Sending results for " << allnodes[j].getName() << endl;
+				Sender sender(allnodes[j].getName() + allnodes[j].getBasestation() +" first test.txt");
+				auto test2 = current.findNode(allnodes[j].getName());
+				displayAllChannels(test2);
+				cout <<" LENGTH OF RESULTS " << current.findNode(allnodes[j].getName()).getResults().size()<< " <-" <<endl;
+				sender.export_data(current.findNode(allnodes[j].getName()).getResults());	
+			}
+	
+			auto test = allnodes[j].getResults();
 
+    		for (std::vector<Hop> path : test) {
+      		for (Hop hop : path) {
+       			string srcId = std::get<0>(hop);
+        		int channel = std::get<1>(hop);
+        		string destId = std::get<2>(hop);
+
+        		cout << srcId << "," << channel << "," << destId << "," << endl;
+     		 }
+    }
+				
+			}
+			
+		}
+		
 }

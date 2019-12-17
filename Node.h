@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <bits/stdc++.h>
+#include "Sender.h"
 using namespace std;
 
 typedef pair<int,int> Pair;
@@ -35,14 +36,6 @@ public:
 
 	string getBasestation(); // gets the basestation of current node
 
-	void setDestination(Node &nodesrc, Node &nodedes);
-
-	string getDestination();
-
-	void setSource(Node &nodesrc, Node &nodedes);
-
-	string getSource();
-
 	void setName(string nodename);
 
 	string getName (); // gets node name
@@ -59,7 +52,9 @@ public:
 
 	void sortWeights(); // sort weights
 
-	vector<int> SortedWeightsByBest(); // get the best weights sorted by channel id
+	vector<pair<int,int>> SortedWeightsByBest(); // get the best weights sorted by channel id
+
+	vector<int> getAllChannels();
 
 	vector<bool> getAllChannelsStatus(); // get all the channels for current node
 
@@ -67,7 +62,7 @@ public:
 
 	int getBestAvailableChannel(); // get the best currently available channel for current node
 
-	int getBestAvailableChannel(vector<int> channelstoskip); // get the best currently available channel thats not the parameter
+	int getBestAvailableChannel(vector<int> &channelstoskip); // get the best currently available channel thats not the parameter
 
 	bool reserveChannel(int channel);// reserve a channel
 
@@ -78,6 +73,7 @@ public:
 	int checkChannelWeight(int channel);// check weight of a channel
 
 	int getChannelName(); // get the name of the channel
+
 	int getSendingChannel(); // get the sending channel used by the node
 	
 	void setSendingChannel(int channel); // set the channel the node is currently transmitting on
@@ -86,20 +82,30 @@ public:
 
 	void setListeningChannel(int channel); // set the channel the node is currently receieving on
 
+	void setDestNode(string nodename, int channeltoset); // set the destnode of the current channel
+
+	string getDestNode(int channel); // Get the Destination node for the requested channel
+	
+	int getDestChannelBySrcNode(string nodename);
+
+	vector<vector<Hop>> getResults();
+
 	void createRoute(Node othernode); // Create a route to another node
 
 	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
 	void nodesInRange(Node & initialNode, vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
-	vector<int> getSortedChannelsByWeights();
 
-	int helpCreateRoute(); // keep trying next best with no repeats
-	bool createRoute(Node &node1, Node &node2,Node &node3); // Create a new route between three nodes
-	bool createRoute(Node &node1, Node &node2); // Create a new route between two nodes
+	int helpCreateRoute(vector<int> &channelstoavoid); // keep trying next best with no repeats
+
+	bool oneHopHelper();
+
+	bool twoHopHelper();
+
 	bool createRoute(); // Create a new route for a node
 
-	void testRouteGen(Node &n1, Node &n2, Node &n3); // Test Function
+	void testRouteGen(Node &n2, Node &n3); // Test Function
     void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
 
 private:
@@ -123,11 +129,13 @@ private:
 		bool used; // is the channel in use
 		int weight; // weight of the channel
 		int id; // id of the current channel
+		string usedby; // what node is using this channel
 	};
     vector<pair<Node,Node>> adjlist;//adjacency list
 	vector<Channel> Channels; // Vector of the number of channels for each node
 	vector<pair<Node,Node>> routes; // Vector that contains the current routes through node
 	vector<vector<Node>> fullroutes;//passes back a list of all the routes from the start to the destination
+	vector<vector<Hop>> results;
 };
 
 
