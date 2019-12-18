@@ -116,7 +116,7 @@ public:
 	int hops = 100;
 		//when running BFS we need to see the parent node
 	Node* previous_hop = nullptr;
-	/*----------------------------------------------------------------------------*/
+	/*---------------------------------------------------------------------------*/
 
 private:
 	pair<int, int> position;
