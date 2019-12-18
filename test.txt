@@ -82,7 +82,6 @@ Found 3Looking for a node in the basestation node = 4
 Found 4Current path length is 3
 2+ hops needed 
 3 + total nodes in path detected 3
-Entering route processor 0
 3 all routes size
 is channel 4 used 0
 channel to skip are -1

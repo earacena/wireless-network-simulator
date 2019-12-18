@@ -220,7 +220,7 @@ int main(){
 				Node currentNode = findNodeInBasestation(allnodes[j],basestations);
 				int resultslength = currentNode.getResults().size();
 				if(resultslength != 0){
-					Sender sender("allresults.txt");
+					Sender sender("routes.txt");
 					sender.export_data(currentNode.getResults());	
 				}
 	
