@@ -69,101 +69,189 @@ Total number of requests are1
 Current requested is 0 | 1
  TEST SRCNODE 
  channel weights are: 
- TEST1 values 
- channel weights are: 
 Looking for a node in the basestation node = 0
 Found 0Looking for a node in the basestation node = 1
 Found 1 TEST bs srcnodes vals 
 0 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 1 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 Going through the Basestations  | A | A
 Looking for a node in the basestation node = 3
 Found 3Looking for a node in the basestation node = 4
-Found 4Current path length is 3
-2+ hops needed 
-3 + total nodes in path detected 3
-3 all routes size
-is channel 1 used 0
+Found 4Current path length is 4
+Found a matching path 
+Found a matching path 
+Found a matching path 
+Found a matching path 
+at hop 0
+3current i value 0
+3 + total nodes in path detected 4
+Trying to reserve a channel starting at node 0
+assigned all three nodes starting with node 0
+is channel 2 used 0
 channel to skip are -1
 Total number of valid channels 3
-Found the best channel for the current node 0 channel 1
-is channel 1 used 0
+Found the best channel for the current node 0 channel 2
+is channel 2 used 0
 channel to skip are -1
 Total number of valid channels 3
-Found the best channel for the current node 0 channel 1
-channel to skip are 1
-channel to skip are 1
-channel to skip are 1
+Found the best channel for the current node 0 channel 2
+channel to skip are 2
+channel to skip are 2
+channel to skip are 2
 Total number of valid channels 3
 Checking that status of all four chosen channels 0 | 0 | 0 | 0 
 Found channels for last two nodes/3 
- Reserving the requested channel 1 for node 0
+ Reserving the requested channel 2 for node 0
+ Reserving the requested channel 2 for node 3
  Reserving the requested channel 1 for node 3
- Reserving the requested channel 0 for node 3
- Reserving the requested channel 0 for node 4
+ Reserving the requested channel 1 for node 4
 All 4 Channels are now reserved 
-Current Dest on Node 0 on channel 1is 3
-Current Dest on Node 3 on channel 1is 0
-Current Dest on Node 3 on channel 0is 4
+Current Dest on Node 0 on channel 2is 3
+Current Dest on Node 3 on channel 2is 0
+Current Dest on Node 3 on channel 1is 4
 wait 
-Current Dest on Node 4 on channel 0is 3
-Current Dest on Node 0 on channel 1is 3
-Current Dest on Node 3 on channel 0is 4
+Current Dest on Node 4 on channel 1is 3
+Current Dest on Node 0 on channel 2is 3
+Current Dest on Node 3 on channel 1is 4
 Checking Hop 1
 0
-1
+2
 3
 Checking Hop 2
 3
-0
+1
 4
-adding the current hop with size 2 to all results for node 0
-results before 0
-results after 1
-results after tmp 1
- after total number of hops = 1 | 1 . 0
-was the route generation done ? 1
+adding to results 
+size of results1
+Channel is now reserved 1
+ after total number of hops = 1
+at hop 2
+1current i value 2
+Only two left over nodes in path detected 
+4all routes size , starting at node ( ) in path 24
+Looking for best channel for nodes 4 & 1
+is channel 2 used 0
+channel to skip are -1
+Total number of valid channels 3
+Found the best channel for the current node 4 channel 2
+channel to skip are -1
+channel to skip are 3
+channel to skip are 1
+Total number of valid channels 6
+ Reserving the requested channel 2 for node 4
+ Reserving the requested channel 2 for node 1
+Both Channels are now reserved 
+Current Dest on Node 4 on channel 2is 1
+Checking Hop 1 only 1 hop made
+4
+2
+1
+adding to results 
+size of results1
+total number of current hop = 1
+was the route generation done ? 1 <-
+all results = 1
 updating node 0
 0 Just updated that node 
-all results = 1
-updating node 3
-3 Just updated that node 
-all results = 0
-updating node 4
-4 Just updated that node 
-all results = 0
 Looking for a node in the basestation node = 0
 Found 0Looking for a node in the basestation node = 1
 Found 1 TEST bs srcnodes vals 
 0 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 1 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 Going through the Basestations  | A | A
 Finshed Dealing with all requests
 Looking for 0
 Looking for 1
 0 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 1 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 Getting all weights for 0 and 1
 Looking for 1
 Looking for 2
 1 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 2 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 Getting all weights for 1 and 2
 Looking for 2
 Looking for 3
 2 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 3 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 Getting all weights for 2 and 3
 Looking for 3
 Looking for 4
 3 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 4 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
 Getting all weights for 3 and 4
 5
 Looking for 5
 5 channel weights are: 
+Weight for Channel 0 is 6 
+Weight for Channel 1 is 6 
+Weight for Channel 2 is 7 
+Weight for Channel 3 is 0 
+Weight for Channel 4 is 3 
+Begin outputting results to Sender
 Looking for a node in the basestation node = 0
-Found 0Looking for a node in the basestation node = 1
+Found 0adding results 
+Looking for a node in the basestation node = 1
 Found 1Looking for a node in the basestation node = 2
 Found 2Looking for a node in the basestation node = 3
 Found 3Looking for a node in the basestation node = 4

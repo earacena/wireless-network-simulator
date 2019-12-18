@@ -110,7 +110,7 @@ vector<int> Node::getChannelWeights(){// get the channel weights for current nod
 	vector<int> currentChannelsWeights;
 	cout << getName() << " channel weights are: " << endl;
 	for(int i = 0; i < Channels.size(); i++){
-	//	cout << "Weight for Channel " << i << " is " << Channels[i].weight << " " << endl;
+		cout << "Weight for Channel " << i << " is " << Channels[i].weight << " " << endl;
 		currentChannelsWeights.push_back(Channels[i].weight);
 	}
 	return currentChannelsWeights;
@@ -232,7 +232,7 @@ string Node::getDestNode(int channel){
 	for (size_t i = 0; i < Channels.size(); i++)
 	{
 		if(i == channel){
-			cout << "Current Dest on Node " << this->getName() << " on channel " << i << "is " << Channels[channel].usedby << endl;
+			cout << "Current Dest on Node " << getName() << " on channel " << i << "is " << Channels[channel].usedby << endl;
 			return Channels[channel].usedby;
 		}
 	}
@@ -294,7 +294,7 @@ int Node::helpCreateRoute(vector<int> &channelstoskip){ // keep trying next best
 	return channel;
 }
 
-bool Node::oneHopHelper(){
+bool Node::oneHopHelper(int startnodeindex,vector<Node> &routes){
 	auto bestChannels = SortedWeightsByBest();
 
 	vector<vector<Hop>> hopsresult;
@@ -304,15 +304,18 @@ bool Node::oneHopHelper(){
 	int node1channel = -1;
 	int node2channel = -1;
 
-	//Get the first and only two nodes
-	cout << fullroutes.size() << "all routes size" << endl;
-	Node destnode = fullroutes.at(0).at(fullroutes.at(0).size()-1);
+	//Get the first and only two nodes 
 
-	auto wn1 = SortedWeightsByBest(); // Node 1
+	Node n1 = routes.at(startnodeindex);
+	cout << routes.size() << "all routes size , starting at node ( ) in path " << startnodeindex << n1.getName() << endl;	
+
+	Node destnode = routes.at(startnodeindex+1);
+
+	auto wn1 = n1.SortedWeightsByBest(); // Node 1
 	auto wn2 = destnode.SortedWeightsByBest(); // Node 2
 
-	//Get the best channel
-	//	cout << "Looking for best channel for nodes " << n1.getName() << " & " << n2.getName() << endl;
+	//Get the best channel 
+	cout << "Looking for best channel for nodes " << n1.getName() << " & " << destnode.getName() << endl;
 
 	vector<int> channelstoskipn2;
 	auto allchannelsn2 = destnode.getAllChannelsStatus();
@@ -330,11 +333,11 @@ bool Node::oneHopHelper(){
 		}
 	}
 	channelstoskipn2.push_back(-1);
-	node1channel = helpCreateRoute(channelstoskipn2);
+	node1channel = n1.helpCreateRoute(channelstoskipn2);
 
 	channelstoskipn2.push_back(node1channel+1);
 	channelstoskipn2.push_back(node1channel-1);
-	node2channel = getBestAvailableChannel(channelstoskipn2);
+	node2channel = destnode.getBestAvailableChannel(channelstoskipn2);
 
 	//cout << "best channel for node: " << n1.getName() << " is " << node1channel << " | using the same channel for " << n2.getName() << " which is " << node2channel << '\n';
 	// cout << n1.checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel);
@@ -355,7 +358,7 @@ bool Node::oneHopHelper(){
 		count ++;
 	}
 	// The channel selections are available
-	if(!this->reserveChannel(node1channel)){
+	if(!n1.reserveChannel(node1channel)){
 		cout << "Couldn't reserve channel on " << getName() << endl;
 		return false;
 	}
@@ -366,28 +369,33 @@ bool Node::oneHopHelper(){
 	else {
 		cout << "Both Channels are now reserved " << endl;
 
-		this->setSendingChannel(node1channel);
+		n1.setSendingChannel(node1channel);
 		destnode.setListeningChannel(node1channel);
 
-		this->setDestNode(destnode.getName(),node1channel);
-		destnode.setDestNode(this->getName(),node2channel);
+		n1.setDestNode(destnode.getName(),node1channel);
+		destnode.setDestNode(n1.getName(),node2channel);
 
 		Hop hop1;
 
-		hop1 = make_tuple(this->getName(),node1channel,this->getDestNode(node1channel));
+		hop1 = make_tuple(n1.getName(),node1channel,n1.getDestNode(node1channel));
+		cout << "Checking Hop 1 only 1 hop made" << endl;
 
-		cout << "total number of current hop = " << currenthop.size() << endl;
+		cout << get<0>(hop1) << endl;
+		cout << get<1>(hop1) << endl;
+		cout << get<2>(hop1) << endl;
+
 		std::vector<Hop> path = {hop1};
 		// Update the nodes along the route
-		addToResults(path);
-		fullroutes.at(0).at(0) = returnNode();
-		fullroutes.at(0).at(fullroutes.size()-1) = destnode;
+		n1.addToResults(path);
+		cout << "total number of current hop = " << path.size() << endl; 		
+		routes.at(startnodeindex) = returnNode();
+		routes.at(startnodeindex+1) = destnode;			
 		return true;
 	}
 }
 
-bool Node::twoHopHelper()
-{
+bool Node::twoHopHelper(int start,vector<Node> &routes)
+{	
 	vector<int> allchannels = getAllChannels();
 	auto test = Channels;
 	vector<Hop> n1ton2hops;
@@ -395,46 +403,49 @@ bool Node::twoHopHelper()
 	vector<vector<Hop>> hopsresult;
 
 	bool channelsreserved = false;
-	Node n2, n3;
-	Hop hop1, hop2 ;
-	cout << "3 + total nodes in path detected " << fullroutes.at(0).size() << endl;
-	for (size_t i = 0; i <= fullroutes.at(0).size()-2; i+2)
-	{
+	Node n1,n2, n3;
+	Hop hop1, hop2 ;	
+	int i = start;
+	cout << "3 + total nodes in path detected " << routes.size() << endl;
+		cout << "Trying to reserve a channel starting at node " << i << endl;
 		if(!channelsreserved){
 			int node1channel = -1;
 			int node2channel = -1;
 			int node3channel = -1;
-			cerr <<"in" << endl;
-			//Get the first three nodes
-			cout << fullroutes.at(0).size() << " all routes size" << endl;
-			n2 = fullroutes.at(0).at(i+1);
-			n3 = fullroutes.at(0).at(i+2);
-			cerr << "assigned all three nodes starting with node " << i << endl;
-			auto wn1 = SortedWeightsByBest(); // Node 1
+			cerr <<"in " << i << endl;
+			//Get the first three nodes 
+			cerr << routes.size() << " all routes size 3+" << endl;
+			n1 = routes.at(i);
+			cerr << "assigned 1 " << endl;
+			n2 = routes.at(i+1);
+			cerr << "assigned 2 " << i+2 << endl;
+			n3 = routes.at(i+2);
+			cout << "assigned all three nodes starting with node " << n1.getName() << endl;
+			auto wn1 = n1.SortedWeightsByBest(); // Node 1
 			auto wn2 = n2.SortedWeightsByBest(); // Node 2
 			auto wn3 = n3.SortedWeightsByBest(); // Node 2
 			vector<int> channelstoskipn2;
 
 			channelstoskipn2.push_back(-1);
 
-			node1channel = helpCreateRoute(channelstoskipn2);
+			node1channel = n1.helpCreateRoute(channelstoskipn2);
 
 			auto allchannelsn2 = n2.getAllChannelsStatus();
 			for (size_t i = 0; i < allchannelsn2.size(); i++)
 			{
 				if(allchannelsn2[i]==1 && i > 0){
-					cout << "Avoiding adj interference avoiding ( ) for first hop  " << i+1 << endl;
-					cout << "Avoiding adj interference avoiding ( ) for first hop  " << i-1 << endl;
+					cout << "Avoiding adj interference avoiding ( ) for first hop/2  " << i+1 << endl;
+					cout << "Avoiding adj interference avoiding ( ) for first hop/2  " << i-1 << endl;	
 					channelstoskipn2.push_back(i-1);
 					channelstoskipn2.push_back(i+1);
 				}
 				else if(i == 0 && allchannelsn2[i]==1){
-					cout << "Avoiding adj interference avoiding ( ) for first hop i = 0  " << i+1 << endl;
-					channelstoskipn2.push_back(i+1);
+					cout << "Avoiding adj interference avoiding ( ) for first hop/2 i = 0  " << i+1 << endl;
+					channelstoskipn2.push_back(i+1);		
 				}
 			}
 
-			node2channel = helpCreateRoute(channelstoskipn2);
+			node2channel = n1.helpCreateRoute(channelstoskipn2);
 
 			vector<int> channelstoskipn3;
 			channelstoskipn3.push_back(node2channel); // Avoid co channel interference
@@ -467,17 +478,17 @@ bool Node::twoHopHelper()
 				channelstoskipn2.clear();
 				cout << "Finding " << endl;
 				node1channel = wn1[count].second;
-				channelstoskipn2.push_back(node1channel+1);
-				cout << "Avoiding adj interference avoiding ( ) for first hop out of two hops  " << count+1 << endl;
-				channelstoskipn2.push_back(node1channel-1);
+				channelstoskipn2.push_back(count+1);
+				cout << "Avoiding adj interference avoiding ( ) for first hop out of two hops  " << count+1 << endl;				
+				channelstoskipn2.push_back(count-1);
 				cout << "Avoiding adj interference avoiding ( ) for first hop out of two hops  " << count-1 << endl;
-				node2channel = getBestAvailableChannel(channelstoskipn2);
+				node2channel = n2.getBestAvailableChannel(channelstoskipn2);
 				//	cout << "New channel names " << node1channel << " | " << node2channel << endl;
 				//	cout << "New channels" << checkChannelStatus(node1channel) << " | " << n2.checkChannelStatus(node2channel) << endl;
 				count ++;
 			}
 			if(count >= wn1.size()){
-				cout << "Couldn't find a channel " << endl;
+				cout << "Couldn't find a channel cout > wn1 " << endl;
 				return false;
 			}
 			//	cout << "Found channels for first two nodes/3" << endl;
@@ -487,7 +498,7 @@ bool Node::twoHopHelper()
 			{
 				channelstoskipn3.clear();
 				if(count > wn2.size()-1){
-					cout << "Couldn't find a channel " << endl;
+					cout << "Couldn't find a channel > wn2 " << endl;
 					return false;
 				}
 				else{
@@ -495,7 +506,7 @@ bool Node::twoHopHelper()
 					channelstoskipn3.push_back(node1channel);
 					channelstoskipn3.push_back(node2channel+1);
 					channelstoskipn3.push_back(node2channel-1);
-					node3channel = getBestAvailableChannel(channelstoskipn3);
+					node3channel = n3.getBestAvailableChannel(channelstoskipn3);
 					//cout << "New channel names " << node2channel << " | " << node3channel << endl;
 					//cout << "New channels" << n2.checkChannelStatus(node2channel) << " | " << n3.checkChannelStatus(node3channel) << endl;
 					count ++; // avoid loop
@@ -504,7 +515,7 @@ bool Node::twoHopHelper()
 
 			cout << "Found channels for last two nodes/3 " << endl;
 			// The channel selections are available
-			if(!this->reserveChannel(node1channel)){
+			if(!n1.reserveChannel(node1channel)){
 				cout << "Couldn't reserve channel on " << getName() << endl;
 				return false;
 			}
@@ -520,26 +531,26 @@ bool Node::twoHopHelper()
 			else {
 				cout << "All 4 Channels are now reserved " << endl;
 				// Set the destnode for nodes involved
-				this->setDestNode(n2.getName(),node1channel);
-				n2.setDestNode(this->getName(),node2channel);
+				n1.setDestNode(n2.getName(),node1channel);
+				n2.setDestNode(n1.getName(),node2channel);
 				n2.setDestNode(n3.getName(),node3channel);
 				n3.setDestNode(n2.getName(),node3channel);
 
-
-				this->setSendingChannel(node1channel);
+				
+				n1.setSendingChannel(node1channel);
 				n2.setListeningChannel(node1channel);
 				n2.setSendingChannel(node2channel);
 				n3.setListeningChannel(node3channel);
 
 
 				// Check that destination 	set correctly
-				this->getDestNode(node1channel);
+				n1.getDestNode(node1channel);
 				n2.getDestNode(node2channel);
 				n2.getDestNode(node3channel);
 				cout << "wait " << endl;
 				n3.getDestNode(node3channel);
 
-				hop1 = make_tuple(this->getName(),node1channel,this->getDestNode(node1channel));
+				hop1 = make_tuple(n1.getName(),node1channel,n1.getDestNode(node1channel));
 				hop2 = make_tuple(n2.getName(),node3channel,n2.getDestNode(node3channel));
 
 				cerr << "Hello" << endl;
@@ -558,51 +569,78 @@ bool Node::twoHopHelper()
 
 				std::vector<Hop> path = {hop1,hop2};
 				// Update the nodes along the route
-				addToResults(path);
-				fullroutes.at(0).at(i) = returnNode();
-				fullroutes.at(0).at(i+1) = n2;
-				fullroutes.at(0).at(i+2) = n3;
+				n1.addToResults(path);
+				routes.at(i) = n1;
+				routes.at(i+1) = n2;
+				routes.at(i+2) = n3;
 
-
-				channelsreserved = true;
-				cerr << "Hello2" << endl;
+				if(i <= fullroutes.at(0).size()-3){
+					channelsreserved = true;
+					cout << "Channel is now reserved " << channelsreserved <<endl;
+					cerr << "Channel is reserved" << endl;
+				}
 			}
 		}
-		if(channelsreserved){
-			cout << " after total number of hops = " << results.size() << " | " << this->results.size() << " . " << hopsresult.size() << endl;
-			return channelsreserved;
-		}
+	if(channelsreserved){
+		cout << " after total number of hops = " << n1.results.size() <<endl; 
+		return channelsreserved;
 	}
-
-}
+	if(!channelsreserved)
+		return false;
+}	
 bool Node::createRoute(Node &destnode){ // Create a new route between three nodes
-	for (size_t i = 0; i < this->fullroutes.size(); i++)
+	for (size_t i = 0; i < fullroutes.size(); i++)
 	{
-		for (size_t j = i; j < this->fullroutes.at(i).size(); j++)
+		for (size_t j = i; j < fullroutes.at(i).size(); j++)
 		{
-			if(this->fullroutes.at(i).at(0).getName() == this->getName() && this->fullroutes.at(i).at(fullroutes.at(i).size()-1).getName() == destnode.getName() ){
+			if(fullroutes.at(i).at(0).getName() == getName() && fullroutes.at(i).at(fullroutes.at(i).size()-1).getName() == destnode.getName() ){
 				cout << "Found a matching path " << endl;
 			}
 		}
-
-	}
-	int routesize = this->fullroutes.at(0).size();
-	if(routesize == 0){
+		
+	}	
+	int routesize = fullroutes.at(0).size();
+	if(routesize <= 1){
 		cout << "No route passed" << endl;
 		return false;
 	}
+	if(routesize == 2){
+		return twoHopHelper(1,fullroutes.at(0));
+	}
 	else{
-		for (size_t i = 0; i <= routesize-2; i+2)
+		bool resultone = false;
+		bool resulttwo = false;
+		bool routeoneneeded = false;
+		bool routetwoneeded = false;
+		//Check if 
+		for (size_t i = 0; i <= routesize-2; i+=2)
 		{
-
-			if (routesize == 2 || routesize%3 == 1 ){ // Only two nodes
-				cout << "Only 1 hop needed " << routesize << endl;
-				return oneHopHelper();
+			cout << "at hop " << i << endl;
+			if(routesize%2 == 0 && i== routesize-2){ 
+				cout << "1current i value " << i << endl ;
+				resultone = oneHopHelper(i,fullroutes.at(0));
+				routetwoneeded = true;
+				routeoneneeded = true;
 			}
-			else if (routesize%3 != 1 && i%3 != 1){ // at least 3 nodes
-				cout << "2+ hops needed " << endl;
-				return twoHopHelper();
+			else if(routesize%2 == 1 && i ==routesize-3){ // group of three and at end of list of routes
+				cout << "2current i value " << i << endl ;
+				resulttwo = twoHopHelper(i,fullroutes.at(0));
+				routetwoneeded = true;
 			}
+			else if(i == 0){ // group of three and at end of list of routes
+				cout << "3current i value " << i << endl ;
+				resulttwo = twoHopHelper(i,fullroutes.at(0));
+				routetwoneeded = true;
+			}
+		}
+		if(routetwoneeded && routeoneneeded){
+			return true;
+		}
+		if(routetwoneeded && !routeoneneeded){
+			return routetwoneeded;
+		}
+		if(!routetwoneeded && routeoneneeded){
+			return routetwoneeded;
 		}
 	}
 
@@ -617,25 +655,20 @@ vector<vector<Hop>> Node::getResults(){
 	return results;
 }
 void Node::addToResults(vector<Hop> &hopstoadd){
-	auto tmp = results;
-	cout << "adding the current hop with size " << hopstoadd.size() << " to all results for node " << this->getName() << endl;
-	cout << "results before " << results.size() << endl;
-	tmp.push_back(hopstoadd);
-	cout << "results after " << tmp.size() << endl;
+	cout << "adding to results " << endl;
+	results.push_back(hopstoadd);
+	cout << "size of results" << results.size() << endl;
+} 
 
-	results = tmp;
-
-	cout << "results after tmp " << results.size() << endl;
-}
-
-void Node::testRouteGen(Node &n2, Node &n3){ // Test Function
+void Node::testRouteGen(Node &n2, Node &n3,Node &destNode){ // Test Function
     vector<Node> path_track;
     path_track.push_back(returnNode());
 	path_track.push_back(n2);
 	path_track.push_back(n3);
+	path_track.push_back(destNode);
 
 	cout << "Current path length is " << path_track.size() << endl;
-    this->fullroutes.push_back(path_track);
+    fullroutes.push_back(path_track);
 }
 
 

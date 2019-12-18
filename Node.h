@@ -99,14 +99,14 @@ public:
 
 	int helpCreateRoute(vector<int> &channelstoavoid); // keep trying next best with no repeats
 
-	bool oneHopHelper();
+	bool oneHopHelper(int dest,vector<Node> &route);
 
-	bool twoHopHelper();
+	bool twoHopHelper(int start,vector<Node> &route);
 
 	bool createRoute(Node &destnode); // Create a new route for a node
 
 
-	void testRouteGen(Node &n2, Node &n3); // Test Function
+	void testRouteGen(Node &n2, Node &n3,Node &n4); // Test Function
 
 	//graph Algo functions
 

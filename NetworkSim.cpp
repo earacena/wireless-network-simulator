@@ -130,8 +130,6 @@ int main(){
 
 		Node test1;
 		Node test2;
-		cout <<" TEST1 values " << endl;
-		test1.getChannelWeights();
 		test1.setName("3");
 		test2.setName("4");
 
@@ -158,12 +156,12 @@ int main(){
 
 				test1 = findNodeInBasestation(test1,basestations);
 				test2 = findNodeInBasestation(test2,basestations);
-				cerr << "Generating route for " << test1.getName() << " and " << test2.getName() << endl;
-				srcnode.testRouteGen(test1,test2);	
+				cerr << " at " << srcnode.getName() << " Generating route for " << test1.getName() << " and " << test2.getName()<<  " and " << destnode.getName() << endl;
+				srcnode.testRouteGen(test1,test2,destnode);	
 
 				routeGenerated = srcnode.createRoute(destnode);
 
-				cout << "was the route generation done ? " <<  routeGenerated << endl;
+				cout << "was the route generation done ? " <<  routeGenerated <<  " <-"<< endl;
 
 				allnodes = current.get_Nodes();
 				vector<vector<Node>>  NodesinPath = srcnode.getRoutes();
@@ -176,11 +174,14 @@ int main(){
 				// update nodes and basestations
 				for(row = NodesinPath.begin(); row !=NodesinPath.end(); row++){
 					for (col =row->begin(); col != row->end(); col++)
-					{		
-						current.updateNode(*col);
-						cout << col->getName() << " Just updated that node " << endl;
-						allresults = col->getResults();
-						cout << "all results = " << allresults.size() << endl;
+					{	
+						allresults = col->getResults();		
+						if(allresults.size() > 0){
+							cout << "all results = " << allresults.size() << endl;
+							current.updateNode(*col);
+							cout << col->getName() << " Just updated that node " << endl;
+						}
+
 					}	
 				basestations[i] = current;	
 				}	
@@ -210,7 +211,7 @@ int main(){
 		}
 
 
-		//Begin outputting results to Sender
+		cout << "Begin outputting results to Sender" << endl;
 		for (size_t i = 0; i < basestations.size(); i++)
 		{
 			BaseStation current = basestations[i];	
@@ -220,6 +221,7 @@ int main(){
 				Node currentNode = findNodeInBasestation(allnodes[j],basestations);
 				int resultslength = currentNode.getResults().size();
 				if(resultslength != 0){
+					cout << "adding results " << endl;
 					Sender sender("routes.txt");
 					sender.export_data(currentNode.getResults());	
 				}
