@@ -1,0 +1,175 @@
+Reading file data:
+	GD 10
+	BSN 10
+	BSR 20
+	NN 6
+	NR 5
+	B A 25,30
+	B B 155,170
+	N 0 10,20
+	N 1 17,26
+	N 2 15,20
+	N 3 25,28
+	N 4 15,25
+	N 5 157,165
+	R 0,1
+Parsed grid size: 10
+Parsed number of base stations: 10
+Parsed base station radius: 20
+Parsed number of nodes: 6
+Parsed node radius: 5
+Parsed base station: 
+	basestation name: A
+	basestation radius: 20
+	basestation positon: (25, 30)
+Parsed base station: 
+	basestation name: B
+	basestation radius: 20
+	basestation positon: (155, 170)
+Parsed node: 
+	node name: 0
+	node positon: (10, 20)
+Parsed node: 
+	node name: 1
+	node positon: (17, 26)
+Parsed node: 
+	node name: 2
+	node positon: (15, 20)
+Parsed node: 
+	node name: 3
+	node positon: (25, 28)
+Parsed node: 
+	node name: 4
+	node positon: (15, 25)
+Parsed node: 
+	node name: 5
+	node positon: (157, 165)
+Parsed route request: (0 -> 1)
+Finished Parsing Data
+Node 0 is in BS A's Radius
+Adding a new node 0 to A
+Node 1 is in BS A's Radius
+Adding a new node 1 to A
+Node 2 is in BS A's Radius
+Adding a new node 2 to A
+Node 3 is in BS A's Radius
+Adding a new node 3 to A
+Node 4 is in BS A's Radius
+Adding a new node 4 to A
+Node 5 is not in BS A's Radius
+Node 0 is not in BS B's Radius
+Node 1 is not in BS B's Radius
+Node 2 is not in BS B's Radius
+Node 3 is not in BS B's Radius
+Node 4 is not in BS B's Radius
+Node 5 is in BS B's Radius
+Adding a new node 5 to B
+Finished Populating all basestations
+Total number of requests are1
+Current requested is 0 | 1
+ TEST SRCNODE 
+ channel weights are: 
+ TEST1 values 
+ channel weights are: 
+Looking for a node in the basestation node = 0
+Found 0Looking for a node in the basestation node = 1
+Found 1 TEST bs srcnodes vals 
+0 channel weights are: 
+1 channel weights are: 
+Going through the Basestations  | A | A
+Looking for a node in the basestation node = 3
+Found 3Looking for a node in the basestation node = 4
+Found 4Current path length is 3
+2+ hops needed 
+3 + total nodes in path detected 3
+3 all routes size
+is channel 4 used 0
+channel to skip are -1
+Total number of valid channels 3
+Found the best channel for the current node 0 channel 4
+is channel 4 used 0
+channel to skip are -1
+Total number of valid channels 3
+Found the best channel for the current node 0 channel 4
+channel to skip are 4
+channel to skip are 4
+channel to skip are 4
+Total number of valid channels 3
+Checking that status of all four chosen channels 0 | 0 | 0 | 0 
+Found channels for last two nodes/3 
+ Reserving the requested channel 4 for node 0
+ Reserving the requested channel 4 for node 3
+ Reserving the requested channel 3 for node 3
+ Reserving the requested channel 3 for node 4
+All 4 Channels are now reserved 
+Current Dest on Node 0 on channel 4is 3
+Current Dest on Node 3 on channel 4is 0
+Current Dest on Node 3 on channel 3is 4
+wait 
+Current Dest on Node 4 on channel 3is 3
+Current Dest on Node 0 on channel 4is 3
+Current Dest on Node 3 on channel 3is 4
+Checking Hop 1
+0
+4
+3
+Checking Hop 2
+3
+3
+4
+adding the current hop with size 1 to all results for node 0
+results before 0
+results after 1
+results after tmp 1
+adding the current hop with size 1 to all results for node 3
+results before 0
+results after 1
+results after tmp 1
+ after total number of hops = 1 | 1 . 0
+was the route generation done ? 1
+updating node 0
+0 Just updated that node 
+all results = 1
+updating node 3
+3 Just updated that node 
+all results = 1
+updating node 4
+4 Just updated that node 
+all results = 0
+Looking for a node in the basestation node = 0
+Found 0Looking for a node in the basestation node = 1
+Found 1 TEST bs srcnodes vals 
+0 channel weights are: 
+1 channel weights are: 
+Going through the Basestations  | A | A
+Finshed Dealing with all requests
+Looking for 0
+Looking for 1
+0 channel weights are: 
+1 channel weights are: 
+Getting all weights for 0 and 1
+Looking for 1
+Looking for 2
+1 channel weights are: 
+2 channel weights are: 
+Getting all weights for 1 and 2
+Looking for 2
+Looking for 3
+2 channel weights are: 
+3 channel weights are: 
+Getting all weights for 2 and 3
+Looking for 3
+Looking for 4
+3 channel weights are: 
+4 channel weights are: 
+Getting all weights for 3 and 4
+5
+Looking for 5
+5 channel weights are: 
+Looking for a node in the basestation node = 0
+Found 0Looking for a node in the basestation node = 1
+Found 1Looking for a node in the basestation node = 2
+Found 2Looking for a node in the basestation node = 3
+Found 3Looking for a node in the basestation node = 4
+Found 4Looking for a node in the basestation node = 5
+Found 5

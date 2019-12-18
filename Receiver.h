@@ -16,6 +16,12 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <utility>
+
+#include "Node.h"
+#include "BaseStation.h"
+
+typedef std::pair<std::string, std::string> Request;
 
 class Receiver {
   public:
@@ -32,9 +38,9 @@ class Receiver {
   int num_of_nodes;
   int node_radius;
 
-  // These are then parsed into a Node and BaseStation class.
-  std::vector<std::string> unparsed_bs_data;
-  std::vector<std::string> unparsed_node_data;
+  std::vector<BaseStation> basestations;
+  std::vector<Node> nodes;
+  std::vector<Request> requests;
   
   private:
   std::vector<std::string> file_data_;

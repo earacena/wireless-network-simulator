@@ -1,3 +1,7 @@
+how to run:
+
+$ g++ NetworkSim.cpp BaseStation.cpp Node.cpp -o Networksim && ./NetworkSim
+
 
 Project Name: Wireless network simulator
 Description: A secondary wireless network simulator.
