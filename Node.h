@@ -106,7 +106,17 @@ public:
 	bool createRoute(); // Create a new route for a node
 
 	void testRouteGen(Node &n2, Node &n3); // Test Function
-    void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
+    	void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
+	
+	/*----- ~ the following variables are just for the BFS implementation ~ ------*/
+		//tracker to see if the node has been discovered; 
+		//0 = UNDISCOVERED, 1 = NEIGHBORS UNDISCOVERED, 2 = FULLY DISCOVERED
+	int discovered = 0;
+		//the number of hops; initialized to 100 to imitate infinity
+	int hops = 100;
+		//when running BFS we need to see the parent node
+	Node* previous_hop = nullptr;
+	/*----------------------------------------------------------------------------*/
 
 private:
 	pair<int, int> position;
