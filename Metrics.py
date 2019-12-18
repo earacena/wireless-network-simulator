@@ -97,9 +97,15 @@ def parse_incoming_data(filename):
     """
     Read data from specified file and parse into sublists.
     Data Format:
+<<<<<<< Updated upstream
         # of nodes
         # of channels
         # of randomization samples
+=======
+        ! # of nodes
+        @ # of channels
+        ^ # of randomization samples
+>>>>>>> Stashed changes
         % hops of gen 0 (original graph)
         % hops of gen 1 (rand)
         % hops of gen 2 (rand)
@@ -128,6 +134,7 @@ def parse_incoming_data(filename):
         for line in data:
             if '!' in line:
                 num_of_nodes = int(line.strip('\n').strip('!').strip(' '))
+<<<<<<< Updated upstream
             if '@' in line:
                 num_of_channels = int(line.strip('\n').strip('@').strip(' '))
             if '^' in line:
@@ -137,6 +144,17 @@ def parse_incoming_data(filename):
             if '*' in line:
                 switches.append(int(line.strip('\n').strip('*').strip(' ')))
             if '%' in line:
+=======
+            elif '@' in line:
+                num_of_channels = int(line.strip('\n').strip('@').strip(' '))
+            elif '^' in line:
+                num_of_samples = int(line.strip('\n').strip('^').strip(' '))
+            elif '%' in line:
+                hops.append(int(line.strip('\n').strip('%').strip(' ')))
+            elif '*' in line:
+                switches.append(int(line.strip('\n').strip('*').strip(' ')))
+            elif '%' in line:
+>>>>>>> Stashed changes
                 channels_utilized.append(int(line.strip('\n').strip('$').strip(' ')))
 
     dataset = [num_of_nodes, num_of_channels, num_of_samples, hops, switches, channels_utilized]
