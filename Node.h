@@ -75,9 +75,9 @@ public:
 	int getChannelName(); // get the name of the channel
 
 	int getSendingChannel(); // get the sending channel used by the node
-	
+
 	void setSendingChannel(int channel); // set the channel the node is currently transmitting on
-	
+
 	int getListeningChannel();// get the listening channel used by the node
 
 	void setListeningChannel(int channel); // set the channel the node is currently receieving on
@@ -85,12 +85,12 @@ public:
 	void setDestNode(string nodename, int channeltoset); // set the destnode of the current channel
 
 	string getDestNode(int channel); // Get the Destination node for the requested channel
-	
+
 	int getDestChannelBySrcNode(string nodename);
 
 	vector<vector<Hop>> getResults();
 
-	void addToResults(vector<Hop> &currenthops); 
+	void addToResults(vector<Hop> &currenthops);
 
 	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
@@ -104,13 +104,27 @@ public:
 	bool twoHopHelper();
 
 	bool createRoute(Node &destnode); // Create a new route for a node
-	
+
 
 	void testRouteGen(Node &n2, Node &n3); // Test Function
-    	void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
-	
+
+	//graph Algo functions
+
+    void graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef);//generates the available graphs from the start to the destination
+
+    bool loopCheck (const string path, const string refstring);//helper function to check if the node is already in the path
+
+	void setAllNodeRef(Node & initialNode, vector<Node> & receiverList);
+
+	bool newRoutePossible(Node & startNode, Node & endNode, vector<string>  currentPaths);
+
+	void mergePaths(Node & startNode, Node & endNode, vector<string>  currentPaths);
+
+	float distanceFormula(int x1, int y1, int x2, int y2);
+
+
 	/*----- ~ the following variables are just for the BFS implementation ~ ------*/
-		//tracker to see if the node has been discovered; 
+		//tracker to see if the node has been discovered;
 		//0 = UNDISCOVERED, 1 = NEIGHBORS UNDISCOVERED, 2 = FULLY DISCOVERED
 	int discovered = 0;
 		//the number of hops; initialized to 100 to imitate infinity
@@ -123,7 +137,8 @@ private:
 	pair<int, int> position;
 	int radius;
 	string basestation;
-
+    vector<Node> allNodeRef;
+    vector<string> fullroutes;//passes back a list of all the routes from the start to the destination
 	string name;
 	string dest;
 	string source;
