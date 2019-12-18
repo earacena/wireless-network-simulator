@@ -375,12 +375,11 @@ bool Node::oneHopHelper(){
 		Hop hop1;
 
 		hop1 = make_tuple(this->getName(),node1channel,this->getDestNode(node1channel));
-		currenthop.push_back(hop1);
+
 		cout << "total number of current hop = " << currenthop.size() << endl; 
-
-		addToResults(currenthop);
-		addToResults(currenthop);
-
+		std::vector<Hop> path = {hop1};
+		// Update the nodes along the route
+		addToResults(path);
 		fullroutes.at(0).at(0) = returnNode();
 		fullroutes.at(0).at(fullroutes.size()-1) = destnode;		
 		return true;
@@ -499,6 +498,7 @@ bool Node::twoHopHelper()
 					node3channel = getBestAvailableChannel(channelstoskipn3);
 					//cout << "New channel names " << node2channel << " | " << node3channel << endl;
 					//cout << "New channels" << n2.checkChannelStatus(node2channel) << " | " << n3.checkChannelStatus(node3channel) << endl;
+					count ++; // avoid loop
 				}
 			}
 
@@ -556,11 +556,9 @@ bool Node::twoHopHelper()
 				cout << get<1>(hop2) << endl;
 				cout << get<2>(hop2) << endl;
 
-				n1ton2hops.push_back(hop1);
-				n2ton3hops.push_back(hop2);
+				std::vector<Hop> path = {hop1,hop2};
 				// Update the nodes along the route
-				addToResults(n1ton2hops);
-				n2.addToResults(n2ton3hops);
+				addToResults(path);
 				fullroutes.at(0).at(i) = returnNode();
 				fullroutes.at(0).at(i+1) = n2;
 				fullroutes.at(0).at(i+2) = n3;
