@@ -109,7 +109,7 @@ void BaseStation::updateNode(Node &node){ // update current node to new node
 	{
 		if(adjacency_list.at(i).getName() == node.getName()){
 			adjacency_list.at(i) = node;
-		//	cout << "updating node " << node.getName() << endl;
+			cout << "updating node " << node.getName() << endl;
 		}
 	}
 }

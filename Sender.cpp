@@ -10,7 +10,7 @@
 Sender::Sender(const std::string & filename) : filename_(filename) {}
 
 void Sender::export_data(const std::vector<std::vector<Hop>> & results) {
-  std::ofstream file(filename_);
+  std::ofstream file(filename_,std::ios::app);
   std::string srcId = "";
   int channel = 0;
   std::string destId = "";

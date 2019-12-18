@@ -90,7 +90,7 @@ public:
 
 	vector<vector<Hop>> getResults();
 
-	void createRoute(Node othernode); // Create a route to another node
+	void addToResults(vector<Hop> &currenthops); 
 
 	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
@@ -103,7 +103,8 @@ public:
 
 	bool twoHopHelper();
 
-	bool createRoute(); // Create a new route for a node
+	bool createRoute(Node &destnode); // Create a new route for a node
+	
 
 	void testRouteGen(Node &n2, Node &n3); // Test Function
     	void graphGenerationAlgo(Node startNode, Node endNode);//generates the available graphs from the start to the destination
