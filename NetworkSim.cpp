@@ -19,7 +19,6 @@ vector<int> poisson(int numofchannels){
 
   std::poisson_distribution<int> distribution (numofchannels);
 
- // std::cout << "some Poisson-distributed results (mean=numofchannels: ";
   vector<int> values;
   for (int i=0; i<numofchannels; ++i){
 	  values.push_back(distribution(generator));
@@ -27,7 +26,6 @@ vector<int> poisson(int numofchannels){
   return values;
 }
 Node findNodeInBasestation(Node &nodetofind,vector<BaseStation> &basestations){
-		cout << "Looking for a node in the basestation node = " << nodetofind.getName() << endl;
 		for (size_t i = 0; i < basestations.size(); i++)
 		{
 			BaseStation current = basestations[i]; 
@@ -35,7 +33,6 @@ Node findNodeInBasestation(Node &nodetofind,vector<BaseStation> &basestations){
 			for (size_t i = 0; i < allnodes.size(); i++)
 			{
 				if(allnodes.at(i).getName() == nodetofind.getName()){
-					cout << "Found " << allnodes.at(i).getName();
 					return allnodes.at(i);
 				}
 			}
@@ -73,7 +70,6 @@ void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,
 		{
 			if(current.inBaseStationRadius(nodes[n])){ // current node is in the current basestation radius
 				assignChannels(nodes[n],current,values);
-				cout << "Adding a new node " << nodes[n].getName() << " to " << current.getName() << endl;
 				nodes[n].setRadius(noderadius);
 				current.addNode(nodes[n]);	
 				basestations[i] = current;		
@@ -117,12 +113,10 @@ int main(){
 
 		string curReqSrcId = requests.at(r).first;
 		string curReqDestId = requests.at(r).second;
-		cout << "Current requested is " << curReqSrcId << " | " << curReqDestId << endl;
 
 		Node srcnode;
 		Node destnode;
 
-		cout <<" TEST SRCNODE " << endl;
 		srcnode.getChannelWeights();
 		
 		srcnode.setName(curReqSrcId);
@@ -143,25 +137,19 @@ int main(){
 			// Both nodes in one basestation
 			srcnode = findNodeInBasestation(srcnode,basestations);
 			destnode = findNodeInBasestation(destnode,basestations);
-			cout <<" TEST bs srcnodes vals " << endl;
 			srcnode.getChannelWeights();
 			destnode.getChannelWeights();
 			string srcbs = srcnode.getBasestation();
 			string destbs = destnode.getBasestation();
 
-			cout << "Going through the Basestations " << " | " << srcbs << " | " << destbs << endl;
 
 			if(!routeGenerated){
-				//cout << "Source and Dest Basestation is " << current.getName() <<endl;
 
 				test1 = findNodeInBasestation(test1,basestations);
 				test2 = findNodeInBasestation(test2,basestations);
-				cerr << " at " << srcnode.getName() << " Generating route for " << test1.getName() << " and " << test2.getName()<<  " and " << destnode.getName() << endl;
 				srcnode.testRouteGen(test1,test2,destnode);	
 
 				routeGenerated = srcnode.createRoute(destnode);
-
-				cout << "was the route generation done ? " <<  routeGenerated <<  " <-"<< endl;
 
 				allnodes = current.get_Nodes();
 				vector<vector<Node>>  NodesinPath = srcnode.getRoutes();
@@ -176,9 +164,7 @@ int main(){
 					for (col =row->begin(); col != row->end(); col++)
 					{	
 						allresults = col->getResults();		
-							cout << "all results = " << allresults.size() << endl;
 							current.updateNode(*col);
-							cout << col->getName() << " Just updated that node " << endl;
 
 					}	
 				basestations[i] = current;	
@@ -187,15 +173,12 @@ int main(){
 			}				
 			//displayAllChannels(srcnode);
 		}
-		cout << "Finshed Dealing with all requests" << endl;	
 		// Display all channels and all weights
 		for (size_t i = 0; i < basestations.size(); i++)
 		{
-			//	cout << "Displaying all weights for bs " << basestations[i].getName() << endl;
 			auto allnodes = basestations[i].get_Nodes();
 			int max = allnodes.size();
 			if(max == 1){
-				cout << allnodes.at(0).getName() << endl;
 				Node first = basestations[i].findNode(allnodes.at(0).getName());	
 				auto allweights = first.getChannelWeights();
 			}		
@@ -221,7 +204,6 @@ int main(){
 				Node currentNode = findNodeInBasestation(allnodes[j],basestations);
 				int resultslength = currentNode.getResults().size();
 				if(resultslength != 0){
-					cout << "adding results " << endl;
 					auto allresults = currentNode.getResults();
 					for (size_t k = 0; k < allresults.size(); k++)
 					{

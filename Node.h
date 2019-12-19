@@ -82,6 +82,10 @@ public:
 
 	void setListeningChannel(int channel); // set the channel the node is currently receieving on
 
+	int getPrevListeningChannel();// get the prevlistening channel used by the node
+
+	void setPrevListeningChannel(int channel); // set the prev channel the node isreceieving on
+
 	void setDestNode(string nodename, int channeltoset); // set the destnode of the current channel
 
 	string getDestNode(int channel); // Get the Destination node for the requested channel
@@ -145,6 +149,7 @@ private:
 
 	int sendingchannel;
 	int listeningchannel;
+	int prevlistchannel;
 
 
 	vector<int> bestChannelIds;
