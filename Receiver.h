@@ -30,6 +30,9 @@ class Receiver {
   void read_data_from_GUI(const std::string & filename, std::vector<std::string> &file_data);
   void parse_data(const std::vector<std::string> &data_name);
   void print_file_data();
+  void read_data_from_GUI(const std::string & filename);
+  void parse_data();
+
 
   // Accessible to other classes
   int grid_size;
