@@ -94,7 +94,7 @@ public:
 
 	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
-	void nodesInRange(Node & initialNode, vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
+	void nodesInRange(vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
 
 	int helpCreateRoute(vector<int> &channelstoavoid); // keep trying next best with no repeats
@@ -138,7 +138,7 @@ private:
 	int radius;
 	string basestation;
     vector<Node> allNodeRef;
-    vector<string> fullroutes;//passes back a list of all the routes from the start to the destination
+    vector<string> fullroutesstring;//passes back a list of all the routes from the start to the destination
 	string name;
 	string dest;
 	string source;

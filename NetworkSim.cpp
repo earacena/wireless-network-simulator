@@ -176,11 +176,9 @@ int main(){
 					for (col =row->begin(); col != row->end(); col++)
 					{	
 						allresults = col->getResults();		
-						if(allresults.size() > 0){
 							cout << "all results = " << allresults.size() << endl;
 							current.updateNode(*col);
 							cout << col->getName() << " Just updated that node " << endl;
-						}
 
 					}	
 				basestations[i] = current;	
@@ -211,6 +209,8 @@ int main(){
 		}
 
 
+		vector<vector<Hop>> everyhop;
+		vector<Hop> allhops;
 		cout << "Begin outputting results to Sender" << endl;
 		for (size_t i = 0; i < basestations.size(); i++)
 		{
@@ -222,11 +222,19 @@ int main(){
 				int resultslength = currentNode.getResults().size();
 				if(resultslength != 0){
 					cout << "adding results " << endl;
-					Sender sender("routes.txt");
-					sender.export_data(currentNode.getResults());	
-				}
-	
-			}	
-		}			
+					auto allresults = currentNode.getResults();
+					for (size_t k = 0; k < allresults.size(); k++)
+					{
+						for (size_t l = 0; l <allresults.at(k).size(); l++)
+						{
+							allhops.push_back(allresults.at(k).at(l));
+						}						
+					}					
+				}	
+			}
+		}
+		everyhop.push_back(allhops);		
+		Sender sender("routes.txt");
+		sender.export_data(everyhop);			
 	}
 }

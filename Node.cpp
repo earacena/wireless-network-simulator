@@ -122,7 +122,7 @@ vector<bool> Node::getAllChannelsStatus(){ // get all the channel use status for
 	}
 	return currentChannelUse;
 }
-vector<int> Node::getAllChannels(){// get all the free channels
+vector<int> Node::getAllChannels(){// get all the channels
 	vector<int> allchannels;
 	for(int i = 0; i < Channels.size(); i++){
 		allchannels.push_back(checkChannelStatus(i));
@@ -146,16 +146,23 @@ vector<int> Node::getAllAvailableChannels(){// get all the free channels
 //	Adj Channel 		interference --- Implemented
 // 	Exposed terminal 	problem		 ---  Implemented?
 int Node::getBestAvailableChannel(vector<int> &channelstoskip){ // get the best currently available channel for current node
-	for (size_t i = 0; i < channelstoskip.size(); i++)
-	{
-		cout << "channel to skip are " << channelstoskip[i] << endl;
-	}
 
 	vector<pair<int,int>> bestChannels = SortedWeightsByBest();
 	vector<pair<int,int>> validChannels;
 	vector<int> allchannels = getAllChannels();
 	bool channelfound = false;
 	int bestchannel = -1;
+	for (size_t i = 0; i < channelstoskip.size(); i++)
+	{
+		cout << "channel to skip are " << channelstoskip[i] << endl;
+		for (size_t j = 0; j < bestChannels.size(); j++)
+		{
+			if(channelstoskip.at(i) == bestChannels.at(j).second){
+				bestChannels.erase(bestChannels.begin()+j);
+			}
+		}
+		
+	}
 
 	for(int i = 0; i < bestChannels.size(); i++){
 		// Co-Channel Check
@@ -387,8 +394,8 @@ bool Node::oneHopHelper(int startnodeindex,vector<Node> &routes){
 		std::vector<Hop> path = {hop1};
 		// Update the nodes along the route
 		n1.addToResults(path);
-		cout << "total number of current hop = " << path.size() << endl; 		
-		routes.at(startnodeindex) = returnNode();
+		cout << "total number of current hop" << n1.getName() << " = " << path.size() << endl; 		
+		routes.at(startnodeindex) = n1;
 		routes.at(startnodeindex+1) = destnode;			
 		return true;
 	}
@@ -414,7 +421,7 @@ bool Node::twoHopHelper(int start,vector<Node> &routes)
 			int node3channel = -1;
 			cerr <<"in " << i << endl;
 			//Get the first three nodes 
-			cerr << routes.size() << " all routes size 3+" << endl;
+			cout << routes.size() << " all routes size 3+" << endl;
 			n1 = routes.at(i);
 			cerr << "assigned 1 " << endl;
 			n2 = routes.at(i+1);
@@ -424,23 +431,42 @@ bool Node::twoHopHelper(int start,vector<Node> &routes)
 			auto wn1 = n1.SortedWeightsByBest(); // Node 1
 			auto wn2 = n2.SortedWeightsByBest(); // Node 2
 			auto wn3 = n3.SortedWeightsByBest(); // Node 2
+			vector<int> channelstoskipn1;
+
+			channelstoskipn1.push_back(-1);
+
+			auto allchannelsn1 = n1.getAllChannels();
+			for (size_t i = 0; i < allchannelsn1.size(); i++)
+			{
+				cout << "Checking for any used channels " << endl;
+				if(allchannelsn1[i]==1 && i > 0){
+					cout << "Avoiding adj interference avoiding ( ) for first node in 2 hops " << i+1 << endl;
+					cout << "Avoiding adj interference avoiding ( ) for first node in 2 hops  " << i-1 << endl;	
+					channelstoskipn1.push_back(i-1);
+					channelstoskipn1.push_back(i+1);
+				}
+				else if(i == 0 && allchannelsn1[i]==1){
+					cout << "Avoiding adj interference avoiding ( ) for first node in 2 hopz  " << i+1 << endl;
+					channelstoskipn1.push_back(i+1);		
+				}				
+			}
+			
+			node1channel = n1.helpCreateRoute(channelstoskipn1); // Assign a channel for node 1
+
 			vector<int> channelstoskipn2;
-
-			channelstoskipn2.push_back(-1);
-
-			node1channel = n1.helpCreateRoute(channelstoskipn2);
+			channelstoskipn2.push_back(node1channel); // Avoid Co channel interference with node 1 and node 2 
 
 			auto allchannelsn2 = n2.getAllChannelsStatus();
-			for (size_t i = 0; i < allchannelsn2.size(); i++)
+			for (size_t i = 0; i < allchannelsn2.size(); i++) // Check all channels of n2 and see if they are in use atm
 			{
 				if(allchannelsn2[i]==1 && i > 0){
-					cout << "Avoiding adj interference avoiding ( ) for first hop/2  " << i+1 << endl;
-					cout << "Avoiding adj interference avoiding ( ) for first hop/2  " << i-1 << endl;	
+					cout << "Avoiding adj interference avoiding ( ) for second node in first hop/2  " << i+1 << endl;
+					cout << "Avoiding adj interference avoiding ( ) for second node in first hop/2  " << i-1 << endl;	
 					channelstoskipn2.push_back(i-1);
 					channelstoskipn2.push_back(i+1);
 				}
 				else if(i == 0 && allchannelsn2[i]==1){
-					cout << "Avoiding adj interference avoiding ( ) for first hop/2 i = 0  " << i+1 << endl;
+					cout << "Avoiding adj interference avoiding ( ) for second node in first hop/2 i = 0  " << i+1 << endl;
 					channelstoskipn2.push_back(i+1);		
 				}
 			}
@@ -464,7 +490,6 @@ bool Node::twoHopHelper(int start,vector<Node> &routes)
 					channelstoskipn2.push_back(i+1);
 				}
 			}
-			channelstoskipn3.push_back(node1channel); // Avoid exposed terminal
 			node3channel = n3.getBestAvailableChannel(channelstoskipn3); // find a channel thats not used on node 1 and 2
 
 			if(node3channel == -1){ // No point in trying if node 3 has no channels available
@@ -731,7 +756,6 @@ void Node::nodesInRange(vector<Node> & allNodes){
                 nodesInRange(subNodes.second, allNodes);
             }
         }*/
-}
 
 void Node:: mergePaths(Node & startNode, Node & endNode, vector<string>  currentPaths){//used within the graphAlgo to find and merge subpaths
     string pathUpdate;
@@ -741,7 +765,7 @@ void Node:: mergePaths(Node & startNode, Node & endNode, vector<string>  current
 
     for(auto initialcheck : currentPaths){
         if ((initialcheck[0] == startNode.name[0])&& (initialcheck.back() == endNode.name[0])){
-            startNode.fullroutes.push_back(initialcheck);
+            startNode.fullroutesstring.push_back(initialcheck);
         }
     }
 
@@ -762,7 +786,7 @@ void Node:: mergePaths(Node & startNode, Node & endNode, vector<string>  current
                                     }
                                }
                                if ((pathUpdate.back() == endNode.name[0]) && (pathUpdate != firstPush)){
-                                    startNode.fullroutes.push_back(pathUpdate);
+                                    startNode.fullroutesstring.push_back(pathUpdate);
                                     firstPush = pathUpdate;
                                }
                             }
