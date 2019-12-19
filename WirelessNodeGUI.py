@@ -77,7 +77,7 @@ def make_routes(root, Lbl, button):
             i += 2
         Lbl["text"] += "\n"
     generate_random_graphs()
-    subprocess.run(["a_out.exe"])
+    subprocess.run(["NetworkSim.exe"])
     
 
 def dist_bool(Ax,Ay,Bx,By, max_dist):
