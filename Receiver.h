@@ -16,14 +16,22 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <utility>
+
+#include "Node.h"
+#include "BaseStation.h"
+
+typedef std::pair<std::string, std::string> Request;
 
 class Receiver {
   public:
   Receiver();
 
-  void read_data_from_GUI(const std::string & filename, std::vector<std::string> &file_data);
+  void read_data_from_GUI(const std::string & filename, std::vector<std::string> &file_data_);
   void parse_data(const std::vector<std::string> &data_name);
   void print_file_data();
+
+
 
   // Accessible to other classes
   int grid_size;
@@ -32,9 +40,9 @@ class Receiver {
   int num_of_nodes;
   int node_radius;
 
-  // These are then parsed into a Node and BaseStation class.
-  std::vector<std::string> unparsed_bs_data;
-  std::vector<std::string> unparsed_node_data;
+  std::vector<BaseStation> basestations;
+  std::vector<Node> nodes;
+  std::vector<Request> requests;
   
   private:
   std::vector<std::string> file_data_;
@@ -46,6 +54,8 @@ class Receiver {
   std::vector<std::string> read_data2;
   std::vector<std::string> read_data2B;
   std::vector<std::string> read_data3B;
+
+  std::vector<std::pair<std::vector<Node>, std::vector<BaseStation>>> BSN_Pair_List;
 
 };
 
