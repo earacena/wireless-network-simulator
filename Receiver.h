@@ -27,11 +27,13 @@ class Receiver {
   public:
   Receiver();
 
-  void read_data_from_GUI(const std::string & filename, std::vector<std::string> &file_data);
+  void read_data_from_GUI(const std::string & filename, std::vector<std::string> &file_data_);
   void parse_data(const std::vector<std::string> &data_name);
   void print_file_data();
   void read_data_from_GUI(const std::string & filename);
   void parse_data();
+
+
 
 
   // Accessible to other classes
@@ -55,6 +57,8 @@ class Receiver {
   std::vector<std::string> read_data2;
   std::vector<std::string> read_data2B;
   std::vector<std::string> read_data3B;
+
+  std::vector<std::pair<std::vector<Node>, std::vector<BaseStation>>> BSN_Pair_List;
 
 };
 
