@@ -30,7 +30,7 @@ class Metrics:
         print("[METRICS] Results of parsing: {}".format(self.full_dataset))
 
     def generate_hops_vs_devices(self):
-        
+        """ Create and save an image of a graph of avg. number of hops vs number of nodes. """
         # calculate group1 averages
         group1_node_count = self.group1[0][0]
         group1_hops = []
@@ -46,7 +46,7 @@ class Metrics:
             group2_hops = group2_hops + dataset[3]
 
         group2_average = average(group2_hops)
-        print("[Metrics] Nodes: {}, Avg. Hops: {}".format(group1_node_count, group1_average))
+        print("[Metrics] Nodes: {}, Avg. Hops: {}".format(group2_node_count, group2_average))
 
         x_axis = [group1_node_count, group2_node_count]
         y_axis = [group1_average, group2_average]
@@ -56,83 +56,43 @@ class Metrics:
         plt.xticks(x_pos, x_axis)
         plt.xlabel("Number of Nodes")
         plt.ylabel("Avg. number of Hops")
-        plt.title("Avg. number of Hops vs. Number of Nodes")
+        plt.title("Avg. Number of Hops vs. Number of Nodes")
 
         #plt.show()
         plt.savefig("graph-hops-nodes.png")
-       
-#        num_of_nodes = []
-#        for data in self.parsed:
-#            print("{}".format(data))
-#            num_of_nodes.append(data[1])
-#
-#        num_of_hops = []
-#        for data in self.parsed:
-#            num_of_hops.append(data[3])
-#
-#        # Find largest node count to create the labels on left (hops)
-#        largest_hops = 0
-#        for hops in num_of_hops:
-#            if hops > largest_hops:
-#                largest_hops = hops
-#
-#        # Find largest  node count to create the labels on bottom ()
-#        largest_nodes = 0
-#        for nodes in num_of_nodes:
-#            if nodes > largest_nodes:
-#                largest_nodes = nodes
-#
-#
-#        print("[Metrics] Hops: {}".format(num_of_hops))
-#        print("[Metrics] Nodes: {}".format(num_of_nodes))
-#        y_pos = np.arange(len(num_of_nodes))        
-#        #num_of_hops = [str(i) for i in num_of_hops]
-#        plt.bar(y_pos, num_of_hops, align='center', alpha=0.5)
-#        plt.xticks(y_pos, num_of_nodes)
-#        plt.xlabel("Number of Nodes")
-#        plt.ylabel("Number of Hops")
-#        plt.title("Number of Hops vs. Number of Nodes")
-#
-#        #plt.show()
-#        plt.savefig("graph-hops-nodes.png")
 
     def generate_switches_vs_channels(self):
-        print("[METRICS] Generating graph 'switches vs channels' with dataset {}.".format(self.parsed))
-
-        num_of_channels = []
-        for data in self.parsed:
-            print("{}".format(data))
-            num_of_channels.append(data[4])
-
-        num_of_switches = []
-        for data in self.parsed:
-            num_of_switches.append(data[5])
-
-        # Find largest switches count to create the labels on left (switches)
-        largest_switches = 0
-        for switches in num_of_switches:
-            if switches > largest_switches:
-                largest_switches = switches
-
-        # Find largest channel count to create the labels on bottom (channels)
-        largest_channels = 0
-        for channels in num_of_channels:
-            if channels > largest_channels:
-                largest_channels = channels
-
-
-        print("[Metrics] Switches: {}".format(num_of_switches))
-        print("[Metrics] Channels: {}".format(num_of_channels))
-        y_pos = np.arange(len(num_of_channels))        
+        """ Create a graph of channel switches vs number of nodes """
         plt.clf()
-        plt.bar(y_pos, num_of_switches, align='center', alpha=0.5)
-        plt.xticks(y_pos, num_of_channels)
-        plt.xlabel("Number of Channels")
-        plt.ylabel("Number of Switches")
-        plt.title("Number of Switches vs. Number of Channels")
+        # calculate group1 averages
+        group1_node_count = self.group1[0][0]
+        group1_switches = []
+        for dataset in self.group1:
+            group1_switches = group1_switches + dataset[3]
+    
+        group1_average = average(group1_switches)
+        print("[Metrics] Nodes: {}, Avg. Channel Switches: {}".format(group1_node_count, group1_average))
+                
+        group2_node_count = self.group2[0][0]
+        group2_switches = []
+        for dataset in self.group2:
+            group2_switches = group2_switches + dataset[3]
+
+        group2_average = average(group2_switches)
+        print("[Metrics] Nodes: {}, Avg. Channel Switches: {}".format(group2_node_count, group2_average))
+
+        x_axis = [group1_node_count, group2_node_count]
+        y_axis = [group1_average, group2_average]
+ 
+        x_pos = np.arange(len(x_axis))
+        plt.bar(x_pos, y_axis, align='center', alpha=0.5)
+        plt.xticks(x_pos, x_axis)
+        plt.xlabel("Number of Nodes")
+        plt.ylabel("Avg. Number of Channel switches")
+        plt.title("Avg. number of Hops vs. Number of Nodes")
 
         #plt.show()
-        plt.savefig("graph-switches-channels.png")
+        plt.savefig("graph-switches-nodes.png")
  
 def average(list_of_numbers):
     """ Calculates the average of a list of numbers. """
@@ -203,6 +163,6 @@ def main():
 
     # Generate plots
     metrics.generate_hops_vs_devices()
-    #metrics.generate_switches_vs_channels()
+    metrics.generate_switches_vs_channels()
 
 main()
