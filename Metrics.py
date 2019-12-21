@@ -29,7 +29,7 @@ class Metrics:
 
         print("[METRICS] Results of parsing: {}".format(self.full_dataset))
 
-    def generate_hops_vs_devices(self):
+    def generate_hops_vs_nodes(self):
         """ Create and save an image of a graph of avg. number of hops vs number of nodes. """
         # calculate group1 averages
         group1_node_count = self.group1[0][0]
@@ -38,7 +38,7 @@ class Metrics:
             group1_hops = group1_hops + dataset[3]
     
         group1_average = average(group1_hops)
-        print("[Metrics] Nodes: {}, Avg. Hops: {}".format(group1_node_count, group1_average))
+        print("[Metrics] Group 1, Nodes: {}, Avg. Hops: {}".format(group1_node_count, group1_average))
                 
         group2_node_count = self.group2[0][0]
         group2_hops = []
@@ -46,7 +46,7 @@ class Metrics:
             group2_hops = group2_hops + dataset[3]
 
         group2_average = average(group2_hops)
-        print("[Metrics] Nodes: {}, Avg. Hops: {}".format(group2_node_count, group2_average))
+        print("[Metrics] Group 2, Nodes: {}, Avg. Hops: {}".format(group2_node_count, group2_average))
 
         x_axis = [group1_node_count, group2_node_count]
         y_axis = [group1_average, group2_average]
@@ -61,7 +61,7 @@ class Metrics:
         #plt.show()
         plt.savefig("graph-hops-nodes.png")
 
-    def generate_switches_vs_channels(self):
+    def generate_switches_vs_nodes(self):
         """ Create a graph of channel switches vs number of nodes """
         plt.clf()
         # calculate group1 averages
@@ -71,7 +71,7 @@ class Metrics:
             group1_switches = group1_switches + dataset[3]
     
         group1_average = average(group1_switches)
-        print("[Metrics] Nodes: {}, Avg. Channel Switches: {}".format(group1_node_count, group1_average))
+        print("[Metrics] Group 1, Nodes: {}, Avg. Channel Switches: {}".format(group1_node_count, group1_average))
                 
         group2_node_count = self.group2[0][0]
         group2_switches = []
@@ -79,7 +79,7 @@ class Metrics:
             group2_switches = group2_switches + dataset[3]
 
         group2_average = average(group2_switches)
-        print("[Metrics] Nodes: {}, Avg. Channel Switches: {}".format(group2_node_count, group2_average))
+        print("[Metrics] Group 2, Nodes: {}, Avg. Channel Switches: {}".format(group2_node_count, group2_average))
 
         x_axis = [group1_node_count, group2_node_count]
         y_axis = [group1_average, group2_average]
@@ -89,11 +89,44 @@ class Metrics:
         plt.xticks(x_pos, x_axis)
         plt.xlabel("Number of Nodes")
         plt.ylabel("Avg. Number of Channel switches")
-        plt.title("Avg. number of Hops vs. Number of Nodes")
+        plt.title("Avg. Number of Switches vs. Number of Nodes")
 
         #plt.show()
         plt.savefig("graph-switches-nodes.png")
  
+    def generate_utilized_vs_nodes(self):
+        """ Create a graph of channel utilized vs number of nodes """
+        plt.clf()
+        # calculate group1 averages
+        group1_node_count = self.group1[0][0]
+        group1_utilized = []
+        for dataset in self.group1:
+            group1_utilized = group1_utilized + dataset[4]
+    
+        group1_average = average(group1_utilized)
+        print("[Metrics] Group 1, Nodes: {}, Avg. Channel Utilized: {}".format(group1_node_count, group1_average))
+                
+        group2_node_count = self.group2[0][0]
+        group2_utilized = []
+        for dataset in self.group2:
+            group2_utilized = group2_utilized + dataset[4]
+
+        group2_average = average(group2_utilized)
+        print("[Metrics] Group 2, Nodes: {}, Avg. Channel utilized: {}".format(group2_node_count, group2_average))
+
+        x_axis = [group1_node_count, group2_node_count]
+        y_axis = [group1_average, group2_average]
+ 
+        x_pos = np.arange(len(x_axis))
+        plt.bar(x_pos, y_axis, align='center', alpha=0.5)
+        plt.xticks(x_pos, x_axis)
+        plt.xlabel("Number of Nodes")
+        plt.ylabel("Avg. Number of Channels Utilized")
+        plt.title("Avg. Number of Channels Utilized vs. Number of Nodes")
+
+        #plt.show()
+        plt.savefig("graph-utilized-nodes.png")
+
 def average(list_of_numbers):
     """ Calculates the average of a list of numbers. """
     average = 0
@@ -162,7 +195,8 @@ def main():
     metrics = Metrics()
 
     # Generate plots
-    metrics.generate_hops_vs_devices()
-    metrics.generate_switches_vs_channels()
+    metrics.generate_hops_vs_nodes()
+    metrics.generate_switches_vs_nodes()
+    metrics.generate_utilized_vs_nodes()
 
 main()
