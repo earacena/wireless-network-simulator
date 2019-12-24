@@ -25,6 +25,7 @@ public:
 
     BaseStation(std::string BSID,int r);
 
+	BaseStation(const BaseStation &oldbs); // copy constructor
     std::string getName();
 	
 	Pair getPosition();	//returns a Pair of position
@@ -45,7 +46,7 @@ public:
 
 	void removeNode(Node &node); // remove a node from the basestation
 
-	vector<Node> get_Nodes(); // return all nodes in basestation
+	vector<Node>& get_Nodes(); // return all nodes in basestation
 
 	void allocateChannel(Node node1,Node node2); // allocates a channel based on availiable channels on node1 and node 2
 	
