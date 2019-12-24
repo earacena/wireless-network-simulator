@@ -649,12 +649,12 @@ void Node::testRouteGen(Node &n2, Node &n3,Node &destNode){ // Test Function
 }
 
 
-void Node::graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef){//graph algo, the result of which will be stored within the starting node
+void Node::graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node>  noderef){//graph algo, the result of which will be stored within the starting node
     string PathFragment;
     vector<string> PathFragmentList;
     string nameRef(startNode.name);
         for (auto & node: noderef){
-
+        cout<<"hi";
         for (auto & subNodes : node.adjlist){
             cout<<subNodes.first.name<<'\n';
             cout<<subNodes.second.name<<'\n';
@@ -676,31 +676,41 @@ void Node::graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> no
                 }
             }
         }
-       mergePaths(startNode, endNode, PathFragmentList);
 
-       for (auto  vec: startNode.allroutesNodes){
-            cout<<"new path: ";
-                for (auto node : vec){
-                    cout<<node.name;
-                }
-                cout<<'\n';
+       /* for(auto nodelist : PathFragmentList){
+
+            for ( auto name : nodelist){
+                cout<<name<<'\n';
             }
+            cout<<"new route"<<'\n';
+        }*/
+
+            mergePaths(startNode, endNode, PathFragmentList);
+
+            for (auto  vec: startNode.fullroutes){
+            cout<<"new path: ";
+                    cout<<vec;
+                cout<<'\n';
+       }
             cout<<"shortest path: "<<startNode.fullroutes[0];
+
 }
 
 
 void Node::nodesInRange(vector<Node> & allNodes){
     for(auto & initialNode : allNodes){
+            initialNode.adjlist.reserve(10);
+            cout<<initialNode.name<<'\n';
         for (auto & theNode : allNodes){
             if (initialNode.name != theNode.name){
+                cout<<theNode.name;
                 int distance = distanceFormula(initialNode.position.first, initialNode.position.second, theNode.position.first, theNode.position.second);
                 if (distance <= initialNode.radius){
-                    pair<Node &,Node &> inrange(initialNode, theNode);
+                    pair<Node  ,Node  > inrange(initialNode, theNode);
                     initialNode.adjlist.push_back(inrange);
                 }
             }
         }
-        initialNode.setAllNodeRef(initialNode, allNodes);
     }
 }
        /* for (auto & subNodes : initialNode.adjlist){
@@ -711,15 +721,21 @@ void Node::nodesInRange(vector<Node> & allNodes){
             }
         }*/
 
+
+
+
 void Node:: mergePaths(Node & startNode, Node & endNode, vector<string>  currentPaths){//used within the graphAlgo to find and merge subpaths
     string pathUpdate;
     vector<string> allPathUpdate;
+    allPathUpdate.reserve(100);
     int start(1);
     string firstPush{""};
-
+cout<<"hi";
     for(auto initialcheck : currentPaths){
+
         if ((initialcheck[0] == startNode.name[0])&& (initialcheck.back() == endNode.name[0])){
-            startNode.fullroutesstring.push_back(initialcheck);
+            startNode.fullroutes.push_back(initialcheck);
+
         }
     }
 
@@ -727,40 +743,54 @@ void Node:: mergePaths(Node & startNode, Node & endNode, vector<string>  current
             start = 0;
 
             for (auto route : currentPaths){
-
                 if ((route[0] == (startNode.name[0])) && (route.back() != endNode.name[0])){
 
                     for(auto routeCheck : currentPaths){
                         if ((routeCheck[0] == route.back())&&(routeCheck[0] != endNode.name[0])){
-                            for(auto node : routeCheck){
-                               if ((node != route.back())&&(route[0] != routeCheck.back())){
-                                    if (loopCheck(route, routeCheck)){
+
+                            for(auto stringchar : routeCheck){
+                               if ((stringchar != route.back())&&(route[0] != routeCheck.back())){
+
+                                    if (loopCheck(route, stringchar)){
                                         pathUpdate += route;
-                                        pathUpdate.push_back(node);
+                                        pathUpdate.push_back(stringchar);
+
                                     }
+                                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                }
+                               /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                if ((pathUpdate.back() == endNode.name[0]) && (pathUpdate != firstPush)){
-                                    startNode.fullroutesstring.push_back(pathUpdate);
-                                    firstPush = pathUpdate;
+
+                                        startNode.fullroutes.push_back(pathUpdate);
+                                        firstPush = pathUpdate;
+
+                                        pathUpdate.clear();
                                }
+                               //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                else if (!(deadEnd(pathUpdate, currentPaths))){
+                                    allPathUpdate.push_back(pathUpdate);
+                                    pathUpdate.clear();
+                                }
+
+                                else{
+
+                                    pathUpdate.clear();
+                                }
                             }
                         }
-
-                        else if((route[0] != routeCheck.back()) && (routeCheck[0] != endNode.name[0])){
-                                if(routeCheck[0] != startNode.name[0]){
-                                        pathUpdate += routeCheck;
-
-                                        allPathUpdate.push_back(pathUpdate);
-                                        pathUpdate.clear();
-                                }
-                        }
-
-
-                            allPathUpdate.push_back(pathUpdate);
-                            pathUpdate.clear();
-
+                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     }
                 }
+
+
+                 else if((route[0] != startNode.name[0]) && (route[0] != endNode.name[0])){
+
+                    cout<<route<<'\n';
+                    allPathUpdate.push_back(route);
+                    pathUpdate.clear();
+
+                }
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
 
             currentPaths = allPathUpdate;
@@ -773,34 +803,58 @@ void Node:: mergePaths(Node & startNode, Node & endNode, vector<string>  current
 
 
 
+vector<Node> Node:: routeRequest(vector<Node> & givenNodeList, Node & startNode, int pathIndex){
+
+    vector<Node> newRoute;
+
+    for (auto & nodeonPath : startNode.fullroutes[pathIndex]){
+
+         for (auto & nodebyRef : givenNodeList){
+            if (nodeonPath == nodebyRef.name[0]){
+                newRoute.push_back(nodebyRef);
+            }
+         }
+    }
+    return newRoute;
+}
+
+
 bool Node:: newRoutePossible(Node & startNode , Node & endNode, vector<string>  currentPath){//used with graph algo to check  whether further routes are possible
 
     for (auto & route : currentPath){
-            if (((route[0] == (startNode.name[0])) && (route.back() != endNode.name[0]))){
-                    return true;
+        if (((route[0] == (startNode.name[0])) && (route.back() != endNode.name[0]))){
+
+                return true;
+
         }
     }
     return false;
 
 }
 
-bool Node:: loopCheck(const string path, const string refString){//prevents looping paths in the merge algo
+bool Node:: deadEnd(const string & path, const vector<string> & currentPaths){
+    vector<string> newcurrent;
+    for (auto & deadEnd : currentPaths){
+            if (path == deadEnd){
+                return true;
+            }
+    }
+    return false;
+}
+
+bool Node:: loopCheck(const string path, const char refChar){//prevents looping paths in the merge algo
 
     for (auto name : path){
-            if (name == refString.back()){
+            if (name == refChar){
                 return false;
         }
     }
     return true;
 }
 
-void Node:: setAllNodeRef(Node & initialNode, vector<Node>  & receiverList){
-        for (auto  setNode : receiverList){
-            initialNode.allNodeRef.push_back(setNode);
-        }
-}
 
-float Node::distanceFormula(int x1, int y1, int x2, int y2){
+
+float Node::distanceFormula(int & x1, int & y1, int & x2, int & y2){
     float distance = pow((x2 - x1), 2) + pow((y2 - y1), 2);
     distance = sqrt(distance);
     return distance;

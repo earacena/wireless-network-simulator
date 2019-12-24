@@ -114,17 +114,15 @@ public:
 
 	//graph Algo functions
 
-    void graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef);//generates the available graphs from the start to the destination
+    bool loopCheck (const string path, const char refChar);//helper function to check if the node is already in the path
 
-    bool loopCheck (const string path, const string refstring);//helper function to check if the node is already in the path
-
-	void setAllNodeRef(Node & initialNode, vector<Node> & receiverList);
+    bool deadEnd (const string & path,const vector<string> & currentPaths);
 
 	bool newRoutePossible(Node & startNode, Node & endNode, vector<string>  currentPaths);
 
 	void mergePaths(Node & startNode, Node & endNode, vector<string>  currentPaths);
 
-	float distanceFormula(int x1, int y1, int x2, int y2);
+    vector<Node> routeRequest (vector<Node> & givenNodeList, Node & startNode, int pathIndex);//returns the requested route from the starting node
 
 
 	/*----- ~ the following variables are just for the BFS implementation ~ ------*/
@@ -150,11 +148,8 @@ private:
 	int sendingchannel;
 	int listeningchannel;
 	int prevlistchannel;
-
-
+    float distanceFormula(int & x1, int & y1, int & x2, int & y2);
 	vector<int> bestChannelIds;
-    void graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path);//overloaded for use within the graphGenerationAlgo function
-    bool pathCheck (const Node  & nextNode, const vector<Node> & path);//helper function to check if the node is already in the path
 	struct Channel
 	{
 		bool used; // is the channel in use
