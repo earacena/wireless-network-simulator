@@ -120,12 +120,15 @@ public:
 
 	bool createRoute(Node &destnode); // Create a new route for a node
 
- 	void testRouteGen(Node &n1,Node &n2, Node &n3,Node &n4); // Test Function 
+ 	void testRouteGen(Node &n1,Node &n2, Node &n3,Node &n4); // Test Function
+	
 	//graph Algo functions
+	
+	void graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef);//generates the available graphs from the start to the destination
 
-    void graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef);//generates the available graphs from the start to the destination
+        bool loopCheck (const string path, const char refChar);//helper function to check if the node is already in the path
 
-    bool loopCheck (const string path, const string refstring);//helper function to check if the node is already in the path
+    	bool deadEnd (const string & path,const vector<string> & currentPaths);
 
 	void setAllNodeRef(Node & initialNode, vector<Node> & receiverList);
 
@@ -133,7 +136,10 @@ public:
 
 	void mergePaths(Node & startNode, Node & endNode, vector<string>  currentPaths);
 
-	float distanceFormula(int x1, int y1, int x2, int y2);
+    	vector<Node> routeRequest (vector<Node> & givenNodeList, Node & startNode, int pathIndex);
+
+    	float distanceFormula(int & x1, int & y1, int & x2, int & y2);
+
 
 
 	/*----- ~ the following variables are just for the BFS implementation ~ ------*/
@@ -150,8 +156,7 @@ private:
 	pair<int, int> position;
 	int radius;
 	string basestation;
-    vector<Node> allNodeRef;
-    vector<string> fullroutesstring;//passes back a list of all the routes from the start to the destination
+  
 	string name;
 	string dest;
 	string source;
@@ -161,9 +166,7 @@ private:
 	int prevlistchannel;
 
 
-	vector<int> bestChannelIds;
-    void graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path);//overloaded for use within the graphGenerationAlgo function
-    bool pathCheck (const Node  & nextNode, const vector<Node> & path);//helper function to check if the node is already in the path
+	vector<int> bestChannelIds; void graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path);//overloaded for use within the graphGenerationAlgo function
 	struct Channel
 	{
 		bool used; // is the channel in use
@@ -171,7 +174,7 @@ private:
 		int id; // id of the current channel
 		string usedby; // what node is using this channel
 	};
-    vector<pair<Node,Node>> adjlist;//adjacency list
+    	vector<pair<Node,Node>> adjlist;//adjacency list
 	vector<Channel> Channels; // Vector of the number of channels for each node
 	vector<pair<Node,Node>> routes; // Vector that contains the current routes through node
 	vector<vector<Node>> fullroutes;//passes back a list of all the routes from the start to the destination
