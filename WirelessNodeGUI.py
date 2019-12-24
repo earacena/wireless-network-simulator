@@ -62,22 +62,26 @@ def make_routes(root, Lbl, button):
     lbl = root.create_text(0,0, text="", fill="white")
     for j in range(len(ls)):
         Lbl['text'] += "Route ["+ls[j][0]+"->"+ls[j][len(ls[j])-1]+"]\n"
-        root.itemconfig(lbl, text=str(j+1))
-        for i in range(0,int(len(ls[j]))-1,3):
-            print()
-            src = int(ls[j][i])
-            print(src)
-            chnl = int(ls[j][i+1])
-            print(chnl)
-            dest = int(ls[j][i+2])
-            print(dest)
-            print(lsi[src][0])
-            Lbl["text"] += " "+str(ls[j][i])+"-["+str(ls[j][i+1])+"]->"+str(ls[j][i+2])+","
-            make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
-            i += 2
+        if (ls[j][1]=='-1'):
+            Lbl['text'] += "No Route Found"
+        else:
+            root.itemconfig(lbl, text=str(j+1))
+            for i in range(0,int(len(ls[j]))-1,3):
+                print()
+                src = int(ls[j][i])
+                print(src)
+                chnl = int(ls[j][i+1])
+                print(chnl)
+                dest = int(ls[j][i+2])
+                print(dest)
+                print(lsi[src][0])
+                Lbl["text"] += " "+str(ls[j][i])+"-["+str(ls[j][i+1])+"]->"+str(ls[j][i+2])+","
+                make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
+                i += 2
         Lbl["text"] += "\n"
-    generate_random_graphs()
+    generate_random_graphs
     subprocess.run(["NetworkSim.exe"])
+    Metrics.main()
     
 
 def dist_bool(Ax,Ay,Bx,By, max_dist):
@@ -301,7 +305,6 @@ def generate_random_graphs():
 ##            file.write(s_temp)
 ##            file.close()
 ##            print(s_temp)
-    Metrics.main()
 ##    imgA = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-hops-nodes.png")
 ##    photoA = ImageTk.PhotoImage(imgA)
 ##    imgB = Image.open("/Users/acret/AppData/Local/Programs/Python/Python37/graph-switches-channels.png")
