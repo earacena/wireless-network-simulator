@@ -35,6 +35,17 @@ BaseStation::BaseStation(std::string BSID,int r){
 	radius = r;
 	name = BSID;
 }
+BaseStation::BaseStation(const BaseStation &oldbs){ // copy constructor
+	position.first = oldbs.position.first;
+	position.second = oldbs.position.second;
+	radius = oldbs.radius;
+	name = oldbs.name;
+	for (size_t i = 0; i < oldbs.adjacency_list.size(); i++)
+	{
+		adjacency_list.push_back(oldbs.adjacency_list.at(i));
+	}
+
+}
 
 std::string BaseStation::getName(){ // return the name
 	return name;
@@ -87,7 +98,7 @@ void BaseStation::addNode(Node &node){ // add a node to the current basestation
 	adjacency_list.push_back(node);
 //	cout << adjacency_list.size() << endl;
 }
-vector<Node> BaseStation::get_Nodes(){ // return all nodes in basestation
+vector<Node>& BaseStation::get_Nodes(){ // return all nodes in basestation
 	return adjacency_list;
 }
 void BaseStation::removeNode(Node &node){ // remove a node from the basestation

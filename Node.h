@@ -23,8 +23,17 @@ public:
 	Node(int x, int y, int r); // 3 arg contructor
 
 	Node(string nodename);
+	Node(const Node &oldnode); // copy constructor 
 
 	Node& returnNode();
+
+	Node returnNodeByString(string nodename);
+
+	Node& findNodeInAdjList(string &nodename);
+
+	void updateNodeinAdjList(Node &node);
+
+	void updateSecondNodeFromAdjlist(Node &srcnode, Node &secondnode);
 
 	Pair getPosition();	//returns a Pair of position
 
@@ -98,20 +107,20 @@ public:
 
 	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
+ 	vector<string> getRoutesString(); // get the route taken by the node 
+
 	void nodesInRange(vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
 
 	int helpCreateRoute(vector<int> &channelstoavoid); // keep trying next best with no repeats
 
-	bool oneHopHelper(int dest,vector<Node> &route);
+	bool oneHopHelper(int dest,string route);
 
-	bool twoHopHelper(int start,vector<Node> &route);
+	bool twoHopHelper(int start,string route);
 
 	bool createRoute(Node &destnode); // Create a new route for a node
 
-
-	void testRouteGen(Node &n2, Node &n3,Node &n4); // Test Function
-
+ 	void testRouteGen(Node &n1,Node &n2, Node &n3,Node &n4); // Test Function 
 	//graph Algo functions
 
     void graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef);//generates the available graphs from the start to the destination
