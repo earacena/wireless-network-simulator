@@ -29,6 +29,7 @@ Node& findNode(string nodename,vector<Node> &allnodes){
 		for (size_t i = 0; i < allnodes.size(); i++)
 		{
 			if(allnodes.at(i).getName() == nodename){
+				cout << "Found node " << nodename << endl;
 				return allnodes.at(i);
 			}
 		}		
@@ -123,11 +124,6 @@ int main(){
 		srcnode.setName(curReqSrcId);
 		destnode.setName(curReqDestId);
 
-		Node test1;
-		Node test2;
-		test1.setName("3");
-		test2.setName("4");
-
 		bool routeGenerated = false;
 		bool routeGeneratedOtherBS = false;
 
@@ -139,12 +135,19 @@ int main(){
 		string srcbs = srcnode.getBasestation();
 		string destbs = destnode.getBasestation();
 
+		srcnode.nodesInRange(allnodes);// srcnode isint changed here
+		
+		srcnode = findNode(curReqSrcId,allnodes);		
+		srcnode.graphGenerationAlgo(srcnode,destnode,allnodes);
+
+		for (size_t i = 0; i < allnodes.size(); i++)
+		{
+			if(allnodes.at(i).getName() == srcnode.getName())
+			allnodes.at(i) = srcnode;
+		}			
+		srcnode = findNode(curReqSrcId,allnodes);	
+
 		if(!routeGenerated){
-
-			test1 = findNode(test1.getName(),allnodes);
-			test2 = findNode(test2.getName(),allnodes);
-			srcnode.testRouteGen(srcnode,test1,test2,destnode);	
-
 			cerr << "Help b4 route gen " << endl;
 			routeGenerated = srcnode.createRoute(destnode);
 			cout << "was the route generated " << routeGenerated << endl;

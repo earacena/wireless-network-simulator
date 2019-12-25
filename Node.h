@@ -31,6 +31,8 @@ public:
 
 	Node& findNodeInAdjList(string &nodename);
 
+	bool existsinAdjList(string nodename);
+
 	void updateNodeinAdjList(Node &node);
 
 	void updateSecondNodeFromAdjlist(Node &srcnode, Node &secondnode);
@@ -157,6 +159,9 @@ private:
 	int radius;
 	string basestation;
   
+	vector<string> fullroutesstring;
+	string adjlistsstring;
+
 	string name;
 	string dest;
 	string source;
@@ -166,7 +171,7 @@ private:
 	int prevlistchannel;
 
 
-	vector<int> bestChannelIds; void graphGenerationAlgo(Node startNode, Node endNode, vector<Node> path);//overloaded for use within the graphGenerationAlgo function
+	vector<int> bestChannelIds; 
 	struct Channel
 	{
 		bool used; // is the channel in use
@@ -174,7 +179,7 @@ private:
 		int id; // id of the current channel
 		string usedby; // what node is using this channel
 	};
-    	vector<pair<Node,Node>> adjlist;//adjacency list
+    vector<pair<Node,Node>> adjlist;//adjacency list
 	vector<Channel> Channels; // Vector of the number of channels for each node
 	vector<pair<Node,Node>> routes; // Vector that contains the current routes through node
 	vector<vector<Node>> fullroutes;//passes back a list of all the routes from the start to the destination
