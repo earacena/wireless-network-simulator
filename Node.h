@@ -24,7 +24,19 @@ public:
 
 	Node(string nodename);
 
+	Node &operator=(const Node &oldnode); // copy constructor 
+
 	Node& returnNode();
+
+	Node returnNodeByString(string nodename);
+
+	Node& findNodeInAdjList(string &nodename);
+
+	bool existsinAdjList(string nodename);
+
+	void updateNodeinAdjList(Node &node);
+
+	void updateSecondNodeFromAdjlist(Node &srcnode, Node &secondnode);
 
 	Pair getPosition();	//returns a Pair of position
 
@@ -64,7 +76,7 @@ public:
 
 	int getBestAvailableChannel(vector<int> &channelstoskip); // get the best currently available channel thats not the parameter
 
-	bool reserveChannel(int channel);// reserve a channel
+	bool reserveChannel(int channel,string nodename);// reserve a channel
 
 	void releaseChannel(int channel); // release a channel
 
@@ -98,32 +110,39 @@ public:
 
 	vector<vector<Node>> getRoutes(); // get the route taken by the node
 
+ 	vector<string> getRoutesString(); // get the route taken by the node 
+
 	void nodesInRange(vector<Node> & allNodes);//fill the Adjacency list with Nodes that are within range
 
 
 	int helpCreateRoute(vector<int> &channelstoavoid); // keep trying next best with no repeats
 
-	bool oneHopHelper(int dest,vector<Node> &route);
+	bool oneHopHelper(int dest,string route,vector<Node> &allnodes);
 
-	bool twoHopHelper(int start,vector<Node> &route);
+	bool twoHopHelper(int start,string route,vector<Node> &allnodes);
 
-	bool createRoute(Node &destnode); // Create a new route for a node
+	bool createRoute(Node &destnode,vector<Node> &allnodes); // Create a new route for a node
 
-
-	void testRouteGen(Node &n2, Node &n3,Node &n4); // Test Function
-
+ 	void testRouteGen(Node &n1,Node &n2, Node &n3,Node &n4); // Test Function
+	
 	//graph Algo functions
+	
+	void graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node> noderef);//generates the available graphs from the start to the destination
 
-    bool loopCheck (const string path, const char refChar);//helper function to check if the node is already in the path
+  bool loopCheck (const string path, const char refChar);//helper function to check if the node is already in the path
 
-    bool deadEnd (const string & path,const vector<string> & currentPaths);
+  bool deadEnd (const string & path,const vector<string> & currentPaths);
+
+	void setAllNodeRef(Node & initialNode, vector<Node> & receiverList);
+
 
 	bool newRoutePossible(Node & startNode, Node & endNode, vector<string>  currentPaths);
 
 	void mergePaths(Node & startNode, Node & endNode, vector<string>  currentPaths);
 
-    vector<Node> routeRequest (vector<Node> & givenNodeList, Node & startNode, int pathIndex);//returns the requested route from the starting node
+	vector<Node> routeRequest (vector<Node> & givenNodeList, Node & startNode, int pathIndex);
 
+  float distanceFormula(int & x1, int & y1, int & x2, int & y2);
 
 	/*----- ~ the following variables are just for the BFS implementation ~ ------*/
 		//tracker to see if the node has been discovered;
@@ -139,17 +158,19 @@ private:
 	pair<int, int> position;
 	int radius;
 	string basestation;
-    vector<Node> allNodeRef;
-    vector<string> fullroutesstring;//passes back a list of all the routes from the start to the destination
+  
+	vector<string> fullroutesstring;
+	string adjlistsstring;
+
 	string name;
 	string dest;
 	string source;
 
-	int sendingchannel;
-	int listeningchannel;
-	int prevlistchannel;
-    float distanceFormula(int & x1, int & y1, int & x2, int & y2);
-	vector<int> bestChannelIds;
+	int sendingchannel = -1;
+	int listeningchannel = -1;
+	int prevlistchannel = -1;
+	vector<int> bestChannelIds; 
+
 	struct Channel
 	{
 		bool used; // is the channel in use

@@ -25,20 +25,19 @@ vector<int> poisson(int numofchannels){
   }
   return values;
 }
-Node findNodeInBasestation(Node &nodetofind,vector<BaseStation> &basestations){
-		for (size_t i = 0; i < basestations.size(); i++)
+Node& findNode(string nodename,vector<Node> &allnodes){
+		for (size_t i = 0; i < allnodes.size(); i++)
 		{
-			BaseStation current = basestations[i]; 
-			auto allnodes = current.get_Nodes();
-			for (size_t i = 0; i < allnodes.size(); i++)
-			{
-				if(allnodes.at(i).getName() == nodetofind.getName()){
-					return allnodes.at(i);
-				}
+			if(allnodes.at(i).getName() == nodename){
+			//	cout << "Found node " << nodename << endl;
+				return allnodes.at(i);
 			}
 		}		
+}
+void updateNode(Node &node){
 
 }
+
 void assignChannels(Node &node,BaseStation &bs,vector<int> &values){
 
 	int total_channels = 5; 
@@ -47,21 +46,27 @@ void assignChannels(Node &node,BaseStation &bs,vector<int> &values){
 	node.setBasestation(bs.getName());
 }
 
-void displayAllChannels(Node node){
+void displayAllChannels(Node &node){
 	auto allchan = node.getAllChannelsStatus();
-	cout << "All channels for " << node.getName() << " " << endl;
+	//cout << "All channels for " << node.getName() << " " << endl;
 	for (size_t i = 0; i < allchan.size(); i++)
 	{
-		cout << " |Channel: " << i;
-		cout << " |Channel Use Status: " << allchan[i];
-		cout << " |With weight: " <<node.checkChannelWeight(i);
-		cout << endl;
+	//	cout << " |Channel: " << i;
+	//	cout << " |Channel Use Status: " << allchan[i];
+	//	cout << " |With weight: " <<node.checkChannelWeight(i);
+	//	cout << endl;
 	}
-	cout << endl;
+	//cout << endl;
 }
 
 void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,int noderadius,int numofchannels){
 	auto values = poisson(numofchannels);
+	string allnodenames;
+	for (size_t i = 0; i < nodes.size(); i++)
+	{
+		allnodenames += nodes.at(i).getName();
+	}
+	
 	for (size_t i = 0; i < basestations.size(); i++)
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
@@ -87,7 +92,7 @@ int main(){
 
 	Receiver receiver;
   
-  	receiver.read_data_from_GUI("test-file-receiver.txt");
+  	receiver.read_data_from_GUI("data.txt");
   	receiver.parse_data();
 	
 	cout << "Finished Parsing Data" << endl;
@@ -99,18 +104,38 @@ int main(){
 	int number_of_nodes = receiver.num_of_nodes;
 	int node_radius = receiver.node_radius;
 	int number_of_channels = 5;
+	bool foundadjnodes = false;
 
 	vector<Node> allnodes = receiver.nodes;
 	populateBaseStations(basestations,allnodes,node_radius,number_of_channels); // populate the base stations
+
+	vector<Node> nodup;
+
+	nodup.push_back(allnodes.at(0));
+	for (size_t i = 0; i < allnodes.size(); i++)
+	{
+		for (size_t j = 0; j < nodup.size(); j++)
+		{
+			if(nodup.at(j).getName() == allnodes.at(i).getName()){
+
+			}
+		}
+		
+	}
+	
 	cout << "Finished Populating all basestations" <<endl;
 
 	//go through all requests
 	// then go through each basestation
 	// then go through each node to find match
+
+	vector<vector<Hop>> everyhop;
+	vector<Hop> allhops;	
  	vector<Request> requests = receiver.requests;
-	cout << "Total number of requests are" << requests.size() << endl;
+	cout << "	number of requests are" << requests.size() << endl;
 	for (size_t r = 0; r < requests.size(); r++){
 
+		cout << "Currently on request " << r+1 << endl;
 		string curReqSrcId = requests.at(r).first;
 		string curReqDestId = requests.at(r).second;
 
@@ -122,101 +147,58 @@ int main(){
 		srcnode.setName(curReqSrcId);
 		destnode.setName(curReqDestId);
 
-		Node test1;
-		Node test2;
-		test1.setName("3");
-		test2.setName("4");
-
 		bool routeGenerated = false;
 		bool routeGeneratedOtherBS = false;
+
+		// Both nodes in one basestation
+		srcnode = findNode(curReqSrcId,allnodes);
+		destnode = findNode(curReqDestId,allnodes);
+		srcnode.getChannelWeights();
+		destnode.getChannelWeights();
+		string srcbs = srcnode.getBasestation();
+		string destbs = destnode.getBasestation();
+
+		if(!foundadjnodes){
+			srcnode.nodesInRange(allnodes);// srcnode isint changed here
+			foundadjnodes = true;
+		}
 		
-		for (size_t i = 0; i < basestations.size(); i++)
+		srcnode = findNode(curReqSrcId,allnodes);		
+		srcnode.graphGenerationAlgo(srcnode,destnode,allnodes);
+		destnode.graphGenerationAlgo(destnode,srcnode,allnodes);
+		for (size_t i = 0; i < allnodes.size(); i++)
 		{
-			BaseStation current = basestations[i]; 
-			
-			// Both nodes in one basestation
-			srcnode = findNodeInBasestation(srcnode,basestations);
-			destnode = findNodeInBasestation(destnode,basestations);
-			srcnode.getChannelWeights();
-			destnode.getChannelWeights();
-			string srcbs = srcnode.getBasestation();
-			string destbs = destnode.getBasestation();
+			if(allnodes.at(i).getName() == srcnode.getName())
+			allnodes.at(i) = srcnode;
+		}			
+		srcnode = findNode(curReqSrcId,allnodes);	
+		destnode = findNode(curReqDestId,allnodes);
 
 
+		if(!routeGenerated){
+			//cerr << "Help b4 route gen " << endl;
+			routeGenerated = srcnode.createRoute(destnode,allnodes);
+			//cout << "was the route generated " << routeGenerated << endl;
 			if(!routeGenerated){
-
-				test1 = findNodeInBasestation(test1,basestations);
-				test2 = findNodeInBasestation(test2,basestations);
-				srcnode.testRouteGen(test1,test2,destnode);	
-
-				routeGenerated = srcnode.createRoute(destnode);
-
-				allnodes = current.get_Nodes();
-				vector<vector<Node>>  NodesinPath = srcnode.getRoutes();
-				vector<vector<Node>>::iterator row;
-				vector<Node>::iterator col;
-	
-			if(routeGenerated){
-				vector<vector<Hop>> allresults;
-				vector<Hop> allHops;
-				// update nodes and basestations
-				for(row = NodesinPath.begin(); row !=NodesinPath.end(); row++){
-					for (col =row->begin(); col != row->end(); col++)
-					{	
-						allresults = col->getResults();		
-							current.updateNode(*col);
-
-					}	
-				basestations[i] = current;	
+			//	cout << "No route was possible on this given request" << endl;
+				Hop hop1;
+				hop1 = make_tuple(srcnode.getName(),-1,destnode.getName());
+				std::vector<Hop> path = {hop1};
+				for (size_t i = 0; i < allnodes.size(); i++)
+				{
+					if(allnodes.at(i).getName() == srcnode.getName())
+						allnodes.at(i).addToResults(path);
 				}	
-			}	
-			}				
-			//displayAllChannels(srcnode);
+			}			
 		}
-		// Display all channels and all weights
-		for (size_t i = 0; i < basestations.size(); i++)
-		{
-			auto allnodes = basestations[i].get_Nodes();
-			int max = allnodes.size();
-			if(max == 1){
-				Node first = basestations[i].findNode(allnodes.at(0).getName());	
-				auto allweights = first.getChannelWeights();
-			}		
-			for (size_t t = 0; t < max-1; t++)
-			{
-				Node first = basestations[i].findNode(allnodes.at(t).getName());
-				Node second = basestations[i].findNode(allnodes.at(t+1).getName());
-				auto allweights = basestations[i].weightBetweenTwoNodes(first,second);			
-
-			}
-		}
-
-
-		vector<vector<Hop>> everyhop;
-		vector<Hop> allhops;
-		cout << "Begin outputting results to Sender" << endl;
-		for (size_t i = 0; i < basestations.size(); i++)
-		{
-			BaseStation current = basestations[i];	
-			auto allnodes = current.get_Nodes();	
-			for (size_t j = 0; j < allnodes.size(); j++)
-			{
-				Node currentNode = findNodeInBasestation(allnodes[j],basestations);
-				int resultslength = currentNode.getResults().size();
-				if(resultslength != 0){
-					auto allresults = currentNode.getResults();
-					for (size_t k = 0; k < allresults.size(); k++)
-					{
-						for (size_t l = 0; l <allresults.at(k).size(); l++)
-						{
-							allhops.push_back(allresults.at(k).at(l));
-						}						
-					}					
-				}	
-			}
-		}
-		everyhop.push_back(allhops);		
-		Sender sender("routes.txt");
-		sender.export_data(everyhop);			
 	}
+	cout << "Begin outputting results to Sender" << endl;
+	for (size_t i = 0; i < allnodes.size(); i++)
+		{
+			auto test = allnodes.at(i).getResults();
+			everyhop = test;
+			Sender sender("routes.txt");
+			sender.export_data(everyhop);	
+		}
+	
 }
