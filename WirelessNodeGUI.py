@@ -7,7 +7,6 @@ import math
 import time
 import matplotlib
 import Metrics
-from PIL import Image, ImageTk
 import subprocess
 import os
 
@@ -84,7 +83,7 @@ def make_routes(root, Lbl, button):
                 make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
                 i += 2
         Lbl["text"] += "\n"
-    Metrics.main()
+
     
 
 def dist_bool(Ax,Ay,Bx,By, max_dist):
