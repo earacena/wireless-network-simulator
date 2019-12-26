@@ -1118,8 +1118,8 @@ void Node::graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node>  n
        }
           //  cout<<"shortest path: " <<startNode.fullroutes[0];
 
-
-void Node::nodesInRange(vector<Node> & allNodes){
+}
+	void Node::nodesInRange(vector<Node> & allNodes){
     for(auto & initialNode : allNodes){
             initialNode.adjlist.reserve(10);
            // cout<<initialNode.name<<'\n';
