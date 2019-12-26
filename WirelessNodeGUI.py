@@ -9,6 +9,7 @@ import matplotlib
 import Metrics
 from PIL import Image, ImageTk
 import subprocess
+import os
 
 def get_parameters():
     return param_list
@@ -80,7 +81,9 @@ def make_routes(root, Lbl, button):
                 i += 2
         Lbl["text"] += "\n"
     generate_random_graphs
-    subprocess.run(["NetworkSim.exe"])
+    path = os.getcwd()
+    path += "\NetworkSim.exe"
+    subprocess.call([path])
     Metrics.main()
     
 
