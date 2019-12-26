@@ -33,6 +33,10 @@ def make_edge(root, source_x, source_y, dest_x, dest_y, channel_no):
     root.create_line(source_x, source_y, dest_x, dest_y, fill=color, width=2)
 
 def make_routes(root, Lbl, button):
+    generate_random_graphs()
+    path = os.getcwd()
+    path += "\NetworkSim.out"
+    subprocess.call([path])
     button.destroy()
     Lbl["text"] = ""
     file = open("routes.txt", "r")
@@ -80,10 +84,6 @@ def make_routes(root, Lbl, button):
                 make_edge(root, lsi[src][0], lsi[src][1], lsi[dest][0], lsi[dest][1], chnl)
                 i += 2
         Lbl["text"] += "\n"
-    generate_random_graphs
-    path = os.getcwd()
-    path += "\NetworkSim.exe"
-    subprocess.call([path])
     Metrics.main()
     
 
