@@ -61,6 +61,12 @@ void displayAllChannels(Node &node){
 
 void populateBaseStations(vector<BaseStation> &basestations,vector<Node> &nodes,int noderadius,int numofchannels){
 	auto values = poisson(numofchannels);
+	string allnodenames;
+	for (size_t i = 0; i < nodes.size(); i++)
+	{
+		allnodenames += nodes.at(i).getName();
+	}
+	
 	for (size_t i = 0; i < basestations.size(); i++)
 	{
 		BaseStation current = basestations[i]; // adding nodes the the basestation
@@ -86,7 +92,7 @@ int main(){
 
 	Receiver receiver;
   
-  	receiver.read_data_from_GUI("test-file-receiver.txt");
+  	receiver.read_data_from_GUI("data.txt");
   	receiver.parse_data();
 	
 	cout << "Finished Parsing Data" << endl;
@@ -98,9 +104,25 @@ int main(){
 	int number_of_nodes = receiver.num_of_nodes;
 	int node_radius = receiver.node_radius;
 	int number_of_channels = 5;
+	bool foundadjnodes = false;
 
 	vector<Node> allnodes = receiver.nodes;
 	populateBaseStations(basestations,allnodes,node_radius,number_of_channels); // populate the base stations
+
+	vector<Node> nodup;
+
+	nodup.push_back(allnodes.at(0));
+	for (size_t i = 0; i < allnodes.size(); i++)
+	{
+		for (size_t j = 0; j < nodup.size(); j++)
+		{
+			if(nodup.at(j).getName() == allnodes.at(i).getName()){
+
+			}
+		}
+		
+	}
+	
 	cout << "Finished Populating all basestations" <<endl;
 
 	//go through all requests
@@ -113,6 +135,7 @@ int main(){
 	cout << "	number of requests are" << requests.size() << endl;
 	for (size_t r = 0; r < requests.size(); r++){
 
+		cout << "Currently on request " << r << endl;
 		string curReqSrcId = requests.at(r).first;
 		string curReqDestId = requests.at(r).second;
 
@@ -135,56 +158,43 @@ int main(){
 		string srcbs = srcnode.getBasestation();
 		string destbs = destnode.getBasestation();
 
-		srcnode.nodesInRange(allnodes);// srcnode isint changed here
+		if(!foundadjnodes){
+			srcnode.nodesInRange(allnodes);// srcnode isint changed here
+			foundadjnodes = true;
+		}
 		
 		srcnode = findNode(curReqSrcId,allnodes);		
 		srcnode.graphGenerationAlgo(srcnode,destnode,allnodes);
-
+		destnode.graphGenerationAlgo(destnode,srcnode,allnodes);
 		for (size_t i = 0; i < allnodes.size(); i++)
 		{
 			if(allnodes.at(i).getName() == srcnode.getName())
 			allnodes.at(i) = srcnode;
 		}			
 		srcnode = findNode(curReqSrcId,allnodes);	
+		destnode = findNode(curReqDestId,allnodes);
+
 
 		if(!routeGenerated){
 			cerr << "Help b4 route gen " << endl;
-			routeGenerated = srcnode.createRoute(destnode);
+			routeGenerated = srcnode.createRoute(destnode,allnodes);
 			cout << "was the route generated " << routeGenerated << endl;
-			for (size_t i = 0; i < allnodes.size(); i++)
-			{
-				if(allnodes.at(i).getName() == srcnode.getName())
-					allnodes.at(i) = srcnode;
-			}
 			if(!routeGenerated){
 				cout << "No route was possible on this given request" << endl;
 				Hop hop1;
 				hop1 = make_tuple(srcnode.getName(),-1,destnode.getName());
 				std::vector<Hop> path = {hop1};
-				srcnode.addToResults(path);
 				for (size_t i = 0; i < allnodes.size(); i++)
 				{
 					if(allnodes.at(i).getName() == srcnode.getName())
-						allnodes.at(i) = srcnode;
+						allnodes.at(i).addToResults(path);
 				}	
-				break;
 			}			
 		}
 	}
 	for (size_t i = 0; i < allnodes.size(); i++)
 		{
-			vector<string> nodesinroute = allnodes.at(i).getRoutesString();
-			cout << "size of srcnode routes " << nodesinroute.size() << endl;
-			for (size_t n = 0; n < nodesinroute.size(); n++)
-			{
-				cout << n << endl;
-				cout << nodesinroute.at(n) << endl;
-			}
 			auto test = allnodes.at(i).getResults();
-			for (size_t k = 0; k < test.size(); k++)
-			{
-				allhops.push_back(test.at(k).at(i));
-			}	
 			everyhop = test;
 			cout << "Begin outputting results to Sender" << endl;
 			Sender sender("routes.txt");

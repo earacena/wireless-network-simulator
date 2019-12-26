@@ -23,7 +23,8 @@ public:
 	Node(int x, int y, int r); // 3 arg contructor
 
 	Node(string nodename);
-	Node(const Node &oldnode); // copy constructor 
+
+	Node &operator=(const Node &oldnode); // copy constructor 
 
 	Node& returnNode();
 
@@ -75,7 +76,7 @@ public:
 
 	int getBestAvailableChannel(vector<int> &channelstoskip); // get the best currently available channel thats not the parameter
 
-	bool reserveChannel(int channel);// reserve a channel
+	bool reserveChannel(int channel,string nodename);// reserve a channel
 
 	void releaseChannel(int channel); // release a channel
 
@@ -116,11 +117,11 @@ public:
 
 	int helpCreateRoute(vector<int> &channelstoavoid); // keep trying next best with no repeats
 
-	bool oneHopHelper(int dest,string route);
+	bool oneHopHelper(int dest,string route,vector<Node> &allnodes);
 
-	bool twoHopHelper(int start,string route);
+	bool twoHopHelper(int start,string route,vector<Node> &allnodes);
 
-	bool createRoute(Node &destnode); // Create a new route for a node
+	bool createRoute(Node &destnode,vector<Node> &allnodes); // Create a new route for a node
 
  	void testRouteGen(Node &n1,Node &n2, Node &n3,Node &n4); // Test Function
 	
@@ -166,9 +167,9 @@ private:
 	string dest;
 	string source;
 
-	int sendingchannel;
-	int listeningchannel;
-	int prevlistchannel;
+	int sendingchannel = -1;
+	int listeningchannel = -1;
+	int prevlistchannel = -1;
 
 
 	vector<int> bestChannelIds; 

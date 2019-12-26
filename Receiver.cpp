@@ -10,21 +10,6 @@
 #include "Receiver.h"
 
 Receiver::Receiver() {
-  // reads all data from all 6 files
-  read_data_from_GUI("data.txt", read_data);
-  read_data_from_GUI("data1.txt", read_data1);
-  read_data_from_GUI("data1B.txt", read_data1B);
-  read_data_from_GUI("data2.txt", read_data2);
-  read_data_from_GUI("data2B.txt", read_data2B);
-  read_data_from_GUI("data3B.txt", read_data3B);
-
-  // output all data from all 6 files
-  parse_data(read_data);
-  parse_data(read_data1);
-  parse_data(read_data1B);
-  parse_data(read_data2);
-  parse_data(read_data2B);
-  parse_data(read_data3B);
   
 }
 
