@@ -35,7 +35,7 @@ def make_edge(root, source_x, source_y, dest_x, dest_y, channel_no):
 def make_routes(root, Lbl, button):
     generate_random_graphs()
     path = os.getcwd()
-    path += "\NetworkSim.out"
+    path += "\\NetworkSim.out"
     subprocess.call([path])
     button.destroy()
     Lbl["text"] = ""
