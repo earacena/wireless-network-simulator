@@ -248,7 +248,7 @@ int Node::getBestAvailableChannel(vector<int> &channelstoskip){ // get the best 
 				bestChannels.erase(bestChannels.begin()+j);
 			}
 		}
-		
+
 	}
 
 	for(int i = 0; i < bestChannels.size(); i++){
@@ -403,7 +403,6 @@ bool Node::oneHopHelper(int startnodeindex,string route,vector<Node> &allnodes){
 	int node1channel = -1;
 	int node2channel = -1;
 	//Get the first and only two nodes 
-
 	string firstnodename = string(1,route.at(0));
 	string node1name = string(1,route.at(startnodeindex));
 	string destnodename = string(1,route.at(startnodeindex+1));
@@ -414,7 +413,6 @@ bool Node::oneHopHelper(int startnodeindex,string route,vector<Node> &allnodes){
 
 	Node firstnode, n1, destnode;
 
-	//Check if the node is listed
 	for (size_t i = 0; i < allnodes.size(); i++)
 		{
 			if(allnodes.at(i).existsinAdjList(firstnodename) && !firstnodeexists){ // Node contains the first node in its adj list
@@ -435,7 +433,6 @@ bool Node::oneHopHelper(int startnodeindex,string route,vector<Node> &allnodes){
 	}
 		auto wn1 = n1.SortedWeightsByBest(); // Node 1
 		auto wn2 = destnode.SortedWeightsByBest(); // Node 2
-
 		//Get the best channel 
 
 		vector<int> channelstoskipn2;
@@ -483,17 +480,14 @@ bool Node::oneHopHelper(int startnodeindex,string route,vector<Node> &allnodes){
 		if(node1channel == -1){
 			return false;
 		}
-
 	//	channelstoskipn2.push_back(node1channel);
 
 	//	cout << "avoiding prev listening channel for n1 " << n1.getPrevListeningChannel() << endl;
 
 		channelstoskipn2.push_back(n1.getPrevListeningChannel());
-		
 	//	channelstoskipn2.push_back(n1.getSendingChannel());	
 
 	//	cout << "Looking for the best channel for destnode " << endl;
-		
 		node2channel = destnode.getBestAvailableChannel(channelstoskipn2);
 
 	//	cout << "this is the 2nd node channel used " << node2channel << endl;
@@ -593,7 +587,6 @@ bool Node::twoHopHelper(int start,string route,vector<Node> &allnodes)
 	vector<vector<Hop>> hopsresult;
 
 	bool channelsreserved = false;
-
 	string firstnodename = string(1,route.at(0));
 	string node1name = string(1,route.at(start));
 	string node2name = string(1,route.at(start+1));
@@ -952,7 +945,6 @@ bool Node::createRoute(Node &destnode,vector<Node> &allnodes){ // Create a new r
 						//cerr << "result of two hop helper at i >3 " << resulttwo << endl;
 						routetwoneeded = true;
 					}
-								
 				}
 				//cerr << "Done going through all of the hops " << routeoneneeded << " " << routetwoneeded << endl;
 				if(routetwoneeded && routeoneneeded){
@@ -991,7 +983,7 @@ bool Node::createRoute(Node &destnode,vector<Node> &allnodes){ // Create a new r
 		{
 			cout << "Current path does not meet src / dest requirement" << endl;
 		}		
-		
+
 	}
 	if(routecreated){
 		return true;
@@ -1089,13 +1081,13 @@ void Node::testRouteGen(Node &n1,Node &n2, Node &n3,Node &destNode){ // Test Fun
 }
 
 
-
 void Node::graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node>  noderef){//graph algo, the result of which will be stored within the starting node
     string PathFragment;
     vector<string> PathFragmentList;
     string nameRef(startNode.name);
         for (auto & node: noderef){
        // cout<<"hi";
+
         for (auto & subNodes : node.adjlist){
           //  cout<<subNodes.first.name<<'\n';
           //  cout<<subNodes.second.name<<'\n';
@@ -1125,8 +1117,6 @@ void Node::graphGenerationAlgo(Node & startNode, Node & endNode, vector<Node>  n
           //      cout<<'\n';
        }
           //  cout<<"shortest path: " <<startNode.fullroutes[0];
-}
-
 
 
 void Node::nodesInRange(vector<Node> & allNodes){
@@ -1148,6 +1138,9 @@ void Node::nodesInRange(vector<Node> & allNodes){
         }
     }
 }
+
+
+
 
 
 
