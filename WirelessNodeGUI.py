@@ -6,7 +6,6 @@ import random
 import math
 import time
 import matplotlib
-import Metrics
 import subprocess
 import os
 
