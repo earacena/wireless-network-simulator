@@ -114,7 +114,7 @@ void Receiver::parse_data(const std::vector<std::string> &data_name) {
 
     }
     std::cout << BSN_Pair_List.size() << std::endl;
-    std::cout << BSN_Pair_List.size().first << std::endl;
+ //   std::cout << BSN_Pair_List.size().first << std::endl;
 }
 void Receiver::read_data_from_GUI(const std::string & filename) {
   std::ifstream file(filename);
