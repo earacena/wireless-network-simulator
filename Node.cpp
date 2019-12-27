@@ -918,20 +918,82 @@ bool Node::createRoute(Node &destnode,vector<Node> &allnodes){ // Create a new r
 						routetwoneeded = true;
 					}
 					else if(routesize%2 == 0 && i== routesize-2 && resulttwo){ 
-						//cout << "1current i value " << i << endl ;
+						cout << "1current i value " << i << endl ;
 						resultone = oneHopHelper(i,routetouse,allnodes);
-						//cerr << "result of onehophelper " << resultone << endl;
-				
-						routetwoneeded = true;
-						routeoneneeded = true;
+						cerr << "result of onehophelper " << resultone << endl;
+						if(!resultone && resulttwo){
+						cerr << "Freeing up reserved channels " << " total nodes is " << allnodes.size() << endl;
+						for (size_t i = 0; i < allnodes.size(); i++)
+						{
+							cerr << "at node " << allnodes.at(i).getName() << " " << string(1,routetouse.at(0)) <<  endl;
+							if(allnodes.at(i).getName() == string(1,routetouse.at(0))){
+							// Need to free up the reserved channels
+							auto currentresult = allnodes.at(i).results.at(allnodes.at(i).results.size()-1); // Get the last (half) result
+							string firstsrcid = get<0>(currentresult.at(0)); // Get the source node id
+
+							if(firstsrcid == string(1,routetouse.at(0))){ // Last result matches 
+								cerr << "Total number of hops in current result " << currentresult.size() << endl;
+								string firstdestid = get<2>(currentresult.at(0)); // Get the dest node id
+								string secondsrcid = get<0>(currentresult.at(1)); // Get the source node id
+								string seconddestid = get<2>(currentresult.at(1)); // Get the dest node id
+								int firstchanneltorelease = get<1>(currentresult.at(0));
+								int secondchanneltorelease = get<1>(currentresult.at(1));
+								currentresult.clear();
+								int resultsize = allnodes.at(i).results.at(allnodes.at(i).results.size()-1).size();	
+								allnodes.at(i).results.pop_back();
+
+								cerr << " " << resultsize << " Total number of hops in current result " << currentresult.size() << endl;
+
+								if(firstsrcid == allnodes.at(i).getName()){
+								allnodes.at(i).releaseChannel(firstchanneltorelease);
+
+								}																	
+							}
+							}							
+						}
+						}						
+					routetwoneeded = true;
+					routeoneneeded = true;
 					}
+
 					else if(routesize%2 == 1 && i ==routesize-3){ // group of three and at end of list of routes
 						if(resulttwofirstgroup){ // The first group of hops done
-							//cout << "2current i value " << i << endl ;	
+							cout << "2current i value " << i << endl ;	
 							resulttwo = twoHopHelper(i,routetouse,allnodes);
-							//cerr << "result of two hop helper at last group of 3 " << resulttwo << endl;
-							routetwoneeded = true;
+							cerr << "result of two hop helper at last group of 3 " << resulttwo << endl;
+							if(!resulttwo){
+							cerr << "Freeing up reserved channels " << " total nodes is " << allnodes.size() << endl;
+							for (size_t i = 0; i < allnodes.size(); i++)
+							{
+								cerr << "at node " << allnodes.at(i).getName() << " " << string(1,routetouse.at(0)) <<  endl;
+								if(allnodes.at(i).getName() == string(1,routetouse.at(0))){
+								// Need to free up the reserved channels
+								auto currentresult = allnodes.at(i).results.at(allnodes.at(i).results.size()-1); // Get the last (half) result
+								string firstsrcid = get<0>(currentresult.at(0)); // Get the source node id
+
+								if(firstsrcid == string(1,routetouse.at(0))){ // Last result matches 
+									cerr << "Total number of hops in current result " << currentresult.size() << endl;
+									string firstdestid = get<2>(currentresult.at(0)); // Get the dest node id
+									string secondsrcid = get<0>(currentresult.at(1)); // Get the source node id
+									string seconddestid = get<2>(currentresult.at(1)); // Get the dest node id
+									int firstchanneltorelease = get<1>(currentresult.at(0));
+									int secondchanneltorelease = get<1>(currentresult.at(1));
+									currentresult.clear();
+									int resultsize = allnodes.at(i).results.at(allnodes.at(i).results.size()-1).size();	
+									allnodes.at(i).results.pop_back();
+									
+									cerr << " " << resultsize << " Total number of hops in current result " << currentresult.size() << endl;
+
+									if(firstsrcid == allnodes.at(i).getName()){
+									allnodes.at(i).releaseChannel(firstchanneltorelease);
+
+									}																	
+								}
+							}							
 						}
+					}
+						routetwoneeded = true;
+					}
 						else
 						{
 							resulttwo = false; // Dont try if the first group doesnt work

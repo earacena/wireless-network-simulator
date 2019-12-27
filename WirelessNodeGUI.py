@@ -33,8 +33,8 @@ def make_edge(root, source_x, source_y, dest_x, dest_y, channel_no):
 def make_routes(root, Lbl, button):
     generate_random_graphs()
     path = os.getcwd()
-    path += "\\NetworkSim.out"
-    subprocess.call([path])
+    path += "/NetworkSim.o"
+    subprocess.call("./Networksim")
     button.destroy()
     Lbl["text"] = ""
     file = open("routes.txt", "r")
@@ -134,7 +134,7 @@ def init_DV(root,coord_ls,N, dv_ls, file_string):
     f.close()
 
 def init_BS(root, enter, enterB, nodels, but, file_string):
-    file_string = "GD 1000\nBSN "+enter.get()+"\nBSR 250 "+"\nNN "+enterB.get()+"\nNR 100 "
+    file_string = "GD 1000\nBSN "+enter.get()+"\nBSR 250 "+"\nNN "+enterB.get()+"\nNR 175 "
     n = ord(enter.get())-48
     #print(n)
     m = 0
