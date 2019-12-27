@@ -1,6 +1,6 @@
 how to run:
 
-$ g++ NetworkSim.cpp BaseStation.cpp Node.cpp -o Networksim && ./NetworkSim
+$ g++ NetworkSim.cpp BaseStation.cpp Node.cpp Receiver.cpp Sender.cpp -o Networksim
 
 
 Project Name: Wireless network simulator
